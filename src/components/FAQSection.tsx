@@ -27,28 +27,22 @@ const faqs = [
   },
 ];
 
-function FAQItem({
-  question,
-  answer,
-}: {
-  question: string;
-  answer: string;
-}) {
+function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-[#c4a265]/10">
+    <div className="border-b" style={{ borderColor: "rgba(196,162,101,0.12)" }}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-6 text-left gap-6"
+        className="w-full flex items-center justify-between py-7 text-left gap-6"
       >
-        <span className="text-sm sm:text-base text-[#e8e4df]/80 tracking-wide">
+        <span className="text-sm sm:text-[0.9375rem] text-[#e8e4df]/75 tracking-wide">
           {question}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3 }}
-          className="text-[#c4a265]/50 text-base flex-shrink-0"
+          className="text-[#c4a265]/40 text-base flex-shrink-0"
         >
           +
         </motion.span>
@@ -62,7 +56,7 @@ function FAQItem({
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-7 text-sm leading-[2] text-[#e8e4df]/40">
+            <p className="pb-8 text-sm leading-[2] text-[#e8e4df]/35">
               {answer}
             </p>
           </motion.div>
@@ -75,7 +69,7 @@ function FAQItem({
 export default function FAQSection() {
   return (
     <section className="py-[120px] sm:py-[160px] bg-[#0d0d1a]">
-      <div className="max-w-[700px] mx-auto px-6">
+      <div className="max-w-[700px] mx-auto px-6 sm:px-12">
         <FadeInSection className="text-center mb-14">
           <p className="font-serif-en text-[#c4a265] text-xs tracking-[0.3em] mb-4 uppercase">
             FAQ
@@ -86,7 +80,10 @@ export default function FAQSection() {
         </FadeInSection>
 
         <FadeInSection>
-          <div className="border-t border-[#c4a265]/10">
+          <div
+            className="border-t"
+            style={{ borderColor: "rgba(196,162,101,0.12)" }}
+          >
             {faqs.map((faq) => (
               <FAQItem key={faq.question} {...faq} />
             ))}

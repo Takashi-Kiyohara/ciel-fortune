@@ -1,5 +1,5 @@
 import HeroSection from "@/components/HeroSection";
-import FortuneCards from "@/components/FortuneCards";
+import FortuneCollection from "@/components/FortuneCollection";
 import MisaSection from "@/components/MisaSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <FortuneCards />
+      <FortuneCollection />
       <MisaSection />
       <PricingSection />
       <FAQSection />

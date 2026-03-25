@@ -11,7 +11,7 @@ interface Star {
   duration: number;
 }
 
-export default function Stars({ count = 25 }: { count?: number }) {
+export default function Stars({ count = 20 }: { count?: number }) {
   const [stars, setStars] = useState<Star[]>([]);
 
   useEffect(() => {
@@ -21,8 +21,8 @@ export default function Stars({ count = 25 }: { count?: number }) {
         x: Math.random() * 100,
         y: Math.random() * 100,
         size: Math.random() * 1.5 + 0.5,
-        delay: Math.random() * 5,
-        duration: Math.random() * 4 + 4,
+        delay: Math.random() * 6,
+        duration: Math.random() * 5 + 5,
       }))
     );
   }, [count]);
@@ -32,7 +32,7 @@ export default function Stars({ count = 25 }: { count?: number }) {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute rounded-full bg-[#c4a265]/40"
+          className="absolute rounded-full bg-[#c4a265]/30"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
@@ -44,8 +44,8 @@ export default function Stars({ count = 25 }: { count?: number }) {
       ))}
       <style>{`
         @keyframes twinkle {
-          0% { opacity: 0.1; }
-          100% { opacity: 0.7; }
+          0% { opacity: 0.08; }
+          100% { opacity: 0.6; }
         }
       `}</style>
     </div>
