@@ -5,70 +5,65 @@ import FadeInSection from "./FadeInSection";
 
 const fortunes = [
   {
-    emoji: "🃏",
+    icon: "🃏",
     title: "パリのタロット",
     description:
       "マレ地区の裏路地で出会った老婦人から教わった、本場のタロットリーディング",
-    accent: "#c4a0e8",
   },
   {
-    emoji: "⭐",
+    icon: "✦",
     title: "星空のデイリー占い",
     description:
       "ドバイの砂漠で見た満天の星。あの夜から始まった、毎朝届く星のメッセージ",
-    accent: "#f0d07a",
   },
   {
-    emoji: "💕",
+    icon: "♡",
     title: "NY×東洋の相性診断",
     description:
       "チャイナタウンで知った東西融合の相性術。二人の未来を旅の物語で",
-    accent: "#e88a9a",
   },
   {
-    emoji: "✋",
+    icon: "☽",
     title: "京都の手相鑑定",
     description:
       "祇園で出会った100歳のおばあちゃんが教えてくれた、手のひらの秘密",
-    accent: "#8acaa0",
   },
 ];
 
 export default function FortuneCards() {
   return (
-    <section className="py-20 bg-[#1a1a2e]">
-      <FadeInSection className="text-center mb-10 px-6">
-        <p className="text-[#d4a574] text-sm tracking-[0.2em] mb-3">
-          FORTUNE COLLECTION
-        </p>
-        <h2 className="text-2xl sm:text-3xl font-bold text-[#f5f0e8]">
-          世界各地の占いコレクション
-        </h2>
-      </FadeInSection>
+    <section className="py-[120px] sm:py-[160px] bg-[#0d0d1a]">
+      <div className="max-w-[1100px] mx-auto px-6">
+        <FadeInSection className="text-center mb-16">
+          <p className="font-serif-en text-[#c4a265] text-xs tracking-[0.3em] mb-4 uppercase">
+            Fortune Collection
+          </p>
+          <h2 className="text-2xl sm:text-[1.75rem] text-[#e8e4df] tracking-wide">
+            世界各地の占いコレクション
+          </h2>
+        </FadeInSection>
 
-      <div className="flex gap-5 overflow-x-auto px-6 pb-4 snap-x snap-mandatory hide-scrollbar">
-        {fortunes.map((fortune, i) => (
-          <motion.div
-            key={fortune.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            whileHover={{ y: -8 }}
-            className="flex-shrink-0 w-[280px] snap-center rounded-2xl p-6 bg-gradient-to-b from-[#252545] to-[#1e1e38] border border-white/5 cursor-pointer transition-shadow hover:shadow-xl hover:shadow-[#d4a574]/10"
-          >
-            <span className="text-4xl block mb-4">{fortune.emoji}</span>
-            <h3
-              className="text-lg font-bold mb-3"
-              style={{ color: fortune.accent }}
-            >
-              {fortune.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-[#f5f0e8]/60">
-              {fortune.description}
-            </p>
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {fortunes.map((fortune, i) => (
+            <FadeInSection key={fortune.title} delay={i * 0.1}>
+              <motion.div
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="border border-[#c4a265]/15 rounded-md p-6 sm:p-8 bg-[#141425] hover:border-[#c4a265]/30 transition-colors duration-500"
+              >
+                <span className="text-[#c4a265]/70 text-lg block mb-6 font-serif-en">
+                  {fortune.icon}
+                </span>
+                <h3 className="text-[#c4a265] text-sm sm:text-base font-medium mb-4 tracking-wide">
+                  {fortune.title}
+                </h3>
+                <p className="text-xs sm:text-sm leading-[2] text-[#e8e4df]/40">
+                  {fortune.description}
+                </p>
+              </motion.div>
+            </FadeInSection>
+          ))}
+        </div>
       </div>
     </section>
   );

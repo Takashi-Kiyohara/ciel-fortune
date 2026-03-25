@@ -5,7 +5,7 @@ import FadeInSection from "./FadeInSection";
 
 const plans = [
   {
-    className: "エコノミー",
+    label: "エコノミー",
     classCode: "ECONOMY",
     price: "無料",
     priceNote: "",
@@ -14,7 +14,7 @@ const plans = [
     destination: "YOUR DAILY JOURNEY",
   },
   {
-    className: "ビジネスクラス",
+    label: "ビジネスクラス",
     classCode: "BUSINESS",
     price: "¥980",
     priceNote: "/月",
@@ -27,7 +27,7 @@ const plans = [
     destination: "UNLIMITED JOURNEY",
   },
   {
-    className: "ファーストクラス",
+    label: "ファーストクラス",
     classCode: "FIRST",
     price: "¥1,980",
     priceNote: "/月",
@@ -43,93 +43,97 @@ const plans = [
 
 export default function PricingSection() {
   return (
-    <section id="plans" className="py-20 bg-[#1a1a2e]">
-      <FadeInSection className="text-center mb-12 px-6">
-        <p className="text-[#d4a574] text-sm tracking-[0.2em] mb-3">
-          BOARDING PASS
-        </p>
-        <h2 className="text-2xl sm:text-3xl font-bold text-[#f5f0e8]">
-          あなたの旅を選ぶ
-        </h2>
-      </FadeInSection>
+    <section id="plans" className="py-[120px] sm:py-[160px] bg-[#0d0d1a]">
+      <div className="max-w-[1100px] mx-auto px-6">
+        <FadeInSection className="text-center mb-16">
+          <p className="font-serif-en text-[#c4a265] text-xs tracking-[0.3em] mb-4 uppercase">
+            Boarding Pass
+          </p>
+          <h2 className="text-2xl sm:text-[1.75rem] text-[#e8e4df] tracking-wide">
+            あなたの旅を選ぶ
+          </h2>
+        </FadeInSection>
 
-      <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {plans.map((plan, i) => (
-          <FadeInSection key={plan.classCode} delay={i * 0.15}>
-            <motion.div
-              whileHover={{ y: -6 }}
-              className={`relative rounded-2xl overflow-hidden ${
-                plan.recommended
-                  ? "border-2 border-[#d4a574] shadow-lg shadow-[#d4a574]/15"
-                  : "border border-white/10"
-              }`}
-            >
-              {plan.recommended && (
-                <div className="bg-[#d4a574] text-[#1a1a2e] text-xs font-bold text-center py-1.5 tracking-wider">
-                  ✈️ RECOMMENDED
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 items-start">
+          {plans.map((plan, i) => (
+            <FadeInSection key={plan.classCode} delay={i * 0.12}>
+              <motion.div
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className={`relative rounded-md overflow-hidden transition-colors duration-500 ${
+                  plan.recommended
+                    ? "border border-[#c4a265]/40 sm:scale-105 sm:origin-top"
+                    : "border border-[#e8e4df]/8"
+                }`}
+              >
+                {plan.recommended && (
+                  <div className="bg-[#c4a265]/10 border-b border-[#c4a265]/20 text-[#c4a265] text-[0.65rem] text-center py-2 tracking-[0.25em] uppercase font-serif-en">
+                    Recommended
+                  </div>
+                )}
+
+                {/* Ticket top */}
+                <div className="p-7 sm:p-8 bg-[#141425]">
+                  <p className="font-serif-en text-[#c4a265]/60 text-[0.65rem] tracking-[0.2em] mb-2 uppercase">
+                    {plan.classCode} Class
+                  </p>
+                  <h3 className="text-lg text-[#e8e4df] tracking-wide mb-1">
+                    {plan.label}
+                  </h3>
+                  <p className="font-serif-en text-[0.65rem] text-[#e8e4df]/25 tracking-[0.15em]">
+                    {plan.destination}
+                  </p>
                 </div>
-              )}
 
-              {/* Ticket top */}
-              <div className="bg-gradient-to-b from-[#252545] to-[#1e1e38] p-6">
-                <p className="text-[#d4a574] text-xs tracking-[0.15em] mb-1">
-                  {plan.classCode} CLASS
-                </p>
-                <h3 className="text-xl font-bold text-[#f5f0e8] mb-1">
-                  {plan.className}
-                </h3>
-                <p className="text-xs text-[#f5f0e8]/40">
-                  {plan.destination}
-                </p>
-              </div>
+                {/* Dashed separator */}
+                <div className="relative flex items-center bg-[#141425]">
+                  <div className="w-3 h-3 rounded-full bg-[#0d0d1a] -ml-1.5" />
+                  <div className="flex-1 border-t border-dashed border-[#c4a265]/10 mx-2" />
+                  <div className="w-3 h-3 rounded-full bg-[#0d0d1a] -mr-1.5" />
+                </div>
 
-              {/* Dashed line separator */}
-              <div className="relative flex items-center px-2">
-                <div className="w-4 h-4 rounded-full bg-[#1a1a2e] -ml-2" />
-                <div className="flex-1 border-t border-dashed border-white/15 mx-1" />
-                <div className="w-4 h-4 rounded-full bg-[#1a1a2e] -mr-2" />
-              </div>
-
-              {/* Ticket bottom */}
-              <div className="bg-gradient-to-b from-[#1e1e38] to-[#1a1a35] p-6">
-                <div className="mb-5">
-                  <span className="text-3xl font-bold text-[#f5f0e8]">
-                    {plan.price}
-                  </span>
-                  {plan.priceNote && (
-                    <span className="text-sm text-[#f5f0e8]/50">
-                      {plan.priceNote}
+                {/* Ticket bottom */}
+                <div className="p-7 sm:p-8 bg-[#141425]">
+                  <div className="mb-7">
+                    <span className="text-2xl font-medium text-[#e8e4df]">
+                      {plan.price}
                     </span>
-                  )}
+                    {plan.priceNote && (
+                      <span className="text-xs text-[#e8e4df]/35 ml-1">
+                        {plan.priceNote}
+                      </span>
+                    )}
+                  </div>
+
+                  <ul className="space-y-3.5 mb-8">
+                    {plan.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-3 text-sm text-[#e8e4df]/50"
+                      >
+                        <span className="text-[#c4a265]/50 text-[0.5rem] mt-1.5">
+                          ◆
+                        </span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <motion.button
+                    whileHover={{
+                      backgroundColor: "#c4a265",
+                      color: "#0d0d1a",
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full py-3.5 rounded border border-[#c4a265]/30 text-[#c4a265] text-sm tracking-[0.1em] transition-all duration-500"
+                  >
+                    搭乗する
+                  </motion.button>
                 </div>
-
-                <ul className="space-y-3 mb-6">
-                  {plan.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-2 text-sm text-[#f5f0e8]/70"
-                    >
-                      <span className="text-[#d4a574] mt-0.5 text-xs">✦</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className={`w-full py-3 rounded-full text-sm font-bold transition-colors ${
-                    plan.recommended
-                      ? "bg-[#d4a574] text-[#1a1a2e] hover:bg-[#e0be97]"
-                      : "border border-[#d4a574]/40 text-[#d4a574] hover:bg-[#d4a574]/10"
-                  }`}
-                >
-                  搭乗する
-                </motion.button>
-              </div>
-            </motion.div>
-          </FadeInSection>
-        ))}
+              </motion.div>
+            </FadeInSection>
+          ))}
+        </div>
       </div>
     </section>
   );

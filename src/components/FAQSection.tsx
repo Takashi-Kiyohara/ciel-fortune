@@ -37,18 +37,18 @@ function FAQItem({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-[#c4a265]/10">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-5 text-left gap-4"
+        className="w-full flex items-center justify-between py-6 text-left gap-6"
       >
-        <span className="text-base font-medium text-[#f5f0e8]">
+        <span className="text-sm sm:text-base text-[#e8e4df]/80 tracking-wide">
           {question}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="text-[#d4a574] text-xl flex-shrink-0"
+          transition={{ duration: 0.3 }}
+          className="text-[#c4a265]/50 text-base flex-shrink-0"
         >
           +
         </motion.span>
@@ -59,10 +59,10 @@ function FAQItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm leading-relaxed text-[#f5f0e8]/60">
+            <p className="pb-7 text-sm leading-[2] text-[#e8e4df]/40">
               {answer}
             </p>
           </motion.div>
@@ -74,17 +74,19 @@ function FAQItem({
 
 export default function FAQSection() {
   return (
-    <section className="py-20 bg-[#1a1a2e]">
-      <div className="max-w-2xl mx-auto px-6">
-        <FadeInSection className="text-center mb-10">
-          <p className="text-[#d4a574] text-sm tracking-[0.2em] mb-3">FAQ</p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#f5f0e8]">
+    <section className="py-[120px] sm:py-[160px] bg-[#0d0d1a]">
+      <div className="max-w-[700px] mx-auto px-6">
+        <FadeInSection className="text-center mb-14">
+          <p className="font-serif-en text-[#c4a265] text-xs tracking-[0.3em] mb-4 uppercase">
+            FAQ
+          </p>
+          <h2 className="text-2xl sm:text-[1.75rem] text-[#e8e4df] tracking-wide">
             よくある質問
           </h2>
         </FadeInSection>
 
         <FadeInSection>
-          <div>
+          <div className="border-t border-[#c4a265]/10">
             {faqs.map((faq) => (
               <FAQItem key={faq.question} {...faq} />
             ))}
