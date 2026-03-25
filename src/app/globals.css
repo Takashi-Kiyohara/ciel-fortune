@@ -19,6 +19,7 @@ body {
   background: var(--color-midnight);
   color: var(--color-ivory);
   overflow-x: hidden;
+  font-family: "Zen Maru Gothic", sans-serif;
 }
 
 /* Hide scrollbar for horizontal scroll containers */

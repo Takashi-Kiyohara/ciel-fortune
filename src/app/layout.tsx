@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import { Zen_Maru_Gothic } from "next/font/google";
 import "./globals.css";
-
-const zenMaru = Zen_Maru_Gothic({
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Ciel Fortune | 世界を旅するCAが届ける占い",
@@ -20,7 +13,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={zenMaru.className}>
+    <html lang="ja">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
