@@ -20,6 +20,7 @@ export default function RecommendedCards() {
         <h3 className="text-xl sm:text-2xl text-[#e8e4df] tracking-wide">
           Misaのおすすめ
         </h3>
+        <div className="w-10 h-px bg-[#c4a265]/20 mx-auto mt-6" />
       </FadeInSection>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -27,23 +28,23 @@ export default function RecommendedCards() {
           <FadeInSection key={fortune.slug} delay={i * 0.08}>
             <Link href={`/fortunes/${fortune.slug}`}>
               <motion.div
-                whileHover={{ y: -3 }}
+                whileHover={{ y: -4 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="p-7 sm:p-8 rounded-md bg-[#ffffff05] border border-[#c4a265]/12 hover:border-[#c4a265]/25 transition-colors duration-500"
+                className="p-7 sm:p-8 rounded-md bg-[#ffffff05] border border-[#c4a265]/10 hover:border-[#c4a265]/35 transition-all duration-500"
               >
                 <div className="flex items-start gap-4">
-                  <span className="mt-0.5 opacity-60">
+                  <span className="mt-0.5 opacity-50">
                     <CategoryIcon id={fortune.category} size={18} />
                   </span>
                   <div>
-                    <p className="text-[10px] text-[#c4a265]/50 tracking-wide mb-1.5">
+                    <p className="text-[10px] text-[#c4a265]/45 tracking-wide mb-1.5">
                       {fortune.country}
                       {fortune.city ? ` / ${fortune.city}` : ""}
                     </p>
                     <h4 className="text-[#c4a265] text-sm tracking-wide mb-3">
                       {fortune.name}
                     </h4>
-                    <p className="text-xs leading-[2] text-[#e8e4df]/35">
+                    <p className="text-xs leading-[2] text-[#e8e4df]/30">
                       {fortune.shortDescription}
                     </p>
                   </div>

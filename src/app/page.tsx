@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FortuneCollection from "@/components/FortuneCollection";
 import MisaSection from "@/components/MisaSection";
@@ -8,6 +9,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <Navbar />
       <HeroSection />
       <FortuneCollection />
       <MisaSection />

@@ -3,13 +3,39 @@
 import { matrixPurposes, matrixCategories, matrixData } from "@/data/fortunes";
 import FadeInSection from "./FadeInSection";
 
-function Cell({ value }: { value: number }) {
+// Column color groups
+const colColors: string[] = [
+  "#9e7b9e", // 恋愛 — lavender
+  "#c4a265", // 仕事 — gold
+  "#9e7b9e", // 人間関係 — lavender
+  "#c4a265", // 金運 — gold
+  "#7d9a7e", // 健康 — sage
+  "#d4b87a", // 転機 — light gold
+  "#c4a265", // 命名 — gold
+  "#d4b87a", // 引越し — light gold
+  "#7d9a7e", // 自己理解 — sage
+];
+
+function Cell({ value, colIdx }: { value: number; colIdx: number }) {
+  const color = colColors[colIdx];
   if (value === 2)
-    return <span className="text-[#c4a265] text-sm font-medium">&#9678;</span>;
+    return (
+      <span className="text-lg font-medium" style={{ color }}>
+        &#9678;
+      </span>
+    );
   if (value === 1)
-    return <span className="text-[#c4a265]/50 text-sm">&#9675;</span>;
+    return (
+      <span className="text-base" style={{ color, opacity: 0.5 }}>
+        &#9675;
+      </span>
+    );
   if (value === 0.5)
-    return <span className="text-[#c4a265]/25 text-xs">&#9651;</span>;
+    return (
+      <span className="text-sm" style={{ color, opacity: 0.3 }}>
+        &#9651;
+      </span>
+    );
   return <span />;
 }
 
@@ -23,6 +49,7 @@ export default function CompatibilityMatrix() {
         <h3 className="text-xl sm:text-2xl text-[#e8e4df] tracking-wide">
           どの占いがあなたに合う？
         </h3>
+        <div className="w-10 h-px bg-[#c4a265]/20 mx-auto mt-6" />
       </FadeInSection>
 
       <FadeInSection>
@@ -30,11 +57,15 @@ export default function CompatibilityMatrix() {
           <table className="w-full min-w-[700px] border-collapse text-xs">
             <thead>
               <tr>
-                <th className="sticky left-0 z-10 bg-[#0d0d1a] p-3 text-left text-[#c4a265]/50 font-normal border-b border-[#c4a265]/10" />
+                <th
+                  className="sticky left-0 z-10 p-3 text-left text-[#c4a265]/40 font-normal border-b border-[#c4a265]/10"
+                  style={{ background: "rgba(184,150,62,0.03)" }}
+                />
                 {matrixPurposes.map((p) => (
                   <th
                     key={p}
                     className="p-3 text-center text-[#c4a265] font-normal tracking-wide border-b border-[#c4a265]/10"
+                    style={{ background: "rgba(184,150,62,0.03)" }}
                   >
                     {p}
                   </th>
@@ -44,7 +75,10 @@ export default function CompatibilityMatrix() {
             <tbody>
               {matrixCategories.map((cat, rowIdx) => (
                 <tr key={cat}>
-                  <td className="sticky left-0 z-10 bg-[#0d0d1a] p-3 text-[#c4a265]/70 whitespace-nowrap border-b border-[#c4a265]/5">
+                  <td
+                    className="sticky left-0 z-10 p-3 text-[#c4a265]/60 whitespace-nowrap border-b border-[#c4a265]/5"
+                    style={{ background: "#0d0d1a" }}
+                  >
                     {cat}
                   </td>
                   {matrixData[rowIdx].map((val, colIdx) => (
@@ -52,7 +86,7 @@ export default function CompatibilityMatrix() {
                       key={colIdx}
                       className="p-3 text-center border-b border-[#c4a265]/5"
                     >
-                      <Cell value={val} />
+                      <Cell value={val} colIdx={colIdx} />
                     </td>
                   ))}
                 </tr>
@@ -61,7 +95,7 @@ export default function CompatibilityMatrix() {
           </table>
         </div>
 
-        <p className="text-center text-[10px] text-[#e8e4df]/20 mt-6 tracking-wide">
+        <p className="text-center text-[10px] text-[#e8e4df]/18 mt-6 tracking-wide">
           気になる目的をタップすると、おすすめの占いが見つかります
         </p>
       </FadeInSection>

@@ -41,6 +41,9 @@ export default function HeroSection() {
           無料で占ってみる
         </motion.a>
       </motion.div>
+
+      {/* Section divider */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[60px] h-px bg-[#c4a265]/15" />
     </section>
   );
 }

@@ -52,6 +52,7 @@ export default function PricingSection() {
           <h2 className="text-2xl sm:text-[1.75rem] text-[#e8e4df] tracking-wide">
             あなたの旅を選ぶ
           </h2>
+          <div className="w-10 h-px bg-[#c4a265]/20 mx-auto mt-6" />
         </FadeInSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 items-start">
@@ -72,7 +73,17 @@ export default function PricingSection() {
                   </div>
                 )}
 
-                <div className="p-7 bg-[#141425]">
+                <div
+                  className="p-7"
+                  style={
+                    plan.recommended
+                      ? {
+                          background:
+                            "linear-gradient(180deg, rgba(184,150,62,0.04) 0%, #141425 100%)",
+                        }
+                      : { background: "#141425" }
+                  }
+                >
                   <p className="font-serif-en text-[#c4a265]/50 text-[0.6rem] tracking-[0.2em] mb-2 uppercase">
                     {plan.classCode} Class
                   </p>
@@ -90,7 +101,9 @@ export default function PricingSection() {
                   <div className="w-3 h-3 rounded-full bg-[#0d0d1a] -mr-1.5" />
                 </div>
 
-                <div className="p-7 bg-[#141425]">
+                <div
+                  className={`bg-[#141425] ${plan.recommended ? "p-7 pb-9" : "p-7"}`}
+                >
                   <div className="mb-7">
                     <span className="text-2xl font-medium text-[#e8e4df]">
                       {plan.price}
