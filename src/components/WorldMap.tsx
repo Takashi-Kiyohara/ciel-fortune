@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -9,17 +8,15 @@ import {
   Marker,
 } from "react-simple-maps";
 import { Fortune, regionColors, regionLabels, Region } from "@/data/fortunes";
-import { categories } from "@/data/fortunes";
 
-const geoUrl =
-  "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const GEO_URL = "/countries-110m.json";
 
-const legendRegions: Region[] = [
-  "europe",
-  "asia",
-  "middle-east-africa",
-  "americas",
-  "oceania",
+const legendRegions: { region: Region; color: string; label: string }[] = [
+  { region: "europe", color: regionColors.europe, label: regionLabels.europe },
+  { region: "asia", color: regionColors.asia, label: regionLabels.asia },
+  { region: "middle-east-africa", color: regionColors["middle-east-africa"], label: regionLabels["middle-east-africa"] },
+  { region: "americas", color: regionColors.americas, label: regionLabels.americas },
+  { region: "oceania", color: regionColors.oceania, label: regionLabels.oceania },
 ];
 
 export default function WorldMap({
@@ -29,69 +26,32 @@ export default function WorldMap({
   fortunes: Fortune[];
   activeCategory: string;
 }) {
-  const router = useRouter();
-  const [tooltip, setTooltip] = useState<Fortune | null>(null);
-  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
-
-  const handleMouseEnter = useCallback(
-    (fortune: Fortune, e: React.MouseEvent) => {
-      const container = (e.target as HTMLElement).closest(
-        "[data-map-container]"
-      );
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
-      setTooltipPos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-      setTooltip(fortune);
-    },
-    []
-  );
-
-  const handleClick = useCallback(
-    (fortune: Fortune) => {
-      router.push(`/fortunes/${fortune.slug}`);
-    },
-    [router]
-  );
+  const [hovered, setHovered] = useState<Fortune | null>(null);
 
   const isActive = (f: Fortune) =>
     activeCategory === "all" || f.category === activeCategory;
 
-  const getCategoryLabel = (f: Fortune) =>
-    categories.find((c) => c.id === f.category)?.label ?? "";
-
   return (
-    <div className="relative" data-map-container>
+    <div style={{ width: "100%", maxWidth: 1100, margin: "0 auto", position: "relative" }}>
       <ComposableMap
         projection="geoNaturalEarth1"
-        projectionConfig={{ scale: 155, center: [10, 10] }}
-        width={980}
-        height={480}
-        style={{
-          width: "100%",
-          height: "auto",
-          maxWidth: "1100px",
-          display: "block",
-          margin: "0 auto",
-        }}
+        projectionConfig={{ scale: 160, center: [10, 15] }}
+        width={900}
+        height={440}
+        style={{ width: "100%", height: "auto" }}
       >
-        <Geographies geography={geoUrl}>
+        <Geographies geography={GEO_URL}>
           {({ geographies }) =>
             geographies.map((geo) => (
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill="rgba(184, 150, 62, 0.06)"
-                stroke="rgba(184, 150, 62, 0.2)"
+                fill="rgba(184,150,62,0.07)"
+                stroke="rgba(184,150,62,0.2)"
                 strokeWidth={0.4}
                 style={{
                   default: { outline: "none" },
-                  hover: {
-                    outline: "none",
-                    fill: "rgba(184, 150, 62, 0.12)",
-                  },
+                  hover: { outline: "none", fill: "rgba(184,150,62,0.13)" },
                   pressed: { outline: "none" },
                 }}
               />
@@ -99,97 +59,86 @@ export default function WorldMap({
           }
         </Geographies>
 
-        {fortunes.map((fortune) => {
-          const active = isActive(fortune);
-          const color = regionColors[fortune.region];
-
+        {fortunes.map((f) => {
+          const active = isActive(f);
+          const color = regionColors[f.region];
           return (
-            <Marker
-              key={fortune.slug}
-              coordinates={[fortune.lng, fortune.lat]}
-              onMouseEnter={(e) =>
-                handleMouseEnter(fortune, e as unknown as React.MouseEvent)
-              }
-              onMouseLeave={() => setTooltip(null)}
-              onClick={() => handleClick(fortune)}
-              style={{ cursor: "pointer" }}
-            >
-              {/* Glow ring */}
+            <Marker key={f.slug} coordinates={[f.lng, f.lat]}>
               <circle
-                r={12}
+                r={active ? 5 : 3}
                 fill={color}
-                opacity={active ? 0.06 : 0.02}
+                opacity={active ? 0.9 : 0.12}
+                style={{ cursor: "pointer", transition: "all 0.3s" }}
+                onMouseEnter={() => setHovered(f)}
+                onMouseLeave={() => setHovered(null)}
               />
-              {/* Main dot */}
               <circle
-                r={4.5}
-                fill={color}
-                opacity={active ? 0.85 : 0.12}
-                stroke={color}
-                strokeWidth={active ? 1 : 0}
-                strokeOpacity={0.3}
-              >
-                {active && (
-                  <animate
-                    attributeName="r"
-                    values="4.5;5.5;4.5"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                )}
-              </circle>
-              {/* Tap target */}
-              <circle r={15} fill="transparent" />
+                r={14}
+                fill="transparent"
+                style={{ cursor: "pointer" }}
+                onMouseEnter={() => setHovered(f)}
+                onMouseLeave={() => setHovered(null)}
+              />
             </Marker>
           );
         })}
       </ComposableMap>
 
-      {/* Tooltip */}
-      {tooltip && (
+      {/* Tooltip — fixed position top-right of map */}
+      {hovered && (
         <div
-          className="absolute z-30 pointer-events-none px-5 py-3.5 rounded-md"
           style={{
-            left: tooltipPos.x,
-            top: tooltipPos.y - 80,
-            transform: "translateX(-50%)",
-            background: "rgba(8, 8, 17, 0.95)",
-            border: "1px solid rgba(184, 150, 62, 0.3)",
+            position: "absolute",
+            top: 20,
+            right: 20,
+            background: "rgba(8,8,17,0.95)",
+            border: "1px solid var(--border-mid)",
+            borderRadius: 8,
+            padding: "20px 24px",
+            minWidth: 200,
+            maxWidth: 280,
+            zIndex: 10,
+            pointerEvents: "none",
           }}
         >
-          <p
-            className="text-sm font-medium"
-            style={{ color: regionColors[tooltip.region] }}
+          <div style={{ fontSize: 12, color: "var(--text-muted)", letterSpacing: "0.05em" }}>
+            {hovered.country}
+            {hovered.city ? ` / ${hovered.city}` : ""}
+          </div>
+          <div
+            style={{
+              fontSize: 20,
+              color: "var(--gold-light)",
+              marginTop: 8,
+              fontFamily: "'Shippori Mincho B1', serif",
+            }}
           >
-            {tooltip.country}
-            {tooltip.city ? ` / ${tooltip.city}` : ""}
-          </p>
-          <p className="text-[15px] text-[#e8e4df] mt-1">{tooltip.name}</p>
-          <p className="text-[11px] text-[#e8e4df]/30 mt-1.5">
-            {getCategoryLabel(tooltip)}
-          </p>
-          <p className="text-[10px] text-[#e8e4df]/20 mt-1.5">
-            クリックして詳細を見る
-          </p>
+            {hovered.name}
+          </div>
+          <div style={{ fontSize: 13, color: "var(--text-muted)", marginTop: 10, lineHeight: 1.6 }}>
+            {hovered.shortDescription}
+          </div>
         </div>
       )}
 
       {/* Legend */}
-      <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8">
-        {legendRegions.map((region) => (
-          <div key={region} className="flex items-center gap-2">
-            <div
-              className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: regionColors[region] }}
-            />
-            <span className="text-xs text-[#e8e4df]/30">
-              {regionLabels[region]}
-            </span>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 24,
+          marginTop: 24,
+          flexWrap: "wrap",
+        }}
+      >
+        {legendRegions.map((r) => (
+          <div key={r.region} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ width: 8, height: 8, borderRadius: "50%", background: r.color }} />
+            <span style={{ fontSize: 13, color: "var(--text-muted)" }}>{r.label}</span>
           </div>
         ))}
       </div>
-
-      <p className="text-center text-xs text-[#e8e4df]/20 mt-4 tracking-wider">
+      <p style={{ textAlign: "center", fontSize: 14, color: "var(--text-muted)", marginTop: 16 }}>
         現在60カ国の占いを収録
       </p>
     </div>

@@ -1,10 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { fortunes, recommendedSlugs } from "@/data/fortunes";
-import { CategoryIcon } from "./CategoryIcons";
-import FadeInSection from "./FadeInSection";
+
+const topColors = ["var(--gold)", "var(--sage)", "var(--lavender)", "var(--gold-light)"];
 
 const recommended = recommendedSlugs
   .map((slug) => fortunes.find((f) => f.slug === slug)!)
@@ -12,46 +11,73 @@ const recommended = recommendedSlugs
 
 export default function RecommendedCards() {
   return (
-    <div className="mt-[120px] sm:mt-[160px]">
-      <FadeInSection className="text-center mb-12">
-        <p className="font-serif-en text-[#c4a265] text-xs tracking-[0.3em] mb-4 uppercase">
-          {"Misa's Choice"}
-        </p>
-        <h3 className="text-xl sm:text-2xl text-[#e8e4df] tracking-wide">
-          Misaのおすすめ
-        </h3>
-        <div className="w-10 h-px bg-[#c4a265]/20 mx-auto mt-6" />
-      </FadeInSection>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 24,
+        maxWidth: 900,
+        margin: "0 auto",
+      }}
+    >
+      <style>{`
+        @media (max-width: 768px) {
+          .rec-grid { grid-template-columns: 1fr !important; }
+        }
+        .rec-card:hover { border-color: var(--border-mid) !important; transform: translateY(-3px); }
+      `}</style>
+      <div
+        className="rec-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: 24,
+          width: "100%",
+        }}
+      >
         {recommended.map((fortune, i) => (
-          <FadeInSection key={fortune.slug} delay={i * 0.08}>
-            <Link href={`/fortunes/${fortune.slug}`}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="p-7 sm:p-8 rounded-md bg-[#ffffff05] border border-[#c4a265]/10 hover:border-[#c4a265]/35 transition-all duration-500"
+          <Link
+            key={fortune.slug}
+            href={`/fortunes/${fortune.slug}`}
+            style={{ textDecoration: "none" }}
+          >
+            <div
+              className="rec-card"
+              style={{
+                background: "var(--bg-card)",
+                border: "1px solid var(--border-thin)",
+                borderRadius: 6,
+                borderTop: `2px solid ${topColors[i]}`,
+                padding: 36,
+                transition: "border-color 0.3s, transform 0.3s",
+              }}
+            >
+              <div style={{ fontSize: 13, color: "var(--text-muted)", letterSpacing: "0.05em" }}>
+                {fortune.country}
+                {fortune.city ? ` / ${fortune.city}` : ""}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Shippori Mincho B1', serif",
+                  fontSize: 22,
+                  color: "var(--gold-light)",
+                  marginTop: 8,
+                }}
               >
-                <div className="flex items-start gap-4">
-                  <span className="mt-0.5 opacity-50">
-                    <CategoryIcon id={fortune.category} size={18} />
-                  </span>
-                  <div>
-                    <p className="text-[10px] text-[#c4a265]/45 tracking-wide mb-1.5">
-                      {fortune.country}
-                      {fortune.city ? ` / ${fortune.city}` : ""}
-                    </p>
-                    <h4 className="text-[#c4a265] text-sm tracking-wide mb-3">
-                      {fortune.name}
-                    </h4>
-                    <p className="text-xs leading-[2] text-[#e8e4df]/30">
-                      {fortune.shortDescription}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-          </FadeInSection>
+                {fortune.name}
+              </div>
+              <div
+                style={{
+                  fontSize: 15,
+                  color: "var(--text-muted)",
+                  lineHeight: 1.8,
+                  marginTop: 12,
+                }}
+              >
+                {fortune.shortDescription}
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

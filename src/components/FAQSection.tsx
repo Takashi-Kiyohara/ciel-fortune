@@ -1,94 +1,69 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import FadeInSection from "./FadeInSection";
 
 const faqs = [
   {
-    question: "本当にCAが占ってくれるの？",
-    answer:
-      "Misaが世界各地で学んだ占術をベースに、あなたのための鑑定を行います。一つひとつの占いに、旅先での学びと想いが込められています。",
+    q: "本当にCAが占ってくれるの？",
+    a: "Misaが世界各地で学んだ占術をベースに、あなたのための鑑定を行います。一つひとつの占いに、旅先での学びと想いが込められています。",
   },
   {
-    question: "いつでも解約できる？",
-    answer:
-      "はい、いつでもワンクリックで解約可能です。解約後も、その月の残りの期間はすべての機能をご利用いただけます。",
+    q: "いつでも解約できる？",
+    a: "はい、いつでもワンクリックで解約可能です。解約後も、その月の残りの期間はすべての機能をご利用いただけます。",
   },
   {
-    question: "どんな占いがある？",
-    answer:
-      "タロット、星座占い、相性診断、手相、オーラ診断など、世界各地の占いを揃えています。新しい占いも旅のたびに追加していきます。",
+    q: "どんな占いがある？",
+    a: "タロット、星座占い、相性診断、手相、オーラ診断など、世界各地の占いを揃えています。新しい占いも旅のたびに追加していきます。",
   },
   {
-    question: "鑑定パスポートって何？",
-    answer:
-      "あなたの占い履歴がパスポートのスタンプのように記録されていく機能です。どの国の占いを体験したか、一目でわかるようになっています。",
+    q: "鑑定パスポートって何？",
+    a: "あなたの占い履歴がパスポートのスタンプのように記録されていく機能です。どの国の占いを体験したか、一目でわかるようになっています。",
   },
 ];
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div className="border-b" style={{ borderColor: "rgba(196,162,101,0.12)" }}>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-7 text-left gap-6"
-      >
-        <span className="text-sm sm:text-[0.9375rem] text-[#e8e4df]/75 tracking-wide">
-          {question}
-        </span>
-        <motion.span
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="text-[#c4a265]/40 text-base flex-shrink-0"
-        >
-          +
-        </motion.span>
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="overflow-hidden"
-          >
-            <p className="pb-8 text-sm leading-[2] text-[#e8e4df]/35">
-              {answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div
+      style={{
+        borderBottom: "1px solid var(--border-thin)",
+        padding: "24px 0",
+        cursor: "pointer",
+      }}
+      onClick={() => setOpen(!open)}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
+        <span style={{ fontSize: 17, color: "var(--text-light)" }}>{q}</span>
+        <span style={{ fontSize: 20, color: "var(--gold-dim)", flexShrink: 0, transition: "transform 0.3s", transform: open ? "rotate(45deg)" : "none" }}>+</span>
+      </div>
+      {open && (
+        <div style={{ fontSize: 15, color: "var(--text-muted)", lineHeight: 2.0, paddingTop: 16 }}>
+          {a}
+        </div>
+      )}
     </div>
   );
 }
 
 export default function FAQSection() {
   return (
-    <section className="py-[120px] sm:py-[160px] bg-[#0d0d1a]">
-      <div className="max-w-[700px] mx-auto px-6 sm:px-12">
-        <FadeInSection className="text-center mb-14">
-          <p className="font-serif-en text-[#c4a265] text-xs tracking-[0.3em] mb-4 uppercase">
+    <section style={{ background: "var(--bg-deep)", padding: "160px 24px" }}>
+      <div style={{ maxWidth: 700, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <p className="font-en" style={{ fontSize: 12, letterSpacing: "0.3em", color: "var(--gold)", textTransform: "uppercase" }}>
             FAQ
           </p>
-          <h2 className="text-2xl sm:text-[1.75rem] text-[#e8e4df] tracking-wide">
+          <h2 style={{ fontSize: "clamp(24px, 4vw, 32px)", color: "var(--text-light)", letterSpacing: "0.05em", marginTop: 16 }}>
             よくある質問
           </h2>
-        </FadeInSection>
+          <div style={{ width: 40, height: 1, background: "var(--gold-dim)", margin: "24px auto 0" }} />
+        </div>
 
-        <FadeInSection>
-          <div
-            className="border-t"
-            style={{ borderColor: "rgba(196,162,101,0.12)" }}
-          >
-            {faqs.map((faq) => (
-              <FAQItem key={faq.question} {...faq} />
-            ))}
-          </div>
-        </FadeInSection>
+        <div style={{ borderTop: "1px solid var(--border-thin)" }}>
+          {faqs.map((faq) => (
+            <FAQItem key={faq.q} {...faq} />
+          ))}
+        </div>
       </div>
     </section>
   );

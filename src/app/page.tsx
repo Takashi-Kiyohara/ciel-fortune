@@ -1,5 +1,5 @@
-import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import Separator from "@/components/Separator";
 import FortuneCollection from "@/components/FortuneCollection";
 import MisaSection from "@/components/MisaSection";
 import PricingSection from "@/components/PricingSection";
@@ -9,11 +9,14 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <HeroSection />
+      <Separator />
       <FortuneCollection />
+      <Separator />
       <MisaSection />
+      <Separator />
       <PricingSection />
+      <Separator />
       <FAQSection />
       <Footer />
     </>

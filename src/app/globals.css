@@ -1,44 +1,50 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-dark: #0d0d1a;
-  --color-dark-card: #141425;
-  --color-warm: #f8f5f0;
-  --color-gold: #c4a265;
-  --color-gold-light: #d4b87a;
-  --color-text: #e8e4df;
-  --color-text-dark: #3d3630;
+:root {
+  --bg-deep: #080811;
+  --bg-dark: #0e0e1a;
+  --bg-warm: #f6f2ec;
+  --bg-card: rgba(255, 252, 247, 0.035);
+  --gold: #b8963e;
+  --gold-light: #d4b06a;
+  --gold-dim: rgba(184, 150, 62, 0.3);
+  --text-light: #d6d2cb;
+  --text-muted: #8a8580;
+  --text-dark: #2c2824;
+  --text-dark-sub: #6b6560;
+  --border-thin: rgba(184, 150, 62, 0.12);
+  --border-mid: rgba(184, 150, 62, 0.25);
+  --sage: #7d9a7e;
+  --lavender: #9e7b9e;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background: var(--bg-deep);
+  color: var(--text-light);
 }
 
 body {
-  background: var(--color-dark);
-  color: var(--color-text);
-  overflow-x: hidden;
+  margin: 0;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3 {
-  font-family: "Shippori Mincho", serif;
-  font-weight: 500;
+  font-family: "Shippori Mincho B1", serif;
+  font-weight: 400;
 }
 
-.font-serif-en {
+.font-en {
   font-family: "Cormorant Garamond", serif;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; }
+
+@keyframes twinkle {
+  from { opacity: 0.15; }
+  to { opacity: 0.45; }
 }

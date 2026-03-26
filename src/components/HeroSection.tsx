@@ -1,30 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Stars from "./Stars";
+
+const stars = Array.from({ length: 15 }, (_, i) => ({
+  id: i,
+  top: `${Math.floor(Math.random() * 100)}%`,
+  left: `${Math.floor(Math.random() * 100)}%`,
+  size: Math.random() * 1.5 + 0.5,
+  delay: Math.random() * 6,
+  dur: Math.random() * 4 + 6,
+}));
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 sm:px-12 text-center bg-[#0d0d1a] overflow-hidden">
-      <Stars count={20} />
+    <section
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        padding: "0 24px",
+        position: "relative",
+        overflow: "hidden",
+        background: "var(--bg-deep)",
+      }}
+    >
+      {/* Stars */}
+      {stars.map((s) => (
+        <div
+          key={s.id}
+          style={{
+            position: "absolute",
+            top: s.top,
+            left: s.left,
+            width: s.size,
+            height: s.size,
+            borderRadius: "50%",
+            background: "var(--gold)",
+            animation: `twinkle ${s.dur}s ease-in-out ${s.delay}s infinite alternate`,
+            pointerEvents: "none",
+          }}
+        />
+      ))}
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.8, ease: "easeOut" }}
-        className="relative z-10 max-w-xl mx-auto"
+        transition={{ duration: 2, ease: "easeOut" }}
+        style={{ position: "relative", zIndex: 1, maxWidth: 600 }}
       >
-        <p className="font-serif-en text-[#c4a265] text-sm tracking-[0.35em] mb-12 uppercase">
+        <p
+          className="font-en"
+          style={{
+            fontSize: 13,
+            letterSpacing: "0.35em",
+            color: "var(--gold)",
+            marginBottom: 28,
+            textTransform: "uppercase",
+          }}
+        >
           Ciel Fortune
         </p>
 
-        <h1 className="text-[1.75rem] sm:text-[2.25rem] leading-[1.8] mb-8 text-[#e8e4df] tracking-wide">
+        <h1
+          style={{
+            fontSize: "clamp(36px, 6vw, 60px)",
+            lineHeight: 1.6,
+            color: "var(--text-light)",
+          }}
+        >
           世界を旅するCAが集めた、
           <br />
           あなただけの占い
         </h1>
 
-        <p className="text-sm sm:text-[0.9375rem] leading-[2.2] text-[#e8e4df]/45 mb-20 max-w-sm mx-auto tracking-wider">
+        <p
+          style={{
+            fontSize: 16,
+            color: "var(--text-muted)",
+            lineHeight: 2.2,
+            letterSpacing: "0.05em",
+            marginTop: 40,
+          }}
+        >
           パリのタロット、京都の手相、バリのオーラ診断 ——
           <br />
           50カ国を巡ったCAが出会った占いを、
@@ -34,16 +93,27 @@ export default function HeroSection() {
 
         <motion.a
           href="#plans"
-          whileHover={{ backgroundColor: "#c4a265", color: "#0d0d1a" }}
-          whileTap={{ scale: 0.98 }}
-          className="inline-block border border-[#c4a265]/60 text-[#c4a265] text-[15px] tracking-[0.15em] px-12 py-4 rounded transition-all duration-500"
+          whileHover={{ backgroundColor: "var(--gold)", color: "var(--bg-deep)" }}
+          style={{
+            display: "inline-block",
+            marginTop: 56,
+            background: "transparent",
+            border: "1px solid var(--gold)",
+            color: "var(--gold)",
+            fontFamily: "'Noto Sans JP', sans-serif",
+            fontWeight: 400,
+            fontSize: 15,
+            letterSpacing: "0.12em",
+            padding: "16px 64px",
+            borderRadius: 2,
+            cursor: "pointer",
+            transition: "all 0.4s ease",
+            textDecoration: "none",
+          }}
         >
           無料で占ってみる
         </motion.a>
       </motion.div>
-
-      {/* Section divider */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[60px] h-px bg-[#c4a265]/15" />
     </section>
   );
 }
