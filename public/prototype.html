@@ -3,283 +3,2175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ciel Fortune — 知らなかった占いが、世界にはこんなにある</title>
-<meta name="description" content="世界60カ国の占いを、CAが旅先で集めてあなたに届けます。今すぐ無料体験。">
+<title>Ciel Fortune — 世界60カ国の占いを、あなたに</title>
+<meta name="description" content="世界を旅するCAが各国で出会った占いをキュレーション。ミラノのタロット、トルコのコーヒー占い、アイスランドのルーン、インドのヴェーダ占星術。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Shippori+Mincho+B1:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Shippori+Mincho+B1:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--dp:#08081a;--dk:#0d0d22;--wm:#f5f1ea;--cd:rgba(255,250,243,.05);--g:#c9a84c;--gl:#e0c478;--gd:rgba(201,168,76,.28);--gg:rgba(201,168,76,.07);--w:#f2ede6;--m:#c8c2ba;--mu:#a8a29a;--tx:#2a2520;--ts:#6d6660;--bt:rgba(201,168,76,.13);--bm:rgba(201,168,76,.26);--sg:#8aad8c;--lv:#ad8aad;--fd:'Cormorant Garamond',serif;--fj:'Shippori Mincho B1',serif;--fb:'Noto Sans JP',sans-serif}
-html{font-size:16px;scroll-behavior:smooth;background:var(--dp);color:var(--w)}
-body{overflow-x:hidden;font-family:var(--fb);font-weight:300}
-a{color:var(--mu);text-decoration:none;transition:color .3s}a:hover{color:var(--gl)}
-.lb{font-family:var(--fd);font-size:13px;letter-spacing:.35em;color:var(--g);text-transform:uppercase;text-align:center}
-.hd{font-family:var(--fj);font-size:clamp(28px,5vw,46px);font-weight:400;text-align:center;margin-top:14px;line-height:1.55;color:var(--w)}
-.sln{width:50px;height:1px;background:var(--gd);margin:28px auto 0}
-.sep{display:flex;justify-content:center;padding:12px 0}.sep i{width:50px;height:1px;background:rgba(201,168,76,.15);display:block}
-.fi{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}.fi.v{opacity:1;transform:none}
-.nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,26,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--bt);transform:translateY(-100%);transition:transform .4s}.nav.show{transform:none}
-.nav-l{font-family:var(--fd);font-size:12px;letter-spacing:.3em;color:var(--g)}
-.nav-c{font-size:13px;color:var(--g);border:1px solid var(--gd);padding:8px 22px;border-radius:2px;transition:all .3s}.nav-c:hover{background:var(--g);color:var(--dp)}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 28px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(1.5px 1.5px at 14% 24%,rgba(201,168,76,.28),transparent),radial-gradient(1px 1px at 80% 16%,rgba(201,168,76,.2),transparent),radial-gradient(1.5px 1.5px at 46% 70%,rgba(201,168,76,.18),transparent),radial-gradient(1px 1px at 68% 54%,rgba(201,168,76,.22),transparent),radial-gradient(1px 1px at 26% 86%,rgba(201,168,76,.14),transparent),radial-gradient(1.5px 1.5px at 88% 74%,rgba(201,168,76,.2),transparent);animation:tw 12s ease-in-out infinite alternate}
-@keyframes tw{from{opacity:.35}to{opacity:.85}}
-.sh{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);font-family:var(--fd);font-size:10px;letter-spacing:.25em;color:var(--mu);opacity:.4;animation:bob 2.5s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
-.feat{padding:80px 24px;background:var(--dk);border-top:1px solid var(--bt);border-bottom:1px solid var(--bt)}
-.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
-@media(max-width:700px){.fg{grid-template-columns:1fr;max-width:380px}}
-.fc{background:var(--cd);border:1px solid var(--bt);border-radius:6px;padding:36px 28px;text-align:center}
-.fc:nth-child(1){border-top:2px solid var(--g)}.fc:nth-child(2){border-top:2px solid var(--sg)}.fc:nth-child(3){border-top:2px solid var(--lv)}
-.fn{font-family:var(--fd);font-size:clamp(42px,7vw,62px);font-weight:300;color:var(--gl);line-height:1}
-.ft{font-family:var(--fj);font-size:18px;color:var(--w);margin-top:14px}
-.fdesc{font-size:14px;color:var(--mu);margin-top:10px;line-height:1.8}
-.map-s{padding:clamp(100px,14vh,200px) 0}
-.mw{max-width:1100px;margin:56px auto 0;padding:0 20px;position:relative}
-#wm{width:100%;height:auto;display:block}
-.mtt{position:absolute;background:rgba(8,8,26,.96);border:1px solid var(--bm);border-radius:8px;padding:20px 26px;min-width:250px;pointer-events:none;opacity:0;transition:opacity .25s;z-index:20}.mtt.show{opacity:1}
-.ml{display:flex;justify-content:center;gap:24px;margin-top:24px;flex-wrap:wrap}
-.ml b{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:300;color:var(--mu)}.ml b i{width:9px;height:9px;border-radius:50%;display:inline-block}
-.mc{text-align:center;font-size:14px;color:var(--mu);margin-top:18px}
-.cf{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:52px auto 0;max-width:1060px;padding:0 20px}
-@media(max-width:700px){.cf{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}.cf::-webkit-scrollbar{display:none}}
-.ch{font-size:14px;font-weight:300;color:var(--mu);background:0;border:1px solid var(--bt);padding:10px 24px;border-radius:4px;cursor:pointer;transition:all .3s;white-space:nowrap}.ch:hover{border-color:var(--bm);color:var(--m)}.ch.on{background:var(--g);color:var(--dp);border-color:var(--g);font-weight:400}
-.exp{padding:clamp(100px,14vh,200px) 24px;background:var(--dk)}
-.etabs{display:flex;justify-content:center;gap:10px;margin:48px auto 0;max-width:840px;flex-wrap:wrap}
-.etab{font-size:14px;color:var(--mu);border:1px solid var(--bt);padding:12px 26px;border-radius:4px;cursor:pointer;transition:all .3s;white-space:nowrap}.etab:hover{border-color:var(--bm);color:var(--m)}.etab.on{background:var(--g);color:var(--dp);border-color:var(--g)}
-.es{max-width:700px;margin:48px auto 0;min-height:400px}
-.ei{text-align:center;margin-bottom:28px}
-.ei .co{font-size:12px;color:var(--g);letter-spacing:.15em;font-family:var(--fd)}
-.ei h3{font-family:var(--fj);font-size:26px;color:var(--w);margin-top:8px}
-.ei p{font-size:15px;color:var(--mu);margin-top:12px;line-height:1.85}
-.tcs{display:flex;justify-content:center;gap:14px;perspective:800px;margin:24px 0}
-.tcd{width:100px;height:162px;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .8s;border-radius:8px}.tcd:hover{transform:translateY(-8px)}.tcd.flip{transform:rotateY(180deg);pointer-events:none}
-.tf{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-direction:column}
-.tbk{background:#141222;border:1px solid var(--bm)}.tbk i{width:42px;height:42px;border:1px solid var(--gd);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:16px;color:var(--gd);font-style:normal}
-.tfr{background:#181430;border:1px solid var(--g);transform:rotateY(180deg);padding:10px;text-align:center}
-.tfr .cn{font-family:var(--fd);font-size:10px;color:var(--gd);letter-spacing:.1em}.tfr .csym{font-size:24px;color:var(--g);margin:8px 0;opacity:.6}.tfr .cname{font-family:var(--fj);font-size:12px;color:var(--gl)}
-.er{max-width:560px;margin:28px auto 0;opacity:0;transform:translateY(12px);transition:all .5s}.er.show{opacity:1;transform:none}
-.er h4{font-family:var(--fj);font-size:24px;color:var(--gl)}
-.er>p{font-size:15px;color:var(--m);line-height:2;margin-top:14px}
-.mm{font-size:14px;color:var(--mu);margin-top:18px;padding:16px 20px;border-left:2px solid var(--gd);font-style:italic;line-height:1.8}
-.act{margin-top:14px;padding:12px 18px;background:var(--gg);border-radius:4px;font-size:13px;color:var(--gl);line-height:1.7}
-.retry{display:inline-block;margin-top:18px;font-size:13px;color:var(--g);cursor:pointer;border-bottom:1px solid rgba(201,168,76,.2);padding-bottom:2px}
-.up{display:inline-block;margin-top:14px;font-size:13px;color:var(--g);border:1px solid var(--gd);padding:9px 26px;border-radius:2px;transition:all .3s;cursor:pointer;text-decoration:none}.up:hover{background:var(--g);color:var(--dp)}
-.ccups{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:440px;margin:20px auto}
-.cup{background:var(--cd);border:1px solid var(--bt);border-radius:8px;padding:28px 14px;text-align:center;cursor:pointer;transition:all .3s}.cup:hover{border-color:var(--bm);transform:translateY(-3px)}.cup.pk{border-color:var(--g);background:var(--gg)}
-.cup .pat{font-family:var(--fd);font-size:36px;color:var(--g);opacity:.7}.cup .clb{font-size:13px;color:var(--mu);margin-top:8px}
-.rns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:20px auto}
-.rn{width:66px;height:78px;background:var(--cd);border:1px solid var(--bt);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;transition:all .3s}.rn:hover{border-color:var(--bm);transform:translateY(-3px)}.rn.pk{border-color:var(--g);background:var(--gg)}.rn.dis{opacity:.2;pointer-events:none}
-.rn .rc{font-size:26px;color:var(--g)}.rn .rl{font-size:10px;color:var(--mu);margin-top:5px}
-.vds{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:500px;margin:20px auto}
-@media(max-width:500px){.vds{grid-template-columns:repeat(2,1fr)}}
-.vd{background:var(--cd);border:1px solid var(--bt);border-radius:6px;padding:18px 10px;text-align:center;cursor:pointer;transition:all .3s}.vd:hover{border-color:var(--bm);transform:translateY(-2px)}.vd.pk{border-color:var(--g);background:var(--gg)}
-.vd .dn{font-size:15px;color:var(--m)}.vd .dp{font-family:var(--fd);font-size:11px;color:var(--g);margin-top:3px;letter-spacing:.1em}
-.daily{padding:clamp(100px,14vh,200px) 24px}
-.zg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:600px;margin:48px auto 0}
-@media(max-width:600px){.zg{grid-template-columns:repeat(3,1fr)}}
-.zb{background:var(--cd);border:1px solid var(--bt);border-radius:6px;padding:18px 10px;text-align:center;cursor:pointer;transition:all .3s}.zb:hover{border-color:var(--bm);transform:translateY(-2px)}.zb.on{border-color:var(--g);background:var(--gg)}
-.zbs{font-family:var(--fd);font-size:18px;color:var(--g);display:block;margin-bottom:6px}.zbn{font-size:13px;color:var(--mu)}
-.dr{max-width:600px;margin:36px auto 0;opacity:0;transform:translateY(14px);transition:all .5s;background:var(--cd);border:1px solid var(--bt);border-radius:8px;padding:36px}.dr.show{opacity:1;transform:none}
-.dr h4{font-family:var(--fj);font-size:24px;color:var(--gl);margin-bottom:20px}
-.dst{display:flex;gap:20px;margin-bottom:24px;flex-wrap:wrap;font-size:14px;color:var(--mu)}.dst span{color:var(--g);margin-left:5px;letter-spacing:2px}
-.dmsg{font-size:16px;color:var(--m);line-height:2;padding-top:18px;border-top:1px solid var(--bt)}
-.testi{padding:clamp(100px,14vh,200px) 24px;background:var(--dk)}
-.tg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;max-width:980px;margin:56px auto 0}@media(max-width:800px){.tg{grid-template-columns:1fr}}
-.tcc{background:var(--cd);border:1px solid var(--bt);border-radius:6px;padding:34px;position:relative}
-.tcc q{font-size:15px;color:var(--m);line-height:1.95;font-style:italic;display:block;padding-top:20px;quotes:none}.tcc q::before{content:'\201C';font-family:var(--fd);font-size:44px;color:var(--gd);position:absolute;top:14px;left:20px;line-height:1}
-.ta2{margin-top:20px;padding-top:14px;border-top:1px solid var(--bt);display:flex;align-items:center;gap:10px}
-.tav{width:34px;height:34px;border-radius:50%;background:var(--gd);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:13px;color:var(--dp);font-weight:500}
-.misa{background:var(--wm);padding:clamp(100px,14vh,200px) 24px}
-.mi{max-width:800px;margin:0 auto;display:flex;gap:60px;align-items:center}@media(max-width:700px){.mi{flex-direction:column;text-align:center}}
-.mav{width:160px;height:160px;border-radius:50%;border:1px solid var(--gd);display:flex;align-items:center;justify-content:center;flex-shrink:0}.mav span{font-family:var(--fd);font-size:52px;color:var(--g);font-weight:300}
-.pricing{padding:clamp(100px,14vh,200px) 24px;background:var(--dk)}
-.pg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;max-width:940px;margin:56px auto 0}@media(max-width:820px){.pg{grid-template-columns:1fr;max-width:380px}}
-.pc{background:var(--cd);border:1px solid var(--bt);border-radius:6px;padding:36px 24px;text-align:center}.pc.ft{border-color:var(--g);padding:48px 24px}
-.pbtn{display:block;margin-top:32px;width:100%;padding:14px;font-family:var(--fb);font-size:14px;border-radius:2px;cursor:pointer;transition:all .3s;letter-spacing:.06em}
-.pbo{background:0;border:1px solid var(--bm);color:var(--mu)}.pbo:hover{border-color:var(--g);color:var(--g)}
-.pbf{background:var(--g);border:none;color:var(--dp)}.pbf:hover{background:var(--gl)}
-.faq{padding:clamp(100px,14vh,200px) 24px}
-.fql{max-width:680px;margin:56px auto 0}
-.fqi{border-bottom:1px solid var(--bt);padding:24px 0;cursor:pointer}
-.fqq{display:flex;justify-content:space-between;align-items:center;font-size:17px;color:var(--m);transition:color .3s}.fqq:hover{color:var(--gl)}
-.ficon{font-size:22px;color:var(--gd);transition:transform .3s;flex-shrink:0;margin-left:14px}
-.fqa{font-size:15px;color:var(--mu);line-height:2;padding-top:16px;display:none}
-.fqi.open .fqa{display:block}.fqi.open .ficon{transform:rotate(45deg)}
-.fcta{padding:clamp(80px,12vh,140px) 24px;text-align:center}
-.fcta h2{font-family:var(--fj);font-size:clamp(22px,4vw,36px);color:var(--w);line-height:1.6}
-.fcta p{font-size:15px;color:var(--mu);margin-top:18px;line-height:1.8}
-.fcta a{display:inline-block;margin-top:36px;background:var(--g);color:var(--dp);font-size:15px;letter-spacing:.1em;padding:16px 60px;border-radius:2px;transition:all .3s}.fcta a:hover{background:var(--gl)}
-footer{border-top:1px solid var(--bt);padding:56px 24px;text-align:center}
+/* ============================================================
+   CIEL FORTUNE LP v5 — Complete Stylesheet
+   ============================================================ */
+
+/* --- Reset & Base --- */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:#08081a;color:#f2ede6;
+  font-family:'Noto Sans JP',sans-serif;font-weight:300;
+  line-height:1.8;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* --- Variables --- */
+:root{
+  --deep:#08081a;--sub:#0d0d22;--warm:#f5f1ea;
+  --gold:#c9a84c;--gold-light:#e0c478;--gold-dim:rgba(201,168,76,.15);
+  --txt:#f2ede6;--txt-mid:#c8c2ba;--txt-dim:#a8a29a;
+  --serif:'Cormorant Garamond',serif;
+  --mincho:'Shippori Mincho B1',serif;
+  --sans:'Noto Sans JP',sans-serif;
+  --gap:clamp(100px,14vh,200px);
+  --w:min(92%,1100px);
+  --r:6px;
+}
+.container{width:var(--w);margin:0 auto}
+section{padding:var(--gap) 0}
+
+/* --- Typography --- */
+h1,h2,h3{font-family:var(--mincho);font-weight:500;line-height:1.4;letter-spacing:.04em}
+h2{font-size:clamp(26px,4vw,38px);margin-bottom:16px}
+.sec-label{
+  font-family:var(--serif);font-size:clamp(12px,1.4vw,14px);
+  color:var(--gold);letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:8px;display:block;
+}
+p{font-size:clamp(14px,1.3vw,16px);color:var(--txt-mid);line-height:1.9}
+
+/* --- Shared UI --- */
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.gold{color:var(--gold)}
+
+/* Step-progression narrator text */
+.narr{font-family:var(--mincho);font-size:15px;color:var(--txt-mid);line-height:2.1;margin-bottom:20px}
+.narr.gold-narr{color:var(--gold)}
+
+/* Step / next buttons */
+.stepbtn{
+  display:inline-block;padding:12px 36px;
+  font-family:var(--mincho);font-size:14px;letter-spacing:.06em;
+  border-radius:var(--r);cursor:pointer;transition:all .35s;
+  border:none;
+}
+.stepbtn-primary{background:var(--gold);color:var(--deep)}
+.stepbtn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.stepbtn-outline{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.3)}
+.stepbtn-outline:hover{background:rgba(201,168,76,.06)}
+.stepbtn-ghost{background:none;border:none;color:var(--txt-dim);font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.stepbtn-ghost:hover{color:var(--txt-mid)}
+
+/* Theme selection grid */
+.themegrid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:24px 0}
+.themegrid button{
+  padding:10px 22px;font-size:13px;font-family:var(--sans);
+  color:var(--txt-dim);border:1px solid var(--gold-dim);
+  border-radius:var(--r);background:transparent;cursor:pointer;
+  transition:all .3s;letter-spacing:.04em;
+}
+.themegrid button:hover,.themegrid button.active{
+  color:var(--gold);border-color:var(--gold);background:rgba(201,168,76,.07);
+}
+
+/* Hidden state helper */
+.hidden{display:none!important}
+
+/* Fortune history / cultural context blocks */
+.fortune-history{
+  max-width:640px;margin:0 auto 36px;padding:32px;
+  border:1px solid rgba(201,168,76,.08);border-radius:var(--r);
+  background:rgba(201,168,76,.02);text-align:left;
+}
+.fortune-history h3{
+  font-family:var(--serif);font-size:clamp(16px,1.8vw,20px);
+  color:var(--gold);letter-spacing:.08em;margin-bottom:16px;
+}
+.fortune-history p{
+  font-size:14px;color:var(--txt-mid);line-height:2;margin-bottom:14px;
+}
+.fortune-history p:last-child{margin-bottom:0}
+.fortune-history .hist-detail{
+  font-size:13px;color:var(--txt-dim);border-top:1px solid rgba(201,168,76,.08);
+  margin-top:16px;padding-top:16px;
+}
+.fortune-history .hist-tag{
+  display:inline-block;font-size:11px;color:var(--gold);
+  border:1px solid rgba(201,168,76,.2);border-radius:var(--r);
+  padding:3px 10px;margin-right:6px;margin-bottom:6px;letter-spacing:.04em;
+}
+
+/* Result blocks */
+.result-block{
+  text-align:left;max-width:620px;margin:32px auto 0;
+}
+.result-step{opacity:0;transform:translateY(16px);margin-bottom:24px;transition:opacity .75s ease,transform .75s ease}
+.result-step.show{opacity:1;transform:translateY(0)}
+.misa-first{font-family:var(--mincho);font-size:22px;color:var(--gold);letter-spacing:.25em;text-align:center}
+.result-block h3{font-family:var(--mincho);font-size:18px;color:var(--txt);margin-bottom:8px}
+.result-block p{font-size:14px}
+.episode{
+  font-family:var(--mincho);font-size:14px;color:var(--txt-dim);
+  font-style:italic;border-left:2px solid rgba(201,168,76,.25);
+  padding-left:16px;margin:16px 0;line-height:1.9;
+}
+.action-box{
+  background:rgba(201,168,76,.05);border:1px solid var(--gold-dim);
+  border-radius:var(--r);padding:22px;margin-top:16px;
+}
+.action-box h4{font-family:var(--mincho);font-size:14px;color:var(--gold);margin-bottom:8px}
+.lucky-row{display:flex;gap:20px;margin-top:12px;font-size:13px;color:var(--txt-dim);flex-wrap:wrap}
+.lucky-row span{display:flex;align-items:center;gap:6px}
+.color-dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* Paywall prompt */
+.paywall{
+  margin-top:36px;padding:28px;text-align:center;
+  border:1px solid var(--gold-dim);border-radius:var(--r);
+  background:rgba(201,168,76,.03);
+}
+.paywall p{font-family:var(--mincho);font-size:15px;color:var(--txt);margin-bottom:16px}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  padding:14px 0;background:rgba(8,8,26,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(201,168,76,.07);
+  transform:translateY(-100%);transition:transform .5s ease;
+}
+.navbar.show{transform:translateY(0)}
+.navbar .container{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:var(--serif);font-size:20px;color:var(--gold);letter-spacing:.12em;font-weight:400}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;color:var(--txt-mid);text-decoration:none;letter-spacing:.06em;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta-btn{
+  font-size:12px;color:var(--deep);background:var(--gold);
+  padding:8px 22px;border-radius:var(--r);text-decoration:none;
+  letter-spacing:.06em;transition:background .3s;font-family:var(--sans);
+}
+.nav-cta-btn:hover{background:var(--gold-light)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  min-height:100vh;min-height:100dvh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;
+  padding:100px 20px 80px;
+}
+.hero-glow{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(201,168,76,.05),transparent 70%);
+  pointer-events:none;
+}
+.hero-stars{position:absolute;inset:0;pointer-events:none}
+.hstar{
+  position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;
+  animation:twinkle var(--d,3s) ease-in-out infinite;animation-delay:var(--dl,0s);
+}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.85}}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-label{
+  font-family:var(--serif);font-size:clamp(13px,1.6vw,16px);
+  color:var(--gold);letter-spacing:.14em;margin-bottom:12px;
+}
+.hero h1{
+  font-size:clamp(26px,5.2vw,46px);font-weight:500;
+  line-height:1.5;margin-bottom:24px;color:var(--txt);
+}
+.hero p{font-size:clamp(14px,1.3vw,16px);color:var(--txt-dim);max-width:540px;margin:0 auto 44px}
+.hero-cta{
+  display:inline-block;padding:16px 52px;
+  background:var(--gold);color:var(--deep);
+  font-family:var(--mincho);font-size:15px;letter-spacing:.08em;
+  border-radius:var(--r);text-decoration:none;
+  transition:background .3s,transform .3s;
+}
+.hero-cta:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.fcard{
+  background:var(--sub);border:1px solid rgba(201,168,76,.08);
+  border-radius:var(--r);padding:44px 28px;text-align:center;
+  transition:border-color .4s;
+}
+.fcard:hover{border-color:rgba(201,168,76,.28)}
+.fcard-icon{
+  font-family:var(--serif);font-size:34px;color:var(--gold);
+  margin-bottom:20px;display:block;line-height:1;
+}
+.fcard h3{font-size:18px;margin-bottom:12px;color:var(--txt)}
+.fcard p{font-size:14px;color:var(--txt-dim)}
+@media(max-width:768px){.features-grid{grid-template-columns:1fr;gap:20px}}
+
+/* ============================================================
+   WORLD MAP
+   ============================================================ */
+.map-section{background:var(--sub)}
+.map-wrap{width:100%;max-width:920px;margin:0 auto;position:relative}
+.map-wrap svg{width:100%;height:auto}
+.map-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:28px}
+.mf-btn{
+  font-size:12px;padding:6px 16px;
+  border:1px solid rgba(201,168,76,.18);border-radius:var(--r);
+  background:transparent;color:var(--txt-dim);cursor:pointer;
+  font-family:var(--sans);letter-spacing:.04em;transition:all .3s;
+}
+.mf-btn:hover,.mf-btn.active{background:var(--gold);color:var(--deep);border-color:var(--gold)}
+.map-tip{
+  position:absolute;background:rgba(8,8,26,.96);
+  border:1px solid rgba(201,168,76,.3);border-radius:var(--r);
+  padding:10px 16px;font-size:13px;color:var(--txt);
+  pointer-events:none;opacity:0;transition:opacity .25s;z-index:10;
+  white-space:nowrap;
+}
+
+/* ============================================================
+   FORTUNE TABS
+   ============================================================ */
+.fortune-section{background:var(--deep)}
+.ftabs{display:flex;justify-content:center;gap:6px;margin-bottom:48px;flex-wrap:wrap}
+.ftab{
+  padding:12px 24px;font-family:var(--mincho);font-size:14px;
+  color:var(--txt-dim);background:transparent;
+  border:1px solid rgba(201,168,76,.1);border-radius:var(--r);
+  cursor:pointer;transition:all .4s;letter-spacing:.04em;
+}
+.ftab:hover{color:var(--txt);border-color:rgba(201,168,76,.25)}
+.ftab.active{background:rgba(201,168,76,.1);color:var(--gold);border-color:var(--gold)}
+.fpanel{display:none;max-width:720px;margin:0 auto;text-align:center}
+.fpanel.active{display:block}
+
+/* ============================================================
+   A. TAROT
+   ============================================================ */
+/* Card fan layout */
+.tc-fan{
+  display:flex;justify-content:center;align-items:flex-end;
+  margin:36px auto;position:relative;height:200px;
+  perspective:600px;
+}
+.tc{
+  width:70px;height:118px;position:absolute;
+  cursor:pointer;transform-style:preserve-3d;
+  transition:transform .55s ease,filter .3s;
+  border-radius:var(--r);
+}
+/* Fan spread: 7 cards, center index 3 */
+.tc:nth-child(1){transform:rotate(-18deg) translateY(12px);left:calc(50% - 140px)}
+.tc:nth-child(2){transform:rotate(-12deg) translateY(6px);left:calc(50% - 98px)}
+.tc:nth-child(3){transform:rotate(-6deg) translateY(2px);left:calc(50% - 56px)}
+.tc:nth-child(4){transform:rotate(0deg) translateY(0);left:calc(50% - 14px)}
+.tc:nth-child(5){transform:rotate(6deg) translateY(2px);left:calc(50% + 28px)}
+.tc:nth-child(6){transform:rotate(12deg) translateY(6px);left:calc(50% + 70px)}
+.tc:nth-child(7){transform:rotate(18deg) translateY(12px);left:calc(50% + 112px)}
+.tc:hover{filter:brightness(1.15);z-index:5}
+.tc.selected{
+  transform:rotateY(180deg) translateY(-20px)!important;
+  z-index:10;left:calc(50% - 35px)!important;
+}
+.tc.dimmed{opacity:.3;pointer-events:none}
+.tc-face{
+  position:absolute;inset:0;border-radius:var(--r);
+  backface-visibility:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.tc-back{
+  background:linear-gradient(145deg,#18183a,#0c0c20);
+  border:1px solid rgba(201,168,76,.22);
+}
+.tc-back::after{
+  content:'';position:absolute;inset:5px;
+  border:1px solid rgba(201,168,76,.1);border-radius:3px;
+}
+.tc-front{
+  background:var(--sub);border:1px solid rgba(201,168,76,.3);
+  transform:rotateY(180deg);flex-direction:column;gap:4px;
+  padding:10px;text-align:center;
+}
+.tc-front .sym{font-size:26px;color:var(--gold);line-height:1}
+.tc-front .cname{font-family:var(--mincho);font-size:9px;color:var(--txt-mid);margin-top:2px}
+
+/* Breathe animation */
+.breathe{
+  width:88px;height:88px;border-radius:50%;
+  border:1.5px solid var(--gold);margin:28px auto;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:13px;color:var(--gold);
+  opacity:0;pointer-events:none;
+  transition:opacity .4s;
+}
+.breathe.active{opacity:1}
+.breathe.in{animation:breatheIn 2.2s ease-in-out forwards}
+.breathe.out{animation:breatheOut 2.2s ease-in-out forwards}
+@keyframes breatheIn{
+  0%{transform:scale(.55);opacity:.3}
+  100%{transform:scale(1.35);opacity:1}
+}
+@keyframes breatheOut{
+  0%{transform:scale(1.35);opacity:1}
+  100%{transform:scale(.55);opacity:0}
+}
+
+/* ============================================================
+   B. COFFEE
+   ============================================================ */
+.coffeecup{
+  display:flex;flex-direction:column;align-items:center;
+  margin:28px auto;
+}
+.coffeecup svg{width:140px;height:180px}
+.coffeelevel{transition:y .8s ease,height .8s ease}
+.coffee-cup-wrap{transition:transform 1.2s ease;transform-style:preserve-3d}
+.coffee-cup-wrap.flipped{transform:rotateX(180deg)}
+.coffee-msg{
+  font-family:var(--mincho);font-size:14px;color:var(--txt-dim);
+  margin-top:14px;min-height:24px;transition:opacity .4s;text-align:center;
+}
+.coffee-patterns{
+  display:flex;justify-content:center;gap:18px;margin:32px 0;
+  opacity:0;transition:opacity 1.2s ease .6s;
+}
+.coffee-patterns.show{opacity:1}
+.cpat{
+  width:84px;height:84px;border:1px solid rgba(201,168,76,.18);
+  border-radius:var(--r);background:var(--sub);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .35s;gap:6px;
+}
+.cpat:hover,.cpat.active{border-color:var(--gold);background:rgba(201,168,76,.07)}
+.cpat .sym{font-size:26px;color:var(--gold)}
+.cpat .label{font-size:11px;color:var(--txt-dim)}
+
+/* ============================================================
+   C. RUNE
+   ============================================================ */
+.rune-aurora{
+  position:absolute;top:0;left:0;width:100%;height:260px;
+  background:linear-gradient(180deg,rgba(90,180,140,.05),transparent);
+  pointer-events:none;
+}
+.runefield{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+  margin:28px 0;position:relative;
+}
+.rstone{
+  width:70px;height:70px;
+  border:1px solid rgba(201,168,76,.18);border-radius:var(--r);
+  background:var(--sub);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .4s;gap:2px;
+}
+.rstone:hover:not(.disabled){transform:translateY(-4px);border-color:var(--gold)}
+.rstone.chosen{background:rgba(201,168,76,.1);border-color:var(--gold);transform:translateY(-4px)}
+.rstone.disabled{opacity:.25;pointer-events:none}
+.rstone .sym{font-size:26px;color:var(--gold);line-height:1}
+.rstone .label{font-size:10px;color:var(--txt-dim)}
+
+.runeslots{
+  display:flex;justify-content:center;gap:22px;margin:32px 0;
+}
+.rslot{
+  width:84px;height:96px;
+  border:1.5px dashed rgba(201,168,76,.22);border-radius:var(--r);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;transition:all .4s;
+}
+.rslot.filled{border-style:solid;border-color:var(--gold);background:rgba(201,168,76,.05)}
+.rslot .slot-label{font-size:11px;color:var(--txt-dim);letter-spacing:.06em}
+.rslot .slot-sym{font-size:24px;color:var(--gold);min-height:28px}
+.rslot .slot-name{font-size:10px;color:var(--txt-mid);min-height:14px}
+
+/* ============================================================
+   D. VEDA
+   ============================================================ */
+.vedagrid{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+  margin:28px 0;
+}
+.vedaday{
+  width:82px;height:82px;border-radius:50%;
+  border:1px solid rgba(201,168,76,.18);background:var(--sub);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .4s;gap:2px;
+}
+.vedaday:hover{border-color:var(--gold);transform:scale(1.08)}
+.vedaday.active{border-color:var(--gold);background:rgba(201,168,76,.1);transform:scale(1.08)}
+.vedaday .dname{font-family:var(--mincho);font-size:13px;color:var(--txt)}
+.vedaday .dplanet{font-size:10px;color:var(--txt-dim)}
+.veda-calc{margin:20px 0;text-align:center}
+.veda-calc-link{
+  font-size:13px;color:var(--gold);cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;
+  background:none;border:none;font-family:var(--sans);
+}
+.veda-calc-form{display:none;margin-top:16px;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap}
+.veda-calc-form.show{display:flex}
+.veda-calc-form input{
+  padding:8px 14px;font-size:14px;font-family:var(--sans);
+  background:var(--sub);border:1px solid rgba(201,168,76,.2);
+  border-radius:var(--r);color:var(--txt);width:170px;
+}
+.veda-calc-form button{
+  padding:8px 20px;font-size:13px;font-family:var(--sans);
+  background:var(--gold);color:var(--deep);border:none;
+  border-radius:var(--r);cursor:pointer;
+}
+
+/* ============================================================
+   ZODIAC
+   ============================================================ */
+.zodiac-section{background:var(--sub)}
+.zgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:32px}
+.zbtn{
+  padding:14px 6px;border:1px solid rgba(201,168,76,.08);
+  border-radius:var(--r);background:transparent;cursor:pointer;
+  text-align:center;transition:all .3s;
+}
+.zbtn:hover,.zbtn.active{border-color:var(--gold);background:rgba(201,168,76,.05)}
+.zbtn .abbr{font-family:var(--serif);font-size:16px;color:var(--gold);display:block;margin-bottom:4px}
+.zbtn .zname{font-size:11px;color:var(--txt-dim)}
+.zresult{
+  max-width:520px;margin:0 auto;padding:28px;
+  border:1px solid var(--gold-dim);border-radius:var(--r);
+  background:rgba(201,168,76,.03);display:none;text-align:center;
+}
+.zresult.show{display:block}
+.zresult h3{font-family:var(--mincho);font-size:20px;color:var(--txt);margin-bottom:12px}
+.zresult .zmsg{font-family:var(--mincho);font-size:15px;color:var(--txt-mid);margin-bottom:20px}
+.zstars{display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+.zstar-item{text-align:center}
+.zstar-item .slbl{font-size:11px;color:var(--txt-dim);display:block;margin-bottom:4px}
+.zstar-item .sdots{color:var(--gold);font-size:13px;letter-spacing:2px}
+@media(max-width:768px){.zgrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:480px){.zgrid{grid-template-columns:repeat(3,1fr)}}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.tcard{
+  background:var(--sub);border:1px solid rgba(201,168,76,.07);
+  border-radius:var(--r);padding:32px 24px;
+}
+.tcard .tq{font-family:var(--mincho);font-size:14px;color:var(--txt-mid);line-height:1.95;margin-bottom:20px}
+.tcard .ta{font-size:13px;color:var(--txt-dim)}
+.tcard .ta strong{color:var(--gold);font-weight:400}
+@media(max-width:768px){.tgrid{grid-template-columns:1fr}}
+
+/* ============================================================
+   MISA
+   ============================================================ */
+.misa-section{text-align:center}
+.misa-avatar{
+  width:120px;height:120px;border-radius:50%;
+  border:2px solid rgba(201,168,76,.22);margin:0 auto 28px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--sub);
+  font-family:var(--serif);font-size:42px;color:var(--gold);
+}
+.misa-bio{
+  max-width:580px;margin:0 auto 36px;
+  font-family:var(--mincho);font-size:15px;color:var(--txt-mid);line-height:2.1;
+}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:920px;margin:0 auto}
+.pcard{
+  background:var(--sub);border:1px solid rgba(201,168,76,.08);
+  border-radius:var(--r);padding:44px 28px;text-align:center;
+  transition:border-color .4s;position:relative;
+}
+.pcard.pop{border-color:var(--gold)}
+.pcard.pop::before{
+  content:'Recommended';position:absolute;top:-12px;left:50%;
+  transform:translateX(-50%);background:var(--gold);color:var(--deep);
+  font-family:var(--serif);font-size:11px;padding:4px 16px;
+  border-radius:var(--r);letter-spacing:.08em;
+}
+.pcard .pname{
+  font-family:var(--serif);font-size:14px;color:var(--gold);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;
+}
+.pcard .pprice{font-family:var(--mincho);font-size:34px;color:var(--txt);margin-bottom:4px}
+.pcard .pprice small{font-size:14px;color:var(--txt-dim)}
+.pcard .pperiod{font-size:12px;color:var(--txt-dim);margin-bottom:24px}
+.pcard .pfeats{list-style:none;text-align:left;margin-bottom:28px}
+.pcard .pfeats li{
+  font-size:13px;color:var(--txt-mid);padding:7px 0;
+  border-bottom:1px solid rgba(201,168,76,.05);
+}
+.pcard .pfeats li::before{content:'— ';color:var(--gold)}
+.pcard .pbtn{
+  display:inline-block;padding:12px 32px;
+  font-family:var(--mincho);font-size:14px;border-radius:var(--r);
+  text-decoration:none;transition:all .3s;cursor:pointer;border:none;
+}
+.pbtn-fill{background:var(--gold);color:var(--deep)}
+.pbtn-fill:hover{background:var(--gold-light)}
+.pbtn-line{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.3)}
+.pbtn-line:hover{background:rgba(201,168,76,.06)}
+@media(max-width:768px){.pgrid{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(201,168,76,.08);padding:22px 0}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;font-family:var(--mincho);font-size:15px;
+  color:var(--txt);transition:color .3s;
+}
+.faq-q:hover{color:var(--gold)}
+.faq-q .arrow{
+  font-family:var(--serif);font-size:18px;color:var(--gold);
+  transition:transform .35s;flex-shrink:0;margin-left:16px;
+}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s ease,padding .45s ease;
+  font-size:14px;color:var(--txt-dim);line-height:1.95;
+}
+.faq-item.open .faq-a{max-height:300px;padding-top:16px}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta{text-align:center;background:linear-gradient(180deg,var(--deep) 0%,var(--sub) 100%)}
+.final-cta h2{margin-bottom:16px}
+.final-cta p{max-width:500px;margin:0 auto 40px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{padding:48px 0 36px;border-top:1px solid rgba(201,168,76,.07);text-align:center}
+.footer-logo{font-family:var(--serif);font-size:18px;color:var(--gold);letter-spacing:.12em;margin-bottom:12px}
+.footer p{font-size:12px;color:var(--txt-dim)}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-top:12px;list-style:none}
+.footer-links a{font-size:12px;color:var(--txt-dim);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+
+/* ============================================================
+   CULTURE GUIDE
+   ============================================================ */
+.culture-section{background:var(--sub)}
+.culture-grid{display:grid;grid-template-columns:1fr;gap:0;max-width:800px;margin:0 auto}
+.culture-item{
+  padding:clamp(48px,6vh,72px) 0;
+  border-bottom:1px solid rgba(201,168,76,.07);
+}
+.culture-item:last-child{border-bottom:none}
+.culture-head{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.culture-num{
+  font-family:var(--serif);font-size:clamp(36px,5vw,52px);
+  color:rgba(201,168,76,.18);font-weight:300;line-height:1;
+  flex-shrink:0;
+}
+.culture-title-group{flex:1;min-width:200px}
+.culture-title{font-family:var(--mincho);font-size:clamp(20px,2.8vw,26px);color:var(--txt);margin-bottom:4px}
+.culture-origin{font-family:var(--serif);font-size:13px;color:var(--gold);letter-spacing:.08em}
+.culture-body p{font-size:clamp(14px,1.3vw,15px);color:var(--txt-mid);line-height:2.1;margin-bottom:16px}
+.culture-body p:last-child{margin-bottom:0}
+.culture-body .culture-highlight{
+  font-family:var(--mincho);font-size:14px;color:var(--txt-dim);
+  font-style:italic;border-left:2px solid rgba(201,168,76,.2);
+  padding-left:16px;margin:20px 0;line-height:1.95;
+}
+.culture-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.culture-tag{
+  font-size:11px;padding:4px 14px;
+  border:1px solid rgba(201,168,76,.12);border-radius:var(--r);
+  color:var(--txt-dim);letter-spacing:.04em;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE OVERRIDES
+   ============================================================ */
+@media(max-width:600px){
+  .tc-fan{height:180px}
+  .tc{width:56px;height:94px}
+  .tc:nth-child(1){transform:rotate(-15deg) translateY(10px);left:calc(50% - 110px)}
+  .tc:nth-child(2){transform:rotate(-10deg) translateY(5px);left:calc(50% - 75px)}
+  .tc:nth-child(3){transform:rotate(-5deg) translateY(2px);left:calc(50% - 42px)}
+  .tc:nth-child(4){transform:rotate(0deg);left:calc(50% - 10px)}
+  .tc:nth-child(5){transform:rotate(5deg) translateY(2px);left:calc(50% + 22px)}
+  .tc:nth-child(6){transform:rotate(10deg) translateY(5px);left:calc(50% + 54px)}
+  .tc:nth-child(7){transform:rotate(15deg) translateY(10px);left:calc(50% + 86px)}
+  .tc.selected{left:calc(50% - 28px)!important}
+  .tc-front .sym{font-size:20px}
+  .tc-front .cname{font-size:8px}
+  .runeslots{gap:14px}
+  .rslot{width:72px;height:84px}
+  .vedaday{width:68px;height:68px}
+}
 </style>
 </head>
 <body>
-<nav class="nav" id="nav"><span class="nav-l">CIEL FORTUNE</span><a href="#experience" class="nav-c">無料で体験する</a></nav>
 
-<section class="hero"><div style="position:relative;z-index:1">
-<div style="font-family:var(--fd);font-size:14px;letter-spacing:.35em;color:var(--g);margin-bottom:36px">CIEL FORTUNE</div>
-<h1 style="font-family:var(--fj);font-size:clamp(36px,7vw,62px);font-weight:400;line-height:1.55">知らなかった占いが、<br>世界にはこんなにある</h1>
-<p style="font-size:17px;color:var(--m);line-height:2.4;margin-top:44px">トルコのコーヒー占い、アイスランドのルーン、京都の手相 ——<br>世界50カ国を旅したCAが出会った占いを、<br>あなたのスマホに届けます</p>
-<a href="#experience" style="display:inline-block;margin-top:60px;border:1px solid var(--g);color:var(--g);font-size:16px;letter-spacing:.12em;padding:18px 64px;border-radius:2px;transition:all .4s;background:transparent;text-decoration:none" onmouseover="this.style.background='var(--g)';this.style.color='var(--dp)'" onmouseout="this.style.background='transparent';this.style.color='var(--g)'">今すぐ体験してみる</a>
-</div><div class="sh">SCROLL</div></section>
+<!-- ============================================================
+     1. NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <span class="nav-logo">Ciel Fortune</span>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#map">World Map</a></li>
+      <li><a href="#fortune">Fortune</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <a href="#fortune" class="nav-cta-btn">無料で体験する</a>
+  </div>
+</nav>
 
-<section class="feat fi">
-<div class="fg">
-<div class="fc"><div class="fn" data-t="60">0</div><div class="ft">カ国の占いを収録</div><div class="fdesc">5大陸すべてから厳選した、ここだけの占い体験</div></div>
-<div class="fc"><div class="fn">毎回違う</div><div class="ft">パーソナル鑑定</div><div class="fdesc">定型文じゃない。あなたの悩みに合わせた鑑定</div></div>
-<div class="fc"><div class="fn">具体的な</div><div class="ft">アクション付き</div><div class="fdesc">ラッキーカラー、今日やるべきこと。行動できる占い</div></div>
-</div></section>
-
-<section class="map-s" id="map">
-<div class="lb fi">FORTUNE COLLECTION</div>
-<h2 class="hd fi">世界各地の占いコレクション</h2>
-<div class="sln"></div>
-<div class="cf fi" id="cf"></div>
-<div class="mw fi"><svg id="wm" viewBox="0 0 960 500"></svg><div class="mtt" id="mtt"></div></div>
-<div class="ml fi"><b><i style="background:var(--g)"></i>ヨーロッパ</b><b><i style="background:var(--sg)"></i>アジア</b><b><i style="background:var(--lv)"></i>中東・アフリカ</b><b><i style="background:var(--gl)"></i>アメリカ</b><b><i style="background:var(--sg)"></i>オセアニア</b></div>
-<p class="mc fi">現在60カ国の占いを収録。毎月新しい国が追加されます</p>
+<!-- ============================================================
+     2. HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-stars" id="heroStars"></div>
+  <div class="hero-content fade-in">
+    <p class="hero-label">Ciel Fortune</p>
+    <h1>知らなかった占いが、<br>世界にはこんなにある</h1>
+    <p>世界60カ国を旅したCAが出会った、本物の占い体験。<br>ミラノのタロット、トルコのコーヒー占い、北欧のルーン——<br>あなたの知らない世界が、ここにある。</p>
+    <a href="#fortune" class="hero-cta">無料で占いを体験する</a>
+  </div>
 </section>
 
-<div class="sep"><i></i></div>
+<!-- ============================================================
+     4. FORTUNE EXPERIENCES (4 tabs)
+     ============================================================ -->
+<section class="fortune-section" id="fortune">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:12px">
+      <span class="sec-label">Experience</span>
+      <h2>占いを体験する</h2>
+      <p style="max-width:540px;margin:0 auto 40px">4つの国の占いを、無料で体験できます。<br>Misaと一緒に、世界の占い文化に触れてみてください。</p>
+    </div>
+    <div class="ftabs fade-in">
+      <button class="ftab active" data-tab="tarot">Milano — Tarot</button>
+      <button class="ftab" data-tab="coffee">Istanbul — Coffee</button>
+      <button class="ftab" data-tab="rune">Iceland — Rune</button>
+      <button class="ftab" data-tab="veda">India — Veda</button>
+    </div>
 
-<section class="exp" id="experience">
-<div class="lb fi">EXPERIENCE</div>
-<h2 class="hd fi">世界の占いを、今ここで体験する</h2>
-<div class="sln"></div>
-<div class="etabs fi"><div class="etab on" data-e="tarot">パリのタロット</div><div class="etab" data-e="coffee">トルコのコーヒー占い</div><div class="etab" data-e="rune">アイスランドのルーン</div><div class="etab" data-e="veda">インドのヴェーダ占星術</div></div>
-<div class="es fi" id="es"></div>
+    <!-- ======== A. TAROT ======== -->
+    <div class="fpanel active" id="panel-tarot">
+      <!-- Step 1: Intro narration -->
+      <div id="tarotStep1">
+        <p class="narr fade-in">ミラノ、ブレラ地区の裏通り。</p>
+        <p class="narr fade-in" style="transition-delay:.2s">古い石畳のカフェで、私は一人の老婦人に出会いました。</p>
+        <p class="narr fade-in" style="transition-delay:.4s">彼女が静かに広げたタロットカードが、私の人生を変えたのです。</p>
+        <p class="narr gold-narr fade-in" style="transition-delay:.6s">—— Misa</p>
+        <div style="margin-top:28px">
+          <button class="stepbtn stepbtn-primary" id="tarotStartBtn">タロットを始める</button>
+        </div>
+      </div>
+      <!-- Step 2: Theme selection -->
+      <div id="tarotStep2" class="hidden">
+        <p class="narr">今日、何について知りたいですか？</p>
+        <div class="themegrid" id="tarotThemes">
+          <button data-theme="love">恋愛</button>
+          <button data-theme="work">仕事</button>
+          <button data-theme="relation">人間関係</button>
+          <button data-theme="self">自分自身</button>
+          <button data-theme="daily">今日の運勢</button>
+        </div>
+      </div>
+      <!-- Step 3: Breath guide -->
+      <div id="tarotStep3" class="hidden">
+        <p class="narr">カードを引く前に、少しだけ心を落ち着けましょう。</p>
+        <div class="breathe" id="tarotBreathe">Breathe</div>
+      </div>
+      <!-- Step 4: Card selection -->
+      <div id="tarotStep4" class="hidden">
+        <p class="narr">7枚の中から、直感で1枚選んでください。</p>
+        <div class="tc-fan" id="tarotFan"></div>
+      </div>
+      <!-- Step 5: Result -->
+      <div id="tarotStep5" class="hidden">
+        <div class="result-block" id="tarotResult"></div>
+        <div class="paywall" id="tarotPaywall" class="hidden" style="display:none">
+          <p id="tarotPaywallText"></p>
+          <button class="stepbtn stepbtn-primary">7日間無料で試す</button>
+          <button class="stepbtn-ghost" onclick="this.closest('.paywall').style.display='none'">今はまだいい</button>
+        </div>
+        <div style="text-align:center;margin-top:24px">
+          <button class="stepbtn stepbtn-outline" id="tarotRetry">もう一度引く</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== B. COFFEE ======== -->
+    <div class="fpanel" id="panel-coffee">
+      <!-- Step 1: Intro -->
+      <div id="coffeeStep1">
+        <p class="narr fade-in">イスタンブール、グランドバザールの奥。</p>
+        <p class="narr fade-in" style="transition-delay:.2s">ファトマおばあちゃんは、私にトルココーヒーを一杯差し出しました。</p>
+        <p class="narr fade-in" style="transition-delay:.3s">「飲み干したら、カップを裏返してごらん。あなたの未来が見えるから」</p>
+        <p class="narr gold-narr fade-in" style="transition-delay:.5s">—— Misa</p>
+        <div style="margin-top:28px">
+          <button class="stepbtn stepbtn-primary" id="coffeeStartBtn">コーヒーを飲む</button>
+        </div>
+      </div>
+      <!-- Step 2: Drinking -->
+      <div id="coffeeStep2" class="hidden">
+        <div class="coffeecup">
+          <div class="coffee-cup-wrap" id="coffeeCupWrap">
+            <svg viewBox="0 0 140 180">
+              <defs>
+                <clipPath id="cupClip">
+                  <path d="M30,40 L35,150 Q37,168 70,168 Q103,168 105,150 L110,40 Z"/>
+                </clipPath>
+              </defs>
+              <!-- Cup body -->
+              <path d="M30,40 L35,150 Q37,168 70,168 Q103,168 105,150 L110,40 Z" fill="none" stroke="rgba(201,168,76,.35)" stroke-width="1.5"/>
+              <!-- Handle -->
+              <path d="M110,60 Q132,60 132,88 Q132,116 110,116" fill="none" stroke="rgba(201,168,76,.35)" stroke-width="1.5"/>
+              <!-- Rim -->
+              <ellipse cx="70" cy="40" rx="40" ry="6" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1"/>
+              <!-- Liquid -->
+              <rect class="coffeelevel" id="coffeeLiquid" x="31" y="48" width="78" height="118" fill="rgba(139,90,43,.55)" clip-path="url(#cupClip)"/>
+            </svg>
+          </div>
+          <p class="coffee-msg" id="coffeeMsg">ゆっくり飲んでみて</p>
+          <button class="stepbtn stepbtn-outline" id="coffeeSipBtn">一口飲む</button>
+          <button class="stepbtn stepbtn-primary hidden" id="coffeeFlipBtn">カップを裏返す</button>
+        </div>
+      </div>
+      <!-- Step 3: Pattern selection -->
+      <div id="coffeeStep3" class="hidden">
+        <p class="narr">カップの底に模様が見えます。どれが一番気になりますか？</p>
+        <div class="coffee-patterns show" id="coffeePatterns">
+          <button class="cpat" data-pattern="wave"><span class="sym">~</span><span class="label">波</span></button>
+          <button class="cpat" data-pattern="circle"><span class="sym">O</span><span class="label">円</span></button>
+          <button class="cpat" data-pattern="triangle"><span class="sym">&#9651;</span><span class="label">三角</span></button>
+        </div>
+      </div>
+      <!-- Step 4: Result -->
+      <div id="coffeeStep4" class="hidden">
+        <div class="result-block" id="coffeeResult"></div>
+        <div class="paywall" style="display:none" id="coffeePaywall">
+          <p>あの人の気持ち、聞いてみる？</p>
+          <button class="stepbtn stepbtn-primary">7日間無料で試す</button>
+          <button class="stepbtn-ghost" onclick="this.closest('.paywall').style.display='none'">今はまだいい</button>
+        </div>
+        <div style="text-align:center;margin-top:24px">
+          <button class="stepbtn stepbtn-outline" id="coffeeRetry">もう一度占う</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== C. RUNE ======== -->
+    <div class="fpanel" id="panel-rune">
+      <!-- Step 1: Intro -->
+      <div id="runeStep1" style="position:relative">
+        <div class="rune-aurora"></div>
+        <p class="narr fade-in">アイスランド、レイキャヴィクの北。</p>
+        <p class="narr fade-in" style="transition-delay:.2s">オーロラの下で、ヴォルヴァと呼ばれる女性が石を手渡してくれました。</p>
+        <p class="narr fade-in" style="transition-delay:.4s">「3つ選びなさい。石があなたに語りかけるから」</p>
+        <p class="narr gold-narr fade-in" style="transition-delay:.6s">—— Misa</p>
+        <div style="margin-top:28px">
+          <button class="stepbtn stepbtn-primary" id="runeStartBtn">ルーン占いを始める</button>
+        </div>
+      </div>
+      <!-- Step 2: Theme selection -->
+      <div id="runeStep2" class="hidden">
+        <p class="narr">今、あなたが知りたいことは？</p>
+        <div class="themegrid" id="runeThemes">
+          <button data-theme="path">道を知りたい</button>
+          <button data-theme="need">必要なもの</button>
+          <button data-theme="release">手放すもの</button>
+          <button data-theme="relation">人間関係</button>
+          <button data-theme="essence">本質</button>
+        </div>
+      </div>
+      <!-- Step 3: Stone selection -->
+      <div id="runeStep3" class="hidden">
+        <p class="narr">8つの石から、直感で3つ選んでください。</p>
+        <p class="narr" style="font-size:13px;color:var(--txt-dim)">1つ目 = 過去　2つ目 = 現在　3つ目 = 未来</p>
+        <div class="runefield" id="runeField"></div>
+        <div class="runeslots" id="runeSlots">
+          <div class="rslot" data-pos="0"><span class="slot-label">過去</span><span class="slot-sym"></span><span class="slot-name"></span></div>
+          <div class="rslot" data-pos="1"><span class="slot-label">現在</span><span class="slot-sym"></span><span class="slot-name"></span></div>
+          <div class="rslot" data-pos="2"><span class="slot-label">未来</span><span class="slot-sym"></span><span class="slot-name"></span></div>
+        </div>
+      </div>
+      <!-- Step 4: Result -->
+      <div id="runeStep4" class="hidden">
+        <div class="result-block" id="runeResult"></div>
+        <div class="paywall" style="display:none" id="runePaywall">
+          <p>60カ国すべての占いを体験する</p>
+          <button class="stepbtn stepbtn-primary">7日間無料で試す</button>
+          <button class="stepbtn-ghost" onclick="this.closest('.paywall').style.display='none'">今はまだいい</button>
+        </div>
+        <div style="text-align:center;margin-top:24px">
+          <button class="stepbtn stepbtn-outline" id="runeRetry">もう一度占う</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== D. VEDA ======== -->
+    <div class="fpanel" id="panel-veda">
+      <!-- Step 1: Intro -->
+      <div id="vedaStep1">
+        <p class="narr fade-in">ヴァラナシ、ガンジス川のほとり。</p>
+        <p class="narr fade-in" style="transition-delay:.2s">パンディット・シャルマは、私の手を取ってこう言いました。</p>
+        <p class="narr fade-in" style="transition-delay:.3s">「生まれた曜日を教えてごらん。あなたの星が見えるから」</p>
+        <p class="narr gold-narr fade-in" style="transition-delay:.5s">—— Misa</p>
+        <div style="margin-top:28px">
+          <button class="stepbtn stepbtn-primary" id="vedaStartBtn">ヴェーダ占星術を始める</button>
+        </div>
+      </div>
+      <!-- Step 2: Day selection -->
+      <div id="vedaStep2" class="hidden">
+        <p class="narr">あなたが生まれた曜日を選んでください。</p>
+        <div class="vedagrid" id="vedaGrid"></div>
+        <div class="veda-calc">
+          <button class="veda-calc-link" id="vedaCalcLink">生まれた曜日がわからない方はこちら</button>
+          <div class="veda-calc-form" id="vedaCalcForm">
+            <input type="date" id="vedaBirthdate" />
+            <button id="vedaCalcBtn">調べる</button>
+          </div>
+        </div>
+      </div>
+      <!-- Step 3: Result -->
+      <div id="vedaStep3" class="hidden">
+        <div class="result-block" id="vedaResult"></div>
+        <div class="paywall" style="display:none" id="vedaPaywall">
+          <p>あなたの本質を、もっと深く</p>
+          <button class="stepbtn stepbtn-primary">7日間無料で試す</button>
+          <button class="stepbtn-ghost" onclick="this.closest('.paywall').style.display='none'">今はまだいい</button>
+        </div>
+        <div style="text-align:center;margin-top:24px">
+          <button class="stepbtn stepbtn-outline" id="vedaRetry">もう一度占う</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<div class="sep"><i></i></div>
+<!-- ============================================================
+     CULTURE GUIDE — 4つの占い文化の歴史と特徴
+     ============================================================ -->
+<section class="culture-section" id="culture">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:48px">
+      <span class="sec-label">Culture Guide</span>
+      <h2>知るほど深まる、世界の占い文化</h2>
+      <p style="max-width:560px;margin:0 auto">Ciel Fortuneで体験できる4つの占いには、<br>それぞれ数百年の歴史と、深い文化的背景があります。</p>
+    </div>
+    <div class="culture-grid">
 
-<section class="daily">
-<div class="lb fi">TODAY'S FORTUNE</div>
-<h2 class="hd fi">今日のあなたの運勢</h2>
-<div class="sln"></div>
-<div class="zg fi" id="zg"></div>
-<div class="dr" id="dr"></div>
+      <!-- TAROT -->
+      <div class="culture-item fade-in">
+        <div class="culture-head">
+          <span class="culture-num">01</span>
+          <div class="culture-title-group">
+            <h3 class="culture-title">ミラノのタロット</h3>
+            <span class="culture-origin">Tarot de Marseille — Italy, 15th century</span>
+          </div>
+        </div>
+        <div class="culture-body">
+          <p>タロットの起源は15世紀半ばの北イタリア。ミラノのヴィスコンティ家やスフォルツァ家の宮廷で、貴族たちのカードゲームとして誕生しました。当時は1枚ずつ手描きの贅沢品で、庶民の手に届くものではありませんでした。</p>
+          <p>16世紀、印刷技術の発達とともにフランスへ伝わり、地中海沿岸の港町マルセイユがカード製造の一大拠点に。17世紀後半、パリのジャン・ノブレが制作したデッキが、現在「マルセイユ版タロット」として知られるデザインの原型となりました。</p>
+          <p>転機は18世紀。フランス革命前夜の不安定な社会を背景に、占い師エッティラがタロットに「古代エジプト起源説」を結びつけ、神秘的な解釈を広めます。ゲーム用のカードだったタロットは、ここで初めて「占いの道具」へと変貌を遂げたのです。</p>
+          <p>19世紀にはエリファス・レヴィがカバラ（ユダヤ神秘主義）との結びつきを体系化し、20世紀初頭、秘密結社「黄金の夜明け団」のアーサー・エドワード・ウェイトが、象徴をふんだんに取り入れた「ウェイト版タロット」を完成。これが現在世界中で最も広く使われているタロットデッキの源流です。</p>
+          <p class="culture-highlight">ミラノのブレラ地区には、今もタロットリーダーが集う古いカフェが点在しています。薄暗い店内の片隅で、一枚のカードが誰かの人生を変える——タロット発祥の地で、500年経った今もその光景は変わりません。</p>
+        </div>
+        <div class="culture-tags">
+          <span class="culture-tag">15世紀イタリア発祥</span>
+          <span class="culture-tag">大アルカナ22枚</span>
+          <span class="culture-tag">マルセイユ版</span>
+          <span class="culture-tag">カバラ思想</span>
+        </div>
+      </div>
+
+      <!-- COFFEE -->
+      <div class="culture-item fade-in">
+        <div class="culture-head">
+          <span class="culture-num">02</span>
+          <div class="culture-title-group">
+            <h3 class="culture-title">トルコのコーヒー占い</h3>
+            <span class="culture-origin">Kahve Fal&#x131; — Turkey, 16th century</span>
+          </div>
+        </div>
+        <div class="culture-body">
+          <p>16世紀半ば、エチオピアからイエメンを経てオスマン帝国に伝わったコーヒー。当初は宮廷の儀式や高官をもてなす特別な飲み物でしたが、1554年、イスタンブールのタフタカレ地区に世界初のコーヒーハウス「カフヴェハーネ」が誕生すると、瞬く間に庶民の間に広がりました。16世紀末には、イスタンブール旧市街だけで600軒を超えるカフェがあったと言われています。</p>
+          <p>トルココーヒーは、極細挽きの粉を水と砂糖と一緒にジェズヴェ（小さな銅製の鍋）で煮立てて作る独特の淹れ方。上澄みだけを飲み、カップの底にはコーヒーの粉が残ります。この粉の模様を読み解くのが「ファル」——コーヒー占いです。</p>
+          <p>オスマン帝国では占星術や骨占いなどさまざまな占いが行われていましたが、国教であるイスラム教が本格的な占いを禁じていたため、カジュアルなコーヒー占いだけが生き残りました。興味深いのは、カフヴェハーネが男性の社交場だったのに対し、コーヒー占いは女性が集まるハマム（公衆浴場）から生まれた文化だということ。女性たちのコミュニティが育んだ知恵なのです。</p>
+          <p>2013年、「トルココーヒー文化と伝統」はユネスコ無形文化遺産に登録。トルコには「1杯のコーヒーにも40年の思い出」という諺があります。たった一杯のもてなしが、生涯忘れられない記憶になる——コーヒー占いは、そんな人と人のつながりの象徴です。</p>
+          <p class="culture-highlight">イスタンブールのベイオール地区には今もコーヒー占い専門のカフェが軒を連ねています。カップをひっくり返してから模様を読み解くまでの静かな数分間。その時間こそが、占いの本当の意味なのかもしれません。</p>
+        </div>
+        <div class="culture-tags">
+          <span class="culture-tag">16世紀オスマン帝国</span>
+          <span class="culture-tag">ユネスコ無形文化遺産</span>
+          <span class="culture-tag">ジェズヴェ</span>
+          <span class="culture-tag">ファル</span>
+        </div>
+      </div>
+
+      <!-- RUNE -->
+      <div class="culture-item fade-in">
+        <div class="culture-head">
+          <span class="culture-num">03</span>
+          <div class="culture-title-group">
+            <h3 class="culture-title">アイスランドのルーン占い</h3>
+            <span class="culture-origin">R&#xFA;nir — Scandinavia, 2nd century</span>
+          </div>
+        </div>
+        <div class="culture-body">
+          <p>ルーンとは、2世紀頃から北欧ゲルマン民族が使っていた文字体系。「ルーン」という言葉自体が古ノルド語で「秘密」「ささやき」を意味し、単なる文字ではなく、宇宙の神秘を宿した聖なる記号として扱われていました。</p>
+          <p>北欧神話では、主神オーディンが知恵を得るために世界樹ユグドラシルに9日9夜、槍で自らを刺し貫いて逆さに吊るされた末に、ルーン文字の秘密を発見したとされています。この神話が象徴するように、ルーンとは「苦しみの果てに得られる深い知恵」でした。</p>
+          <p>ヴァイキング時代（8〜11世紀）、ルーンは石碑や武器、護符に刻まれ、日常から戦場まであらゆる場面で力を発揮しました。占いに使われたのは「エルダー・フサルク」と呼ばれる24文字の体系で、ヴォルヴァ（女性の予言者）たちがルーン石を投げたり引いたりして未来を読み解きました。</p>
+          <p>アイスランドはヴァイキングの入植によって9世紀後半に開かれた島国。キリスト教化の後もルーンの伝統は地下で受け継がれ、「ガルドラブック」と呼ばれる魔術書にルーン由来の呪文や魔法陣が記録されました。現代のアイスランドでは、ルーンは文化的アイデンティティの一部として再評価されています。</p>
+          <p class="culture-highlight">レイキャヴィクの国立博物館には、ルーン文字が刻まれた中世の護符が展示されています。1000年前の誰かが、今のあなたと同じように「この先、どうなるのだろう」と問いかけた——その痕跡が、石の上に静かに残っています。</p>
+        </div>
+        <div class="culture-tags">
+          <span class="culture-tag">2世紀ゲルマン起源</span>
+          <span class="culture-tag">エルダー・フサルク24文字</span>
+          <span class="culture-tag">北欧神話・オーディン</span>
+          <span class="culture-tag">ヴォルヴァ</span>
+        </div>
+      </div>
+
+      <!-- VEDA -->
+      <div class="culture-item fade-in">
+        <div class="culture-head">
+          <span class="culture-num">04</span>
+          <div class="culture-title-group">
+            <h3 class="culture-title">インドのヴェーダ占星術</h3>
+            <span class="culture-origin">Jyotish Shastra — India, c. 1500 BCE</span>
+          </div>
+        </div>
+        <div class="culture-body">
+          <p>ヴェーダ占星術（ジョーティシュ）は、紀元前1500年頃に成立したインド最古の聖典「リグ・ヴェーダ」に起源を持つ、世界で最も古い占星術体系のひとつです。「ジョーティシュ」はサンスクリット語で「光の科学」を意味し、天体の運行から人間の運命を読み解く学問として、数千年にわたって発展してきました。</p>
+          <p>西洋占星術が太陽の位置を基準にするのに対し、ヴェーダ占星術は月の位置を重視します。27のナクシャトラ（月の星座）と9つの惑星（ナヴァグラハ）の組み合わせから、驚くほど精密な個人の運命図（クンダリー）を作成するのが特徴です。</p>
+          <p>特に重要なのが「生まれた曜日」の概念。ヴェーダ占星術では、各曜日に守護惑星と守護神が割り当てられており、生まれた曜日がその人の本質的な性格と人生の方向性を決定すると考えられています。日曜日は太陽神スーリヤ、月曜日は月神チャンドラ、火曜日は火星マンガラ——7つの曜日それぞれが、異なる惑星エネルギーを宿しています。</p>
+          <p>現代のインドでも、ヴェーダ占星術は日常生活に深く根付いています。結婚相手の選定、引越しや事業開始の日取り、子どもの名付けなど、人生の重要な決断にはパンディット（占星術師）への相談が欠かせません。インドの大学には正式な占星術学科があり、ジョーティシュは今も「生きた学問」として研究されています。</p>
+          <p class="culture-highlight">ヴァラナシのガンジス川沿いには、何代にもわたってジョーティシュを継承するパンディットの家系が暮らしています。彼らは星の配置を見るだけで、相談者の過去の出来事を正確に言い当てることがある——と、現地の人々は真剣に語ります。</p>
+        </div>
+        <div class="culture-tags">
+          <span class="culture-tag">紀元前1500年起源</span>
+          <span class="culture-tag">ジョーティシュ（光の科学）</span>
+          <span class="culture-tag">ナヴァグラハ（9惑星）</span>
+          <span class="culture-tag">月の27星座</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<div class="sep"><i></i></div>
-
-<section class="testi">
-<div class="lb fi">VOICES</div>
-<h2 class="hd fi">体験されたお客様の声</h2>
-<div class="sln"></div>
-<div class="tg fi">
-<div class="tcc"><q>毎朝のデイリー占いが日課に。Misaの言葉は不思議と心に響いて、前向きに過ごせるようになりました。</q><div class="ta2"><div class="tav">Y</div><div><div style="font-size:14px;color:var(--w)">Y.K さん</div><div style="font-size:12px;color:var(--mu);margin-top:2px">28歳・会社員</div></div></div></div>
-<div class="tcc"><q>世界中の占いが一つで体験できるなんて。トルコのコーヒー占いが意外と当たっていて驚きました。</q><div class="ta2"><div class="tav">M</div><div><div style="font-size:14px;color:var(--w)">M.S さん</div><div style="font-size:12px;color:var(--mu);margin-top:2px">34歳・フリーランス</div></div></div></div>
-<div class="tcc"><q>転職を迷っていた時にタロットで背中を押されました。各国の占いの歴史も知れて読み物としても楽しい。</q><div class="ta2"><div class="tav">A</div><div><div style="font-size:14px;color:var(--w)">A.T さん</div><div style="font-size:12px;color:var(--mu);margin-top:2px">31歳・エンジニア</div></div></div></div>
-</div></section>
-
-<div class="sep"><i></i></div>
-
-<section class="misa"><div class="mi fi">
-<div class="mav"><span>M</span></div>
-<div>
-<div style="font-family:var(--fd);font-size:12px;letter-spacing:.25em;color:var(--ts)">YOUR CABIN ATTENDANT</div>
-<h2 style="font-family:var(--fj);font-size:clamp(24px,4vw,32px);color:var(--tx);margin-top:14px">はじめまして、Misaです</h2>
-<p style="font-size:16px;color:var(--ts);line-height:2.3;margin-top:24px">国際線CA歴8年、世界50カ国以上を旅してきました。<br><br>各地で出会った占い師やヒーラーから学んだ占いを、<br>あなたにお届けします。</p>
-<div style="font-family:var(--fd);font-style:italic;font-size:34px;color:var(--g);margin-top:28px">Misa</div>
-<a href="#pricing" style="display:inline-block;margin-top:24px;font-size:14px;color:var(--tx);border:1px solid var(--g);padding:11px 36px;border-radius:2px;transition:all .3s">Misaに相談してみる</a>
-</div></div></section>
-
-<div class="sep"><i></i></div>
-
-<section class="pricing" id="pricing">
-<div class="lb fi">BOARDING PASS</div>
-<h2 class="hd fi">あなたの旅を選ぶ</h2>
-<div class="sln"></div>
-<div class="pg fi">
-<div class="pc">
-<div style="font-size:11px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase">ECONOMY CLASS</div>
-<div style="font-family:var(--fj);font-size:26px;color:var(--w);margin-top:8px">エコノミー</div>
-<div style="font-size:12px;color:var(--mu);margin-top:4px">YOUR DAILY JOURNEY</div>
-<div style="font-size:46px;color:var(--w);font-weight:400;margin-top:24px">無料</div>
-<ul style="margin-top:28px;font-size:15px;color:var(--mu);line-height:2.3;list-style:none;text-align:left;padding:0"><li style="&::before{content:'— '}">— デイリー占い 1回/日</li><li>— タロット1枚引き 1回/日</li></ul>
-<button class="pbtn pbo">搭乗する</button>
-</div>
-<div class="pc ft">
-<div style="font-size:11px;letter-spacing:.15em;color:var(--g);margin-bottom:16px">RECOMMENDED</div>
-<div style="font-size:11px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase">BUSINESS CLASS</div>
-<div style="font-family:var(--fj);font-size:26px;color:var(--w);margin-top:8px">ビジネスクラス</div>
-<div style="font-size:12px;color:var(--mu);margin-top:4px">UNLIMITED JOURNEY</div>
-<div style="font-size:46px;color:var(--w);font-weight:400;margin-top:24px">&yen;980<small style="font-size:15px;color:var(--mu);font-weight:300">/月</small></div>
-<ul style="margin-top:28px;font-size:15px;color:var(--mu);line-height:2.3;list-style:none;text-align:left;padding:0"><li>— 全占いメニュー無制限</li><li>— Misaに恋愛・仕事の相談し放題</li><li>— 恋愛相性の詳細診断</li><li>— 鑑定パスポート</li></ul>
-<button class="pbtn pbf">搭乗する</button>
-</div>
-<div class="pc">
-<div style="font-size:11px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase">FIRST CLASS</div>
-<div style="font-family:var(--fj);font-size:26px;color:var(--w);margin-top:8px">ファーストクラス</div>
-<div style="font-size:12px;color:var(--mu);margin-top:4px">PREMIUM JOURNEY</div>
-<div style="font-size:46px;color:var(--w);font-weight:400;margin-top:24px">&yen;1,980<small style="font-size:15px;color:var(--mu);font-weight:300">/月</small></div>
-<ul style="margin-top:28px;font-size:15px;color:var(--mu);line-height:2.3;list-style:none;text-align:left;padding:0"><li>— ビジネスの全機能</li><li>— 月1回スペシャル鑑定</li><li>— 限定コンテンツ</li></ul>
-<button class="pbtn pbo">搭乗する</button>
-</div>
-</div></section>
-
-<div class="sep"><i></i></div>
-
-<section class="faq">
-<div class="lb fi">FAQ</div>
-<h2 class="hd fi">よくある質問</h2>
-<div class="sln"></div>
-<div class="fql fi">
-<div class="fqi" onclick="this.classList.toggle('open')"><div class="fqq">本当にCAが占ってくれるの？<span class="ficon">+</span></div><div class="fqa">Misaが世界各地で学んだ占術をベースに、あなたのための鑑定を行います。各占いの歴史や文化的背景を大切にしながら、現代に合った形でお届けしています。</div></div>
-<div class="fqi" onclick="this.classList.toggle('open')"><div class="fqq">いつでも解約できる？<span class="ficon">+</span></div><div class="fqa">はい、いつでもワンクリックで解約可能です。解約後も当月末までご利用いただけます。</div></div>
-<div class="fqi" onclick="this.classList.toggle('open')"><div class="fqq">どんな占いがある？<span class="ficon">+</span></div><div class="fqa">タロット、星座占い、手相、オーラ診断、コーヒー占い、ルーン占いなど、世界各地の占いを60カ国分揃えています。毎月新しい国の占いが追加されます。</div></div>
-<div class="fqi" onclick="this.classList.toggle('open')"><div class="fqq">鑑定パスポートって何？<span class="ficon">+</span></div><div class="fqa">あなたの占い履歴が世界地図上にスタンプとして記録されていく機能です。どの国の占いを体験したかが一目でわかり、コレクション感覚で楽しめます。</div></div>
-</div></section>
-
-<section class="fcta">
-<h2>あなたの旅は、ここから始まる</h2>
-<p>世界60カ国の占いが、あなたを待っています</p>
-<a href="#experience">無料で始める</a>
+<!-- ============================================================
+     5. WORLD MAP
+     ============================================================ -->
+<section class="map-section" id="map">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:36px">
+      <span class="sec-label">World Fortune Map</span>
+      <h2>世界60カ国の占いマップ</h2>
+      <p>地図上のドットをタップすると、その国の占いが見られます</p>
+    </div>
+    <div class="map-filters fade-in" id="mapFilters"></div>
+    <div class="map-wrap fade-in" id="mapWrap">
+      <div class="map-tip" id="mapTip"></div>
+    </div>
+  </div>
 </section>
 
-<footer>
-<div style="font-family:var(--fd);font-size:14px;letter-spacing:.25em;color:var(--gd)">CIEL FORTUNE</div>
-<div style="display:flex;justify-content:center;gap:32px;margin-top:20px;font-size:13px;flex-wrap:wrap"><a href="#">利用規約</a><a href="#">プライバシーポリシー</a><a href="#">特定商取引法に基づく表記</a><a href="#">お問い合わせ</a></div>
-<div style="font-size:12px;color:var(--mu);margin-top:16px">&copy; 2026 Ciel Fortune. All rights reserved.</div>
+<!-- ============================================================
+     6. ZODIAC (Today's Fortune)
+     ============================================================ -->
+<section class="zodiac-section" id="zodiac">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:40px">
+      <span class="sec-label">Today's Fortune</span>
+      <h2>今日の運勢</h2>
+      <p>あなたの星座を選んでください</p>
+    </div>
+    <div class="zgrid fade-in" id="zodiacGrid"></div>
+    <div class="zresult" id="zodiacResult">
+      <h3 id="zrName"></h3>
+      <p class="zmsg" id="zrMsg"></p>
+      <div class="zstars" id="zrStars"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+<!-- ============================================================
+     3. FEATURES (3 cards)
+     ============================================================ -->
+<section id="features">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:48px">
+      <span class="sec-label">Why Ciel Fortune</span>
+      <h2>ここにしかない、3つの理由</h2>
+    </div>
+    <div class="features-grid">
+      <div class="fcard fade-in">
+        <span class="fcard-icon">60</span>
+        <h3>60カ国の占い</h3>
+        <p>ミラノのタロットから、インドのヴェーダ占星術まで。世界各地の占い文化を、現地のストーリーとともに体験できます。</p>
+      </div>
+      <div class="fcard fade-in">
+        <span class="fcard-icon">&diams;</span>
+        <h3>パーソナル鑑定</h3>
+        <p>あなたの状況に寄り添った、一人ひとり違う鑑定結果。「みんな同じ」の占いとは、まったく違う体験を。</p>
+      </div>
+      <div class="fcard fade-in">
+        <span class="fcard-icon">&rarr;</span>
+        <h3>今日のアクション</h3>
+        <p>すべての鑑定結果に「今日、具体的に何をすればいいか」を提案。占って終わり、にはしません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. TESTIMONIALS
+     ============================================================ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:48px">
+      <span class="sec-label">Voices</span>
+      <h2>体験された方の声</h2>
+    </div>
+    <div class="tgrid">
+      <div class="tcard fade-in">
+        <p class="tq">「タロットの結果に出てきたアクション、なんとなくやってみたら本当に良いことがありました。占いで具体的な行動を提案してもらえるのは初めて」</p>
+        <p class="ta"><strong>Yuki</strong> — 28歳 / 会社員</p>
+      </div>
+      <div class="tcard fade-in">
+        <p class="tq">「コーヒー占いの演出が素敵すぎて、友達にすぐシェアしました。こんなに没入できる占いアプリは初めてです」</p>
+        <p class="ta"><strong>Mana</strong> — 24歳 / 大学院生</p>
+      </div>
+      <div class="tcard fade-in">
+        <p class="tq">「60カ国の占いを制覇するのが楽しくて、毎日ログインしてます。世界にこんなに占い文化があるなんて知らなかった」</p>
+        <p class="ta"><strong>Rina</strong> — 31歳 / フリーランス</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. MISA
+     ============================================================ -->
+<section class="misa-section" id="misa">
+  <div class="container">
+    <div class="fade-in">
+      <span class="sec-label">Your Guide</span>
+      <h2>Misa</h2>
+    </div>
+    <div class="misa-avatar fade-in">M</div>
+    <p class="misa-bio fade-in">
+      国際線CA歴12年。乗務の合間に世界60カ国以上を旅し、<br>
+      各地の占い文化に魅せられる。<br><br>
+      ミラノのカフェで出会ったタロット、<br>
+      イスタンブールのおばあちゃんに教わったコーヒー占い、<br>
+      アイスランドのオーロラの下で受けたルーンリーディング——<br><br>
+      「世界にはこんなに素敵な占いがあるのに、日本ではほとんど知られていない」<br>
+      その想いから、Ciel Fortuneを立ち上げました。
+    </p>
+    <div class="fade-in">
+      <a href="#fortune" class="stepbtn stepbtn-primary">Misaに相談してみる</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. PRICING
+     ============================================================ -->
+<section id="pricing">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:48px">
+      <span class="sec-label">Plans</span>
+      <h2>料金プラン</h2>
+      <p>すべてのプランに7日間無料トライアル付き</p>
+    </div>
+    <div class="pgrid">
+      <div class="pcard fade-in">
+        <div class="pname">Economy</div>
+        <div class="pprice">Free</div>
+        <div class="pperiod">ずっと無料</div>
+        <ul class="pfeats">
+          <li>4カ国の占い体験</li>
+          <li>今日の運勢</li>
+          <li>基本的な鑑定結果</li>
+          <li>1日1回の占い</li>
+        </ul>
+        <button class="pbtn pbtn-line">無料で始める</button>
+      </div>
+      <div class="pcard pop fade-in">
+        <div class="pname">Business</div>
+        <div class="pprice">&yen;980<small>/月</small></div>
+        <div class="pperiod">7日間無料トライアル</div>
+        <ul class="pfeats">
+          <li>30カ国の占い体験</li>
+          <li>パーソナル鑑定</li>
+          <li>恋愛・仕事の深掘り</li>
+          <li>回数無制限</li>
+          <li>Misaへの相談</li>
+        </ul>
+        <button class="pbtn pbtn-fill">7日間無料で試す</button>
+      </div>
+      <div class="pcard fade-in">
+        <div class="pname">First</div>
+        <div class="pprice">&yen;1,980<small>/月</small></div>
+        <div class="pperiod">7日間無料トライアル</div>
+        <ul class="pfeats">
+          <li>60カ国すべての占い</li>
+          <li>AI深層パーソナル鑑定</li>
+          <li>60カ国制覇ゲーム</li>
+          <li>回数無制限</li>
+          <li>Misaへの優先相談</li>
+          <li>新しい占いの先行体験</li>
+        </ul>
+        <button class="pbtn pbtn-fill">7日間無料で試す</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. FAQ
+     ============================================================ -->
+<section id="faq">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:48px">
+      <span class="sec-label">FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <div class="faq-q"><span>Ciel Fortuneの占いは本物ですか？</span><span class="arrow">v</span></div>
+        <div class="faq-a">はい。世界各国の伝統的な占い手法に基づいています。CAのMisaが現地で学んだ手法を忠実に再現し、最新のテクノロジーと組み合わせることで、どこにいても本格的な占い体験をお届けしています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>無料で何ができますか？</span><span class="arrow">v</span></div>
+        <div class="faq-a">4カ国の占い体験（ミラノのタロット、トルコのコーヒー占い、アイスランドのルーン、インドのヴェーダ占星術）と、今日の運勢を完全無料でお楽しみいただけます。基本的な鑑定結果とアクション提案もすべて無料です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>解約はいつでもできますか？</span><span class="arrow">v</span></div>
+        <div class="faq-a">はい、いつでも解約可能です。7日間の無料トライアル中に解約すれば、料金は一切かかりません。解約後も無料プランの機能はそのままお使いいただけます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>占い結果は毎回変わりますか？</span><span class="arrow">v</span></div>
+        <div class="faq-a">はい。あなたの選択、日時、テーマによって毎回異なる結果が表示されます。パーソナル鑑定（有料プラン）では、AIがあなたの状況を理解した上で、一人ひとり異なる鑑定結果をお届けします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11. FINAL CTA
+     ============================================================ -->
+<section class="final-cta" id="final-cta">
+  <div class="container fade-in" style="text-align:center">
+    <span class="sec-label">Begin Your Journey</span>
+    <h2>あなたの旅は、ここから始まる</h2>
+    <p>世界60カ国の占いが、あなたを待っています。<br>最初の一歩は、いつだって無料です。</p>
+    <a href="#fortune" class="hero-cta">無料で占いを体験する</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     12. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">Ciel Fortune</div>
+    <p>世界を旅するCAが届ける、本物の占い体験</p>
+    <ul class="footer-links">
+      <li><a href="#">利用規約</a></li>
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">特定商取引法に基づく表記</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<!-- D3.js & TopoJSON CDN with fallbacks -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>if(typeof d3==='undefined'){document.write('<sc'+'ript src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"><\/sc'+'ript>')}</script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script>if(typeof topojson==='undefined'){document.write('<sc'+'ript src="https://cdnjs.cloudflare.com/ajax/libs/topojson-client/3.1.0/topojson-client.min.js"><\/sc'+'ript>')}</script>
+
 <script>
-const F=[{s:"france-tarot",c:"フランス",ci:"パリ",n:"タロットリーディング",cat:"タロット・カード",la:48.85,ln:2.35,d:"マレ地区の老婦人から教わった本場のタロット",r:"eu"},{s:"uk-tea",c:"イギリス",ci:"ロンドン",n:"ティーリーフ占い",cat:"飲み物・食べ物",la:51.5,ln:-.12,d:"カップの底に映る未来",r:"eu"},{s:"iceland-rune",c:"アイスランド",n:"ルーン占い",cat:"ルーン・文字",la:64.1,ln:-21.9,d:"オーロラの下で古代の文字に問いかける",r:"eu"},{s:"greece-or",c:"ギリシャ",n:"オラクル神託占い",cat:"詩・神託",la:37.97,ln:23.72,d:"デルフィの神々の言葉",r:"eu"},{s:"italy-ca",c:"イタリア",n:"カルトマンシー",cat:"タロット・カード",la:40.85,ln:14.27,d:"地中海の風のカード",r:"eu"},{s:"spain-fl",c:"スペイン",n:"フラメンコ・カード",cat:"タロット・カード",la:40.42,ln:-3.7,d:"情熱のリズムのカード",r:"eu"},{s:"germany-le",c:"ドイツ",n:"レノルマンカード",cat:"タロット・カード",la:52.52,ln:13.4,d:"レノルマンの36枚",r:"eu"},{s:"ireland-og",c:"アイルランド",n:"オガム占い",cat:"ルーン・文字",la:53.35,ln:-6.26,d:"ケルトの森の古代文字",r:"eu"},{s:"norway-vi",c:"ノルウェー",n:"ヴァイキング・ルーン",cat:"ルーン・文字",la:59.91,ln:10.75,d:"ヴァイキングのルーン",r:"eu"},{s:"russia-ca",c:"ロシア",n:"スラヴ式カード",cat:"タロット・カード",la:55.75,ln:37.62,d:"モスクワの夜のカード",r:"eu"},{s:"portugal-fa",c:"ポルトガル",n:"ファド占い",cat:"詩・神託",la:38.72,ln:-9.14,d:"哀愁の運命の詩",r:"eu"},{s:"czech-cr",c:"チェコ",n:"水晶占い",cat:"水晶・クリスタル",la:50.08,ln:14.43,d:"ボヘミアガラスの未来",r:"eu"},{s:"romania-gy",c:"ルーマニア",n:"ジプシー・カード",cat:"タロット・カード",la:44.43,ln:26.1,d:"トランシルヴァニアの森",r:"eu"},{s:"sweden-st",c:"スウェーデン",n:"北欧星座占い",cat:"占星術・星占い",la:59.33,ln:18.07,d:"北欧の夜空の星々",r:"eu"},{s:"poland-wa",c:"ポーランド",n:"蜜蝋占い",cat:"骨・自然物",la:52.23,ln:21.01,d:"蜜蝋が描く未来の形",r:"eu"},
-{s:"japan-pa",c:"日本",ci:"京都",n:"手相鑑定",cat:"手相・身体",la:35.01,ln:135.77,d:"祇園のおばあちゃんの秘伝",r:"as"},{s:"japan-om",c:"日本",ci:"東京",n:"おみくじ",cat:"詩・神託",la:35.68,ln:139.76,d:"神社の神々の一言",r:"as"},{s:"china-ba",c:"中国",n:"四柱推命",cat:"数秘術・暦",la:39.9,ln:116.4,d:"生年月日の4つの柱",r:"as"},{s:"china-fe",c:"中国",ci:"香港",n:"風水鑑定",cat:"風水・環境",la:22.32,ln:114.17,d:"気の流れの東洋空間術",r:"as"},{s:"korea-sa",c:"韓国",n:"サジュ",cat:"数秘術・暦",la:37.57,ln:126.98,d:"韓国式四柱推命",r:"as"},{s:"india-ve",c:"インド",n:"ヴェーダ占星術",cat:"占星術・星占い",la:28.61,ln:77.21,d:"5000年のインド占星術",r:"as"},{s:"bali-au",c:"インドネシア",ci:"バリ",n:"オーラカラー診断",cat:"手相・身体",la:-8.34,ln:115.09,d:"バリのヒーラーのオーラ",r:"as"},{s:"thai-da",c:"タイ",n:"誕生曜日占い",cat:"占星術・星占い",la:13.76,ln:100.5,d:"曜日が決める守護仏",r:"as"},{s:"vn-zo",c:"ベトナム",n:"十二支占い",cat:"数秘術・暦",la:21.03,ln:105.85,d:"十二支が語る本質",r:"as"},{s:"ph-hi",c:"フィリピン",n:"ヒロット占い",cat:"手相・身体",la:14.6,ln:120.98,d:"伝統療法の占い",r:"as"},{s:"mm-da",c:"ミャンマー",n:"曜日占い",cat:"占星術・星占い",la:16.87,ln:96.2,d:"8曜日が決める運命",r:"as"},{s:"np-mo",c:"ネパール",n:"モー占い",cat:"夢・精霊",la:27.72,ln:85.32,d:"ヒマラヤの寺院の占い",r:"as"},{s:"lk-ay",c:"スリランカ",n:"アーユルヴェーダ占い",cat:"手相・身体",la:6.93,ln:79.84,d:"体質から運命を読む",r:"as"},{s:"my-dr",c:"マレーシア",n:"夢占い",cat:"夢・精霊",la:3.14,ln:101.69,d:"夢のメッセージ",r:"as"},{s:"mn-bo",c:"モンゴル",n:"骨占い",cat:"骨・自然物",la:47.92,ln:106.91,d:"シャーマンの骨占い",r:"as"},{s:"kh-ca",c:"カンボジア",n:"クメール暦占い",cat:"数秘術・暦",la:11.56,ln:104.92,d:"アンコール王朝の暦",r:"as"},{s:"tw-zi",c:"台湾",n:"紫微斗数",cat:"占星術・星占い",la:25.03,ln:121.56,d:"皇帝の占星術",r:"as"},{s:"sg-9s",c:"シンガポール",n:"九星気学",cat:"風水・環境",la:1.35,ln:103.82,d:"東洋の気の鑑定",r:"as"},
-{s:"tr-co",c:"トルコ",n:"コーヒー占い",cat:"飲み物・食べ物",la:41.01,ln:28.98,d:"カップの模様が語る未来",r:"me"},{s:"eg-ta",c:"エジプト",n:"エジプシャン・タロット",cat:"タロット・カード",la:30.04,ln:31.24,d:"ファラオの神秘のカード",r:"me"},{s:"ma-sa",c:"モロッコ",n:"砂占い",cat:"骨・自然物",la:33.97,ln:-6.85,d:"サハラの砂のパターン",r:"me"},{s:"il-ka",c:"イスラエル",n:"カバラ数秘術",cat:"数秘術・暦",la:31.77,ln:35.23,d:"数の秘密",r:"me"},{s:"ir-ha",c:"イラン",n:"ハーフェズ詩占い",cat:"詩・神託",la:35.69,ln:51.39,d:"ペルシャの詩人の導き",r:"me"},{s:"et-co",c:"エチオピア",n:"コーヒーセレモニー占い",cat:"飲み物・食べ物",la:9.02,ln:38.75,d:"発祥の地の神聖な儀式",r:"me"},{s:"ng-if",c:"ナイジェリア",n:"イファ占い",cat:"儀式・伝統",la:6.52,ln:3.38,d:"ヨルバ族の神聖な知恵",r:"me"},{s:"ke-be",c:"ケニア",n:"ビーズ占い",cat:"骨・自然物",la:-1.29,ln:36.82,d:"マサイのビーズの運命",r:"me"},{s:"gh-da",c:"ガーナ",n:"曜日占い",cat:"占星術・星占い",la:5.6,ln:-.19,d:"曜日が性格を決める",r:"me"},{s:"za-sa",c:"南アフリカ",n:"サンゴーマ骨占い",cat:"骨・自然物",la:-33.92,ln:18.42,d:"祖先の骨占い",r:"me"},
-{s:"us-nu",c:"アメリカ",ci:"NY",n:"数秘術",cat:"数秘術・暦",la:40.71,ln:-74.01,d:"NYの数字の魔法",r:"am"},{s:"us-cr",c:"アメリカ",ci:"LA",n:"クリスタルヒーリング",cat:"水晶・クリスタル",la:34.05,ln:-118.24,d:"LAのクリスタルの力",r:"am"},{s:"us-vo",c:"アメリカ",ci:"ニューオーリンズ",n:"ブードゥー・タロット",cat:"儀式・伝統",la:29.95,ln:-90.07,d:"闇夜のカード",r:"am"},{s:"mx-ma",c:"メキシコ",n:"マヤ暦占い",cat:"数秘術・暦",la:19.43,ln:-99.13,d:"古代マヤの叡智",r:"am"},{s:"br-ca",c:"ブラジル",n:"貝殻占い",cat:"儀式・伝統",la:-22.91,ln:-43.17,d:"神々が貝殻で語る",r:"am"},{s:"pe-co",c:"ペルー",n:"コカの葉占い",cat:"骨・自然物",la:-12.05,ln:-77.04,d:"アンデスの聖なる葉",r:"am"},{s:"ar-ma",c:"アルゼンチン",n:"マテ茶占い",cat:"飲み物・食べ物",la:-34.6,ln:-58.38,d:"ガウチョの茶占い",r:"am"},{s:"co-ay",c:"コロンビア",n:"アヤワスカ占い",cat:"夢・精霊",la:4.71,ln:-74.07,d:"アマゾンのビジョン",r:"am"},{s:"cu-sa",c:"キューバ",n:"サンテリア占い",cat:"儀式・伝統",la:23.11,ln:-82.37,d:"精霊の貝殻占い",r:"am"},{s:"gt-na",c:"グアテマラ",n:"ナワール占い",cat:"数秘術・暦",la:14.63,ln:-90.51,d:"マヤの守護精霊",r:"am"},{s:"cl-dr",c:"チリ",n:"夢占い",cat:"夢・精霊",la:-33.45,ln:-70.67,d:"先住民の夢のメッセージ",r:"am"},{s:"ht-vo",c:"ハイチ",n:"ブードゥー式カード",cat:"儀式・伝統",la:18.54,ln:-72.34,d:"精霊ロアのカード",r:"am"},
-{s:"au-dr",c:"オーストラリア",n:"ドリームタイム占い",cat:"夢・精霊",la:-33.87,ln:151.21,d:"5万年の夢の時間",r:"oc"},{s:"nz-ma",c:"ニュージーランド",n:"タトゥー占い",cat:"手相・身体",la:-36.85,ln:174.76,d:"モコの運命",r:"oc"},{s:"hi-ho",c:"ハワイ",n:"ホ・オポノポノ",cat:"風水・環境",la:21.31,ln:-157.86,d:"ハワイの癒しの哲学",r:"oc"},{s:"fj-ka",c:"フィジー",n:"カバ茶占い",cat:"飲み物・食べ物",la:-17.77,ln:178.07,d:"南太平洋の聖なる飲み物",r:"oc"},{s:"pg-sp",c:"パプアニューギニア",n:"精霊交信占い",cat:"夢・精霊",la:-6.31,ln:143.96,d:"熱帯雨林の精霊",r:"oc"}];
-const CT=["全て表示","タロット・カード","占星術・星占い","数秘術・暦","手相・身体","飲み物・食べ物","水晶・クリスタル","骨・自然物","ルーン・文字","夢・精霊","風水・環境","詩・神託","儀式・伝統"];
-const RC={eu:"#c9a84c",as:"#8aad8c",me:"#ad8aad",am:"#e0c478",oc:"#8aad8c"};
-let sc="全て表示";
-// Filter
-const cf=document.getElementById("cf");CT.forEach(c=>{const b=document.createElement("button");b.className="ch"+(c==="全て表示"?" on":"");b.textContent=c;b.onclick=()=>{sc=c;cf.querySelectorAll(".ch").forEach(x=>x.classList.remove("on"));b.classList.add("on");uD()};cf.appendChild(b)});
-// Map
-const svg=d3.select("#wm"),proj=d3.geoNaturalEarth1().scale(155).translate([480,260]),pa=d3.geoPath().projection(proj);
-d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(w=>{svg.selectAll("path").data(topojson.feature(w,w.objects.countries).features).enter().append("path").attr("d",pa).attr("fill","rgba(201,168,76,.09)").attr("stroke","rgba(201,168,76,.28)").attr("stroke-width",.5).style("transition","fill .3s").on("mouseenter",function(){d3.select(this).attr("fill","rgba(201,168,76,.18)")}).on("mouseleave",function(){d3.select(this).attr("fill","rgba(201,168,76,.09)")});mD()});
-function mD(){const g=svg.append("g");F.forEach(f=>{const[x,y]=proj([f.ln,f.la]);if(!x||!y)return;const gr=g.append("g").attr("transform",`translate(${x},${y})`).style("cursor","pointer");gr.append("circle").attr("r",13).attr("fill",RC[f.r]).attr("opacity",.07);gr.append("circle").attr("r",5.5).attr("fill",RC[f.r]).attr("opacity",.88).attr("class","md");gr.append("circle").attr("r",16).attr("fill","transparent");gr.on("mouseenter",function(){const t=document.getElementById("mtt");t.innerHTML='<div style="font-size:13px;color:var(--mu);letter-spacing:.06em">'+f.c+(f.ci?" / "+f.ci:"")+'</div><div style="font-family:var(--fj);font-size:20px;color:var(--gl);margin-top:7px">'+f.n+'</div><div style="font-size:14px;color:var(--mu);line-height:1.7;margin-top:10px">'+f.d+'</div><div style="font-size:11px;color:var(--g);margin-top:12px">クリックして体験する</div>';t.classList.add("show");t.style.cssText="position:absolute;top:16px;right:16px;opacity:1";d3.select(this).select(".md").transition().duration(200).attr("r",8)}).on("mouseleave",function(){document.getElementById("mtt").classList.remove("show");d3.select(this).select(".md").transition().duration(200).attr("r",5.5)});gr.datum(f)})}
-function uD(){svg.selectAll("g g").each(function(){const f=d3.select(this).datum();if(!f)return;const a=sc==="全て表示"||f.cat===sc;d3.select(this).select(".md").transition().duration(300).attr("opacity",a?.88:.07).attr("r",a?5.5:2.5)})}
-// Experiences
-const TD=[{n:"I",nm:"魔術師",sy:"✦",me:"新しい始まりと無限の可能性。望みを叶える力がすでにあなたの中に。",mi:"パリの老婦人が言っていたわ。「このカードの人は、自分を信じていい」って。",ac:"新しいカフェに入ってみて。小さな冒険が運を動かすから"},{n:"II",nm:"女教皇",sy:"◈",me:"内なる直感と隠された知恵。静かに自分の心に耳を傾けて。",mi:"直感を大切にして。頭で考えすぎないで、心の声を聞いてみて。",ac:"寝る前に5分だけ目を閉じて。答えはもうあなたの中にある"},{n:"III",nm:"女帝",sy:"❋",me:"豊かさと創造性。愛情に満ちた時間が訪れます。",mi:"美しいものに触れてみて。小さな豊かさが大きな幸せを運ぶから。",ac:"お花を1輪買って帰って。テーブルに飾るだけで空気が変わるの"},{n:"X",nm:"運命の輪",sy:"✧",me:"大きな転機。運命が動き出す時。変化を受け入れて。",mi:"バリのヒーラーが言ったの。「運命の輪は、受け入れた人に優しく回る」って。",ac:"ずっと迷っていたこと、今日決断して。タイミングは今よ"},{n:"XVII",nm:"星",sy:"☆",me:"希望と癒し。暗闇の後に必ず光は差します。",mi:"ドバイの砂漠の星空を思い出すわ。どんな暗い夜でも星は輝いている。",ac:"夜空を見上げてみて。星の光があなたを癒してくれるから"}];
-const CD=[{p:"~",l:"波模様",me:"感情の波が訪れる時期。流れに身を任せると幸運が。",mi:"「波は乗るものよ」ってイスタンブールのおばあちゃんが。",ac:"午後にコーヒーを1杯。リラックスした瞬間にひらめきが来る"},{p:"O",l:"円模様",me:"物事が完結に向かう。新しいサイクルの始まりも近い。",mi:"「円が見えたら次の扉が開く」ってトルコの占い師が。",ac:"今日1つ、小さなことでいいから完了させて。次のステージへの鍵になる"},{p:"△",l:"三角模様",me:"予期しない変化が3つ訪れる暗示。創造的エネルギーが高まっています。",mi:"「三角が出た日は宇宙があなたに話しかけている」って笑ってたわ。",ac:"いつもと違う道を通って帰ってみて。新しい発見があるはず"}];
-const RD=[{c:"ᚠ",nm:"Fehu",l:"富",me:"豊かさと繁栄。努力が実を結ぶ時。"},{c:"ᚢ",nm:"Uruz",l:"力",me:"内なる力と生命力。困難を乗り越える強さが。"},{c:"ᚦ",nm:"Thurisaz",l:"門",me:"大きな決断の前。慎重に、でも恐れずに。"},{c:"ᚨ",nm:"Ansuz",l:"知",me:"知恵と啓示。重要なメッセージが届く暗示。"},{c:"ᚱ",nm:"Raido",l:"旅",me:"新しい場所や自分との出会いが待っています。"},{c:"ᚲ",nm:"Kenaz",l:"光",me:"創造力が花開く時。自分を表現して。"},{c:"ᚷ",nm:"Gebo",l:"贈",me:"人間関係に美しい変化が訪れる予兆。"},{c:"ᚹ",nm:"Wunjo",l:"喜",me:"長く願っていたことが叶う兆し。"}];
-const VD=[{d:"月曜日",p:"Moon",g:"シヴァ神",me:"感受性と直感の日。水辺で運気UP。",cl:"白・銀"},{d:"火曜日",p:"Mars",g:"ハヌマーン",me:"行動力と勇気の日。赤で吉。",cl:"赤"},{d:"水曜日",p:"Mercury",g:"ガネーシャ",me:"知性とコミュニケーションの日。",cl:"緑"},{d:"木曜日",p:"Jupiter",g:"ブリハスパティ",me:"最も縁起の良い日。精神的成長と拡大。",cl:"黄"},{d:"金曜日",p:"Venus",g:"ラクシュミー",me:"愛と美の日。恋愛や芸術に最適。",cl:"白・パステル"},{d:"土曜日",p:"Saturn",g:"シャニ",me:"忍耐と修練の日。地道な努力が報われる。",cl:"青・黒"},{d:"日曜日",p:"Sun",g:"スーリヤ",me:"生命力の日。自信を持って行動を。",cl:"オレンジ・金"}];
-function rE(t){document.querySelectorAll(".etab").forEach(x=>x.classList.toggle("on",x.dataset.e===t));const s=document.getElementById("es");
-if(t==="tarot"){const sh=[...TD].sort(()=>Math.random()-.5);s.innerHTML='<div class="ei"><div class="co">PARIS, FRANCE</div><h3>パリ仕込みのタロット</h3><p>心を静めて、気になるカードを1枚選んでください</p></div><div class="tcs" id="tc"></div><div class="er" id="er"></div>';const tc=document.getElementById("tc");for(let i=0;i<5;i++){const d=document.createElement("div");d.className="tcd";d.innerHTML='<div class="tf tbk"><i>C</i></div><div class="tf tfr"><div class="cn">'+sh[i].n+'</div><div class="csym">'+sh[i].sy+'</div><div class="cname">'+sh[i].nm+'</div></div>';d.onclick=()=>{tc.querySelectorAll(".tcd").forEach(c=>{if(c!==d)c.style.opacity=".2";c.style.pointerEvents="none"});d.classList.add("flip");setTimeout(()=>{document.getElementById("er").innerHTML='<h4>'+sh[i].n+'. '+sh[i].nm+'</h4><p>'+sh[i].me+'</p><div class="mm">'+sh[i].mi+'</div><div class="act">'+sh[i].ac+'</div><div class="retry" onclick="rE(\'tarot\')">もう一度引く</div><div style="text-align:center;margin-top:16px"><a href="#pricing" class="up">恋愛について、もっと深く知りたい方へ</a></div>';document.getElementById("er").classList.add("show")},900)};tc.appendChild(d)}}
-else if(t==="coffee"){s.innerHTML='<div class="ei"><div class="co">ISTANBUL, TURKEY</div><h3>トルコのコーヒー占い</h3><p>カップを飲み干した後、模様が浮かびました。<br>気になる模様を選んでください</p></div><div class="ccups" id="cc"></div><div class="er" id="er"></div>';const cc=document.getElementById("cc");CD.forEach(d=>{const c=document.createElement("div");c.className="cup";c.innerHTML='<div class="pat">'+d.p+'</div><div class="clb">'+d.l+'</div>';c.onclick=()=>{cc.querySelectorAll(".cup").forEach(x=>x.classList.remove("pk"));c.classList.add("pk");document.getElementById("er").innerHTML='<h4>'+d.l+'のメッセージ</h4><p>'+d.me+'</p><div class="mm">'+d.mi+'</div><div class="act">'+d.ac+'</div><div class="retry" onclick="rE(\'coffee\')">もう一度選ぶ</div><div style="text-align:center;margin-top:16px"><a href="#pricing" class="up">あの人の気持ち、聞いてみる？</a></div>';document.getElementById("er").classList.add("show")};cc.appendChild(c)})}
-else if(t==="rune"){const sh=[...RD].sort(()=>Math.random()-.5);let pk=[];s.innerHTML='<div class="ei"><div class="co">REYKJAVIK, ICELAND</div><h3>アイスランドのルーン占い</h3><p>古代の石から3つ選んでください。過去・現在・未来を映します</p></div><div class="rns" id="rs"></div><div class="er" id="er"></div>';const rs=document.getElementById("rs");sh.forEach((r,i)=>{const st=document.createElement("div");st.className="rn";st.innerHTML='<div class="rc">'+r.c+'</div><div class="rl">'+r.l+'</div>';st.onclick=()=>{if(pk.includes(i))return;pk.push(i);st.classList.add("pk");if(pk.length===3){rs.querySelectorAll(".rn").forEach(x=>{if(!x.classList.contains("pk"))x.classList.add("dis")});const lb=["過去","現在","未来"];document.getElementById("er").innerHTML=pk.map((p,j)=>'<div style="margin-bottom:18px;padding-bottom:18px;'+(j<2?"border-bottom:1px solid var(--bt)":"")+'"><div style="font-size:12px;color:var(--g);letter-spacing:.1em;font-family:var(--fd)">'+lb[j]+'</div><h4 style="margin-top:5px">'+sh[p].c+' '+sh[p].nm+' — '+sh[p].l+'</h4><p style="margin-top:6px">'+sh[p].me+'</p></div>').join('')+'<div class="retry" onclick="rE(\'rune\')">もう一度選ぶ</div><div style="text-align:center;margin-top:16px"><a href="#pricing" class="up">60カ国すべての占いを体験する</a></div>';document.getElementById("er").classList.add("show")}};rs.appendChild(st)})}
-else if(t==="veda"){s.innerHTML='<div class="ei"><div class="co">VARANASI, INDIA</div><h3>ヴェーダ占星術</h3><p>生まれた曜日を選んでください。5000年の叡智が本質を映します</p></div><div class="vds" id="vd"></div><div class="er" id="er"></div>';const vd=document.getElementById("vd");VD.forEach(d=>{const dy=document.createElement("div");dy.className="vd";dy.innerHTML='<div class="dn">'+d.d+'</div><div class="dp">'+d.p+'</div>';dy.onclick=()=>{vd.querySelectorAll(".vd").forEach(x=>x.classList.remove("pk"));dy.classList.add("pk");document.getElementById("er").innerHTML='<h4>'+d.d+' — '+d.g+'の加護</h4><p>'+d.me+'</p><div style="margin-top:14px;font-size:14px;color:var(--mu)">ラッキーカラー: <span style="color:var(--g)">'+d.cl+'</span></div><div class="retry" onclick="rE(\'veda\')">他の曜日を見る</div><div style="text-align:center;margin-top:16px"><a href="#pricing" class="up">あなたの本質を、もっと深く</a></div>';document.getElementById("er").classList.add("show")};vd.appendChild(dy)})}}
-document.querySelectorAll(".etab").forEach(t=>t.onclick=()=>rE(t.dataset.e));rE("tarot");
-// Daily
-const Z=[{n:"牡羊座",a:"Ari",m:"行動力が高まる日。直感を信じて。",s:[4,3,5,3]},{n:"牡牛座",a:"Tau",m:"穏やかに過ごせる日。美味しいもので。",s:[4,4,3,4]},{n:"双子座",a:"Gem",m:"コミュニケーション力が冴える日。",s:[5,3,5,3]},{n:"蟹座",a:"Can",m:"感受性豊かな日。優しさに気づけるはず。",s:[3,5,3,3]},{n:"獅子座",a:"Leo",m:"自信を持って進んでいい日。",s:[5,4,5,4]},{n:"乙女座",a:"Vir",m:"細部に気を配ると大きな成果に。",s:[4,3,5,4]},{n:"天秤座",a:"Lib",m:"バランス感覚が光る日。",s:[4,5,3,3]},{n:"蠍座",a:"Sco",m:"集中力が高まる日。没頭で成果を。",s:[4,4,4,5]},{n:"射手座",a:"Sag",m:"冒険心が刺激される日。",s:[5,3,4,3]},{n:"山羊座",a:"Cap",m:"着実に進める日。努力が報われる。",s:[3,3,5,4]},{n:"水瓶座",a:"Aqu",m:"独創的なアイデアが湧く日。",s:[4,3,4,3]},{n:"魚座",a:"Pis",m:"直感が冴え渡る日。芸術に触れて。",s:[4,5,3,4]}];
-const zg=document.getElementById("zg");Z.forEach(z=>{const b=document.createElement("div");b.className="zb";b.innerHTML='<span class="zbs">'+z.a+'</span><span class="zbn">'+z.n+'</span>';b.onclick=()=>{zg.querySelectorAll(".zb").forEach(x=>x.classList.remove("on"));b.classList.add("on");const st=n=>"★".repeat(n)+"☆".repeat(5-n);const lb=["総合運","恋愛運","仕事運","金運"];document.getElementById("dr").innerHTML='<h4>'+z.n+'の今日の運勢</h4><div class="dst">'+z.s.map((v,i)=>'<div>'+lb[i]+' <span>'+st(v)+'</span></div>').join('')+'</div><div class="dmsg">'+z.m+'</div><div style="text-align:right;font-size:13px;color:var(--mu);font-style:italic;margin-top:14px">— Misa</div><div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--bt);text-align:center"><div style="font-size:13px;color:var(--mu);margin-bottom:10px">恋愛運・仕事運の詳細はビジネスクラスで</div><a href="#pricing" class="up">詳しく見る</a></div>';document.getElementById("dr").classList.add("show")};zg.appendChild(b)});
-// Counter
-function aC(){document.querySelectorAll(".fn[data-t]").forEach(el=>{const t=+el.dataset.t,du=1400,s=performance.now();!function f(n){const p=Math.min((n-s)/du,1);el.textContent=Math.floor((1-Math.pow(1-p,3))*t);p<1?requestAnimationFrame(f):el.textContent=t}(s)})}
-// Nav
-let ly=0;window.addEventListener("scroll",()=>{const y=window.scrollY;document.getElementById("nav").classList.toggle("show",y>80);ly=y});
-// Observer
-const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("v");ob.unobserve(e.target);if(e.target.classList.contains("feat"))aC()}})},{threshold:.12,rootMargin:"-30px"});
-document.querySelectorAll(".fi,.feat").forEach(el=>ob.observe(el));
+/* ============================================================
+   CIEL FORTUNE LP v5 — Full JavaScript
+   ============================================================ */
+
+/* =========================
+   DATA: 60 Countries
+   ========================= */
+const countries60 = [
+  {name:"フランス",en:"France",lat:46.6,lon:2.2,cat:"タロット",region:"eu"},
+  {name:"イタリア",en:"Italy",lat:42.5,lon:12.5,cat:"タロット",region:"eu"},
+  {name:"スペイン",en:"Spain",lat:40.0,lon:-3.7,cat:"タロット",region:"eu"},
+  {name:"イギリス",en:"UK",lat:54.0,lon:-2.0,cat:"ケルト",region:"eu"},
+  {name:"アイルランド",en:"Ireland",lat:53.4,lon:-8.2,cat:"ケルト",region:"eu"},
+  {name:"ドイツ",en:"Germany",lat:51.2,lon:10.4,cat:"数秘術",region:"eu"},
+  {name:"スイス",en:"Switzerland",lat:46.8,lon:8.2,cat:"数秘術",region:"eu"},
+  {name:"ギリシャ",en:"Greece",lat:39.1,lon:21.8,cat:"神託",region:"eu"},
+  {name:"ノルウェー",en:"Norway",lat:60.5,lon:8.5,cat:"ルーン",region:"eu"},
+  {name:"スウェーデン",en:"Sweden",lat:62.0,lon:15.0,cat:"ルーン",region:"eu"},
+  {name:"アイスランド",en:"Iceland",lat:65.0,lon:-18.0,cat:"ルーン",region:"eu"},
+  {name:"フィンランド",en:"Finland",lat:61.9,lon:25.7,cat:"ルーン",region:"eu"},
+  {name:"ロシア",en:"Russia",lat:55.8,lon:37.6,cat:"カード",region:"eu"},
+  {name:"ルーマニア",en:"Romania",lat:45.9,lon:24.9,cat:"カード",region:"eu"},
+  {name:"チェコ",en:"Czech",lat:49.8,lon:15.5,cat:"水晶",region:"eu"},
+  {name:"ポルトガル",en:"Portugal",lat:39.4,lon:-8.2,cat:"タロット",region:"eu"},
+  {name:"トルコ",en:"Turkey",lat:39.0,lon:35.2,cat:"コーヒー",region:"me"},
+  {name:"エジプト",en:"Egypt",lat:26.8,lon:30.8,cat:"砂占い",region:"me"},
+  {name:"イラン",en:"Iran",lat:32.4,lon:53.7,cat:"詩占い",region:"me"},
+  {name:"モロッコ",en:"Morocco",lat:31.8,lon:-7.1,cat:"砂占い",region:"me"},
+  {name:"レバノン",en:"Lebanon",lat:33.9,lon:35.5,cat:"コーヒー",region:"me"},
+  {name:"サウジアラビア",en:"Saudi Arabia",lat:23.9,lon:45.1,cat:"砂占い",region:"me"},
+  {name:"イスラエル",en:"Israel",lat:31.0,lon:34.9,cat:"カバラ",region:"me"},
+  {name:"日本",en:"Japan",lat:36.2,lon:138.3,cat:"おみくじ",region:"as"},
+  {name:"中国",en:"China",lat:35.9,lon:104.2,cat:"易経",region:"as"},
+  {name:"韓国",en:"Korea",lat:35.9,lon:128.0,cat:"四柱推命",region:"as"},
+  {name:"インド",en:"India",lat:20.6,lon:79.0,cat:"ヴェーダ",region:"as"},
+  {name:"タイ",en:"Thailand",lat:15.9,lon:100.9,cat:"仏教占い",region:"as"},
+  {name:"ベトナム",en:"Vietnam",lat:14.1,lon:108.3,cat:"易経",region:"as"},
+  {name:"インドネシア",en:"Indonesia",lat:-0.8,lon:113.9,cat:"ジャワ占い",region:"as"},
+  {name:"フィリピン",en:"Philippines",lat:12.9,lon:121.8,cat:"カード",region:"as"},
+  {name:"ミャンマー",en:"Myanmar",lat:19.8,lon:96.2,cat:"ビルマ占星術",region:"as"},
+  {name:"スリランカ",en:"Sri Lanka",lat:7.9,lon:80.8,cat:"ヴェーダ",region:"as"},
+  {name:"ネパール",en:"Nepal",lat:28.4,lon:84.1,cat:"ヴェーダ",region:"as"},
+  {name:"モンゴル",en:"Mongolia",lat:46.9,lon:103.8,cat:"骨占い",region:"as"},
+  {name:"カンボジア",en:"Cambodia",lat:12.6,lon:105.0,cat:"仏教占い",region:"as"},
+  {name:"マレーシア",en:"Malaysia",lat:4.2,lon:101.9,cat:"風水",region:"as"},
+  {name:"シンガポール",en:"Singapore",lat:1.4,lon:103.8,cat:"風水",region:"as"},
+  {name:"台湾",en:"Taiwan",lat:23.7,lon:121.0,cat:"易経",region:"as"},
+  {name:"ブラジル",en:"Brazil",lat:-14.2,lon:-51.9,cat:"カンドンブレ",region:"am"},
+  {name:"メキシコ",en:"Mexico",lat:23.6,lon:-102.6,cat:"アステカ",region:"am"},
+  {name:"ペルー",en:"Peru",lat:-9.2,lon:-75.0,cat:"コカの葉",region:"am"},
+  {name:"アルゼンチン",en:"Argentina",lat:-38.4,lon:-63.6,cat:"タロット",region:"am"},
+  {name:"コロンビア",en:"Colombia",lat:4.6,lon:-74.3,cat:"シャーマン",region:"am"},
+  {name:"キューバ",en:"Cuba",lat:21.5,lon:-79.0,cat:"サンテリア",region:"am"},
+  {name:"チリ",en:"Chile",lat:-35.7,lon:-71.5,cat:"マプチェ",region:"am"},
+  {name:"ジャマイカ",en:"Jamaica",lat:18.1,lon:-77.3,cat:"オビア",region:"am"},
+  {name:"グアテマラ",en:"Guatemala",lat:15.8,lon:-90.2,cat:"マヤ",region:"am"},
+  {name:"ボリビア",en:"Bolivia",lat:-16.3,lon:-63.6,cat:"コカの葉",region:"am"},
+  {name:"アメリカ",en:"USA",lat:37.1,lon:-95.7,cat:"占星術",region:"am"},
+  {name:"カナダ",en:"Canada",lat:56.1,lon:-106.3,cat:"先住民",region:"am"},
+  {name:"ハイチ",en:"Haiti",lat:19.0,lon:-72.3,cat:"ブードゥー",region:"am"},
+  {name:"ナイジェリア",en:"Nigeria",lat:9.1,lon:8.7,cat:"イファ",region:"me"},
+  {name:"ガーナ",en:"Ghana",lat:7.9,lon:-1.0,cat:"イファ",region:"me"},
+  {name:"エチオピア",en:"Ethiopia",lat:9.1,lon:40.5,cat:"コーヒー",region:"me"},
+  {name:"ケニア",en:"Kenya",lat:0.0,lon:37.9,cat:"骨占い",region:"me"},
+  {name:"南アフリカ",en:"South Africa",lat:-30.6,lon:22.9,cat:"骨占い",region:"me"},
+  {name:"オーストラリア",en:"Australia",lat:-25.3,lon:133.8,cat:"ドリームタイム",region:"oc"},
+  {name:"ニュージーランド",en:"New Zealand",lat:-40.9,lon:174.9,cat:"マオリ",region:"oc"},
+  {name:"フィジー",en:"Fiji",lat:-17.7,lon:178.0,cat:"自然占い",region:"oc"},
+];
+
+const regionColors = {eu:'#c9a84c',as:'#8aad8c',me:'#ad8aad',am:'#e0c478',oc:'#8aad8c'};
+const categories = [...new Set(countries60.map(c=>c.cat))].sort();
+
+/* =========================
+   DATA: Tarot (5 cards × 5 themes = 25 patterns)
+   ========================= */
+const tarotCards = [
+  {id:0, num:'I', name:'魔術師', sym:'&#10022;', // ✦
+   general:'魔術師は「始まり」と「意志の力」を象徴するカードです。あなたの手の中には、すべてを変える力がすでにあります。今こそ、その力を使うとき。',
+   love:'新しい出会いの予感。自分から動く勇気が、恋を引き寄せます。待っているだけでは何も始まりません。あなたの一歩が、運命を動かします。',
+   work:'新しいプロジェクトやアイデアを形にする絶好のタイミング。あなたのスキルと情熱が、周囲を巻き込む力になります。リーダーシップを発揮してください。',
+   relation:'あなたの言葉が、人間関係に新しい風を吹き込みます。素直に気持ちを伝えることで、関係が一段深まるでしょう。',
+   self:'あなたには、まだ気づいていない才能があります。新しいことに挑戦する勇気を持ちましょう。最初の一歩を踏み出せば、世界が変わります。',
+   daily:'今日は「始める」日。小さなことでいい。ずっとやりたかったことに手をつけてみてください。',
+   misa:'ミラノの朝市で出会った老人が最初に見せてくれたのがこのカード。「すべてはここから始まる」と微笑んだ彼の言葉が、今も忘れられません。',
+   actions:{love:'気になる人に、今日中にメッセージを送ってみて',work:'アイデアノートに、新しい企画を1つ書き出して',relation:'久しぶりの友人に連絡を取ってみて',self:'興味のあった本を1冊、今日中に注文して',daily:'「やりたいことリスト」を3つ書いてみて'},
+   lucky:{color:'#e74c3c',colorName:'ルビーレッド',item:'赤いペン'}},
+
+  {id:1, num:'II', name:'女教皇', sym:'&#9672;', // ◈
+   general:'女教皇は「直感」と「内なる知恵」を象徴するカードです。答えは外にではなく、あなたの中にあります。静かに心の声に耳を傾けてみてください。',
+   love:'焦らないで。相手の本当の気持ちは、言葉ではなく態度に表れています。直感を信じて、静かに見守ることが大切です。',
+   work:'今は行動より観察のとき。周囲の動きをよく見て、情報を集めましょう。正しいタイミングが来れば、あなたにはわかるはずです。',
+   relation:'表面的な言葉に惑わされないで。相手の本心は、小さな仕草や沈黙の中に隠れています。直感を大切にしてください。',
+   self:'あなたの内側に、まだ言葉にできていない大切な何かがあります。一人の時間を作って、静かに自分と向き合ってみてください。',
+   daily:'今日は「感じる」日。頭で考えすぎず、心が動く方向に素直に従ってみてください。',
+   misa:'ミラノの古書店で見つけた18世紀のタロットデッキ。女教皇のカードだけ、不思議なほど色が鮮やかに残っていました。「この子は特別なの」と店主が囁いたのを覚えています。',
+   actions:{love:'今夜、日記に自分の本当の気持ちを書いてみて',work:'今日のミーティングでは、話すより聴くことを意識して',relation:'相手のメッセージを、もう一度ゆっくり読み返してみて',self:'10分間、何もせずに目を閉じて呼吸だけに集中してみて',daily:'直感で「いいな」と思ったものを1つ、メモして'},
+   lucky:{color:'#3498db',colorName:'ムーンブルー',item:'青いストーン'}},
+
+  {id:2, num:'III', name:'女帝', sym:'&#10043;', // ❋
+   general:'女帝は「豊かさ」と「創造」を象徴するカードです。あなたの人生に、新しい実りが訪れようとしています。心を開いて、その恵みを受け取ってください。',
+   love:'愛に満ちた時期が訪れています。あなたの優しさが、大切な人の心を温めます。与えることで、さらに大きな愛が返ってくるでしょう。',
+   work:'これまでの努力が実を結ぶとき。創造的なエネルギーが高まっています。美しいもの、心地よいものを大切にすることで、仕事にも良い影響が出ます。',
+   relation:'あなたの存在が、周囲の人に安らぎを与えています。その温かさを大切にしてください。人間関係がさらに深く、豊かになるでしょう。',
+   self:'自分を大切にすることを許してください。あなたは十分に頑張っています。美味しいものを食べ、美しいものに触れ、心を満たすことが今は一番大切です。',
+   daily:'今日は「味わう」日。美味しいコーヒーを丁寧に淹れる、花を買って帰る——小さな贅沢を自分に許してあげてください。',
+   misa:'ミラノ大聖堂の屋上テラスで、このカードを引いた日のことは忘れません。夕陽に染まる尖塔に囲まれながら引いた一枚。女帝は「あなたは十分に美しい」と言ってくれているようでした。',
+   actions:{love:'大切な人に、感謝の気持ちを言葉にして伝えて',work:'デスク周りに、小さな花や好きなものを飾ってみて',relation:'今日、誰かに温かい言葉をかけてあげて',self:'今日の夜、ゆっくりお風呂に浸かって自分を労って',daily:'帰り道に花屋さんに寄って、一輪だけ買って帰って'},
+   lucky:{color:'#2ecc71',colorName:'エメラルドグリーン',item:'植物のそばで過ごす時間'}},
+
+  {id:3, num:'X', name:'運命の輪', sym:'&#10023;', // ✧
+   general:'運命の輪は「転機」と「変化のサイクル」を象徴するカードです。人生の大きな流れが変わろうとしています。この変化を恐れず、受け入れてください。',
+   love:'恋愛における大きな転機が近づいています。思いがけない出会いや、関係の変化が訪れるかもしれません。運命に身を委ねてみてください。',
+   work:'キャリアの転換点にいます。新しいチャンスが巡ってきています。今までのやり方を手放す勇気が、次のステージへの鍵になります。',
+   relation:'人間関係に変化の波が来ています。離れる人もいれば、新しく出会う人もいます。すべては必要な流れです。信じてください。',
+   self:'あなたは今、人生の大きな節目にいます。過去の自分を手放し、新しい自分を迎える準備をしましょう。変化は成長のサインです。',
+   daily:'今日は「流れに乗る」日。予定通りにいかなくても、その変化の中に幸運が隠れています。',
+   misa:'ナヴィリオ運河沿いを歩いていた夕暮れ時にこのカードが出たとき、目の前で突然虹がかかりました。偶然なんかじゃない。あの瞬間、私は運命の力を信じました。',
+   actions:{love:'いつもと違うルートで帰ってみて。思わぬ出会いがあるかも',work:'上司や同僚に、新しいアイデアを一つ提案してみて',relation:'最近疎遠になった人に、ふとメッセージを送ってみて',self:'いつもと違うジャンルの音楽を聴いてみて',daily:'今日の予定を1つだけ変えて、新しい選択をしてみて'},
+   lucky:{color:'#9b59b6',colorName:'アメジストパープル',item:'回転するもの（風車、時計）'}},
+
+  {id:4, num:'XVII', name:'星', sym:'&#9734;', // ☆
+   general:'星は「希望」と「癒し」を象徴するカードです。暗い夜の後には、必ず星が輝きます。あなたの未来には、輝かしい光が待っています。希望を捨てないでください。',
+   love:'純粋な愛が、あなたに降り注いでいます。理想を諦めないで。あなたにふさわしい愛は必ず見つかります。星は、あなたの味方です。',
+   work:'長期的なビジョンが実現に向かっています。目の前の困難に惑わされず、星を見上げてください。あなたの方向は間違っていません。',
+   relation:'人間関係に癒しと再生のエネルギーが流れています。傷ついた関係も、時間と誠実さが修復してくれるでしょう。',
+   self:'あなたは、思っている以上に強い人です。過去の傷は、あなたをより深く、より優しい人にしてくれました。その経験を誇りに思ってください。',
+   daily:'今日は「信じる」日。うまくいかないことがあっても、すべてはあなたを正しい場所へ導いてくれています。',
+   misa:'ミラノ最後の夜、ナヴィリオ運河のほとりでこのカードを引きました。水面に映る街灯の光が、まるで星のようで——涙が止まりませんでした。「大丈夫。あなたの道は、ちゃんと輝いている」',
+   actions:{love:'夜空を見上げて、あなたの願いを1つだけ星に託して',work:'5年後の理想の自分を、具体的に書き出してみて',relation:'傷ついた経験を、感謝の視点で見つめ直してみて',self:'今日の夜、好きな音楽を聴きながら夜空を眺めて',daily:'今日あった「小さな良いこと」を3つ書き出してみて'},
+   lucky:{color:'#f1c40f',colorName:'スターゴールド',item:'星モチーフのアクセサリー'}},
+];
+
+/* =========================
+   DATA: Coffee patterns
+   ========================= */
+const coffeePatterns = {
+  wave: {
+    sym:'~', name:'波',
+    meaning:'波は「変化の流れ」を象徴しています。あなたの人生に、穏やかだけれど確実な変化が訪れようとしています。この波に抗わず、身を委ねることで、新しい場所にたどり着けるでしょう。',
+    misa:'ファトマおばあちゃんは、波の模様を見るといつも微笑みました。「波はね、海の呼吸なの。あなたの人生も、同じように呼吸しているのよ」',
+    action:'今日は流れに逆らわず、来るものを受け入れてみてください。',
+    lucky:{color:'#3498db',colorName:'オーシャンブルー'}
+  },
+  circle: {
+    sym:'O', name:'円',
+    meaning:'円は「完成」と「調和」を象徴しています。あなたが取り組んできたことが、もうすぐ一つの完成を迎えます。長い旅の終わりは、次の旅の始まりでもあります。',
+    misa:'「円が出たわね」とファトマおばあちゃんが目を細めました。「これは祝福の印。あなたがやってきたことは、間違いじゃなかったのよ」',
+    action:'未完了のタスクを一つ、今日中に完了させてみてください。',
+    lucky:{color:'#f39c12',colorName:'アンバーゴールド'}
+  },
+  triangle: {
+    sym:'\u25B3', name:'三角',
+    meaning:'三角は「挑戦」と「上昇」を象徴しています。あなたの前に、新しい高みへの道が開かれています。怖くても一歩踏み出してください。三角の頂点から見える景色は、格別です。',
+    misa:'三角の模様が出たとき、ファトマおばあちゃんは少し真剣な顔になりました。「あなたは試されている。でも大丈夫。あなたは登れる人よ」',
+    action:'ずっと先延ばしにしていたチャレンジに、今日一歩だけ近づいてみてください。',
+    lucky:{color:'#e74c3c',colorName:'ガーネットレッド'}
+  }
+};
+
+/* =========================
+   DATA: Rune stones
+   ========================= */
+const runeStones = [
+  {sym:'ᚠ',name:'フェフ',label:'富',
+   past:'かつてあなたは豊かさの中にいました。その経験が今の土台になっています。',
+   present:'物質的・精神的な豊かさが、今あなたのもとに集まっています。感謝の心で受け取ってください。',
+   future:'努力が報われ、豊かさが訪れるでしょう。その恵みを独り占めせず、分かち合うことで、さらに大きな循環が生まれます。'},
+  {sym:'ᚢ',name:'ウルズ',label:'力',
+   past:'困難を乗り越えてきた経験が、あなたに強さを与えています。',
+   present:'今のあなたには、状況を切り開く力が備わっています。自信を持って前進してください。',
+   future:'試練が訪れますが、それを超える力があなたにはあります。その試練はあなたをさらに強くするでしょう。'},
+  {sym:'ᚦ',name:'スリサズ',label:'門',
+   past:'過去にあなたは大きな決断をしました。それが今の道につながっています。',
+   present:'新しい扉の前に立っています。踏み込む勇気を持ってください。',
+   future:'予期せぬ転機が訪れます。恐れずに受け入れれば、それは贈り物になるでしょう。'},
+  {sym:'ᚨ',name:'アンスズ',label:'知',
+   past:'あなたが過去に得た知識や経験は、無駄ではありませんでした。',
+   present:'大切なメッセージがあなたに届こうとしています。心を開いて受け取ってください。',
+   future:'知恵と洞察力が高まります。学びの機会を逃さず、好奇心を大切にしてください。'},
+  {sym:'ᚱ',name:'ライゾ',label:'旅',
+   past:'あなたの過去の旅路が、今の視野の広さにつながっています。',
+   present:'人生の旅の途中にいます。目的地を見失わず、今この瞬間を楽しんでください。',
+   future:'新しい冒険が始まります。物理的な旅かもしれないし、心の旅かもしれません。どちらも素晴らしい体験になるでしょう。'},
+  {sym:'ᚲ',name:'ケナズ',label:'光',
+   past:'かつてあなたの中に灯った情熱の光が、今も静かに燃え続けています。',
+   present:'創造的なエネルギーが高まっています。あなたの中の光を信じて、表現してください。',
+   future:'暗闇の中に光が差し込みます。希望を捨てないでください。夜明けは近いのです。'},
+  {sym:'ᚷ',name:'ゲーボ',label:'贈',
+   past:'あなたが過去に与えた優しさは、巡り巡って戻ってきています。',
+   present:'今、あなたのもとに贈り物が届こうとしています。それは物かもしれないし、出会いかもしれません。',
+   future:'与えることで得られるものがあります。見返りを求めない行動が、大きな幸運を引き寄せるでしょう。'},
+  {sym:'ᚹ',name:'ウンジョ',label:'喜',
+   past:'過去の幸せな記憶が、あなたを支えています。その温かさを忘れないでください。',
+   present:'喜びと調和のエネルギーに満ちています。今この瞬間の幸せを、十分に味わってください。',
+   future:'心からの喜びが訪れます。それはささやかかもしれませんが、あなたの人生を照らす光になるでしょう。'},
+];
+
+/* =========================
+   DATA: Veda (7 days)
+   ========================= */
+const vedaDays = [
+  {day:'日曜日',planet:'太陽 (Surya)',deity:'スーリヤ神',
+   msg:'太陽の子であるあなたは、リーダーシップと輝きの持ち主。自信を持って自分の道を照らしてください。周囲の人を温かく包み込む力が、あなたの本質です。',
+   lucky:{color:'#f39c12',colorName:'サフランゴールド'}},
+  {day:'月曜日',planet:'月 (Chandra)',deity:'チャンドラ神',
+   msg:'月の子であるあなたは、深い感受性と直感の持ち主。感情の波を恐れないでください。その繊細さこそが、あなたの最大の強みです。',
+   lucky:{color:'#ecf0f1',colorName:'ムーンホワイト'}},
+  {day:'火曜日',planet:'火星 (Mangala)',deity:'マンガラ神',
+   msg:'火星の子であるあなたは、情熱と行動力の持ち主。その炎のようなエネルギーを正しい方向に向ければ、不可能なことは何もありません。',
+   lucky:{color:'#e74c3c',colorName:'チリレッド'}},
+  {day:'水曜日',planet:'水星 (Budha)',deity:'ブッダ神',
+   msg:'水星の子であるあなたは、知性とコミュニケーションの持ち主。言葉の力を信じてください。あなたの言葉には、人の心を動かす力があります。',
+   lucky:{color:'#2ecc71',colorName:'ジェイドグリーン'}},
+  {day:'木曜日',planet:'木星 (Guru)',deity:'ブリハスパティ神',
+   msg:'木星の子であるあなたは、知恵と拡大の持ち主。学び続ける姿勢が、あなたの運命を切り開きます。大きなビジョンを持つことを恐れないでください。',
+   lucky:{color:'#f1c40f',colorName:'ターメリックイエロー'}},
+  {day:'金曜日',planet:'金星 (Shukra)',deity:'シュクラ神',
+   msg:'金星の子であるあなたは、美と愛の持ち主。美しいものに囲まれることで、あなたのエネルギーは最大限に発揮されます。愛を恐れないでください。',
+   lucky:{color:'#e91e8e',colorName:'ロータスピンク'}},
+  {day:'土曜日',planet:'土星 (Shani)',deity:'シャニ神',
+   msg:'土星の子であるあなたは、忍耐と深い知恵の持ち主。時間はあなたの味方です。急がず、着実に積み上げたものが、やがて揺るぎない基盤となるでしょう。',
+   lucky:{color:'#34495e',colorName:'ミッドナイトインディゴ'}},
+];
+
+/* =========================
+   DATA: Zodiac
+   ========================= */
+const zodiac = [
+  {name:"牡羊座",abbr:"Ari",msg:"行動力が高まる日。直感を信じて。",stars:[4,3,5,3]},
+  {name:"牡牛座",abbr:"Tau",msg:"穏やかに過ごせる日。美味しいもので自分を労って。",stars:[4,4,3,4]},
+  {name:"双子座",abbr:"Gem",msg:"コミュニケーション力が冴える日。言葉を大切に。",stars:[5,3,5,3]},
+  {name:"蟹座",abbr:"Can",msg:"感受性豊かな日。優しさに気づけるはず。",stars:[3,5,3,3]},
+  {name:"獅子座",abbr:"Leo",msg:"自信を持って進んでいい日。あなたは輝いている。",stars:[5,4,5,4]},
+  {name:"乙女座",abbr:"Vir",msg:"細部に気を配ると大きな成果に。丁寧さが鍵。",stars:[4,3,5,4]},
+  {name:"天秤座",abbr:"Lib",msg:"バランス感覚が光る日。調和を大切に。",stars:[4,5,3,3]},
+  {name:"蠍座",abbr:"Sco",msg:"集中力が高まる日。没頭することで道が開ける。",stars:[4,4,4,5]},
+  {name:"射手座",abbr:"Sag",msg:"冒険心が刺激される日。新しい扉を叩いて。",stars:[5,3,4,3]},
+  {name:"山羊座",abbr:"Cap",msg:"着実に進める日。地道な努力が報われる。",stars:[3,3,5,4]},
+  {name:"水瓶座",abbr:"Aqu",msg:"独創的なアイデアが湧く日。常識を超えて。",stars:[4,3,4,3]},
+  {name:"魚座",abbr:"Pis",msg:"直感が冴え渡る日。芸術に触れてみて。",stars:[4,5,3,4]}
+];
+const starLabels = ['総合','恋愛','仕事','金運'];
+
+
+/* ============================================================
+   INITIALIZATION
+   ============================================================ */
+function initAll() {
+  initHeroStars();
+  initFadeIn();
+  initNavbar();
+  initFortuneTabs();
+  initTarot();
+  initCoffee();
+  initRune();
+  initVeda();
+  initZodiac();
+  initFaq();
+  // Map needs D3 — wait for it if not yet loaded
+  if (typeof d3 !== 'undefined' && typeof topojson !== 'undefined') {
+    initWorldMap();
+  } else {
+    // Poll for D3 availability (CDN might still be loading)
+    let attempts = 0;
+    const poll = setInterval(() => {
+      attempts++;
+      if (typeof d3 !== 'undefined' && typeof topojson !== 'undefined') {
+        clearInterval(poll);
+        initWorldMap();
+      } else if (attempts > 50) { // ~5 seconds
+        clearInterval(poll);
+        document.getElementById('mapWrap').innerHTML = '<p style="text-align:center;color:var(--txt-dim);padding:40px 0">地図の読み込みに時間がかかっています。<br><button onclick="location.reload()" style="color:var(--gold);background:none;border:1px solid rgba(201,168,76,.3);border-radius:6px;padding:8px 20px;cursor:pointer;margin-top:8px;font-family:inherit">再読み込み</button></p>';
+      }
+    }, 100);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
+
+/* =========================
+   Hero Stars
+   ========================= */
+function initHeroStars() {
+  const c = document.getElementById('heroStars');
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('span');
+    s.className = 'hstar';
+    s.style.left = Math.random()*100+'%';
+    s.style.top = Math.random()*100+'%';
+    s.style.setProperty('--d', (2+Math.random()*4)+'s');
+    s.style.setProperty('--dl', (Math.random()*3)+'s');
+    s.style.width = s.style.height = (1+Math.random()*2)+'px';
+    c.appendChild(s);
+  }
+}
+
+/* =========================
+   Fade-in Observer
+   ========================= */
+function initFadeIn() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold:0.12});
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+}
+
+/* =========================
+   Navbar
+   ========================= */
+function initNavbar() {
+  const nav = document.getElementById('navbar');
+  let last = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 100) nav.classList.add('show');
+    else nav.classList.remove('show');
+    last = y;
+  });
+}
+
+/* =========================
+   World Map (D3 + TopoJSON)
+   ========================= */
+function initWorldMap() {
+  if (typeof d3 === 'undefined' || typeof topojson === 'undefined') {
+    document.getElementById('mapWrap').innerHTML = '<p style="text-align:center;color:var(--txt-dim);padding:40px 0">地図を読み込んでいます...<br><span style="font-size:12px">表示されない場合はページを再読み込みしてください</span></p>';
+    return;
+  }
+  const wrap = document.getElementById('mapWrap');
+  const tip = document.getElementById('mapTip');
+  const filtersEl = document.getElementById('mapFilters');
+
+  // Filters
+  const allBtn = document.createElement('button');
+  allBtn.className = 'mf-btn active'; allBtn.textContent = 'すべて';
+  allBtn.onclick = () => filterMap('all');
+  filtersEl.appendChild(allBtn);
+  categories.forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'mf-btn'; b.textContent = cat;
+    b.onclick = () => filterMap(cat);
+    filtersEl.appendChild(b);
+  });
+
+  const W = 920, H = 480;
+  const svg = d3.select('#mapWrap').append('svg')
+    .attr('viewBox', `0 0 ${W} ${H}`)
+    .style('width','100%').style('height','auto');
+
+  const proj = d3.geoNaturalEarth1().scale(155).translate([W/2, H/2+20]);
+  const path = d3.geoPath().projection(proj);
+
+  // Load world data (with fallback URLs)
+  const mapUrls = [
+    'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json',
+    'https://unpkg.com/world-atlas@2/countries-110m.json'
+  ];
+  
+  async function loadMapData() {
+    for (const url of mapUrls) {
+      try {
+        const resp = await fetch(url);
+        if (resp.ok) return await resp.json();
+      } catch(e) { continue; }
+    }
+    return null;
+  }
+  
+  loadMapData().then(world => {
+    if (!world) {
+      wrap.innerHTML = '<p style="text-align:center;color:var(--txt-dim);padding:40px 0">地図データの読み込みに失敗しました。<br>ページを再読み込みしてください。</p>';
+      return;
+    }
+    const land = topojson.feature(world, world.objects.countries);
+
+    svg.append('g').selectAll('path')
+      .data(land.features).enter().append('path')
+      .attr('d', path)
+      .attr('fill','#12122e')
+      .attr('stroke','rgba(201,168,76,.12)')
+      .attr('stroke-width',.5);
+
+    // Country dots
+    const dots = svg.append('g').selectAll('circle')
+      .data(countries60).enter().append('circle')
+      .attr('class','map-dot')
+      .attr('cx', d => proj([d.lon,d.lat])[0])
+      .attr('cy', d => proj([d.lon,d.lat])[1])
+      .attr('r', 4)
+      .attr('fill', d => regionColors[d.region] || '#c9a84c')
+      .attr('opacity',.8)
+      .style('cursor','pointer')
+      .on('mouseenter', function(ev, d) {
+        d3.select(this).attr('r',7).attr('opacity',1);
+        tip.style.opacity = 1;
+        tip.innerHTML = `<strong>${d.name}</strong> — ${d.cat}`;
+        const r = wrap.getBoundingClientRect();
+        tip.style.left = (ev.clientX - r.left + 12) + 'px';
+        tip.style.top = (ev.clientY - r.top - 30) + 'px';
+      })
+      .on('mouseleave', function() {
+        d3.select(this).attr('r',4).attr('opacity',.8);
+        tip.style.opacity = 0;
+      });
+
+    // Touch support
+    dots.on('click', function(ev, d) {
+      tip.style.opacity = 1;
+      tip.innerHTML = `<strong>${d.name}</strong> — ${d.cat}`;
+      const r = wrap.getBoundingClientRect();
+      tip.style.left = (ev.clientX - r.left + 12) + 'px';
+      tip.style.top = (ev.clientY - r.top - 30) + 'px';
+      setTimeout(() => { tip.style.opacity = 0; }, 2500);
+    });
+
+    window._mapDots = dots;
+  });
+
+  window.filterMap = function(cat) {
+    filtersEl.querySelectorAll('.mf-btn').forEach(b => b.classList.remove('active'));
+    if(cat==='all') filtersEl.querySelector('.mf-btn').classList.add('active');
+    else [...filtersEl.querySelectorAll('.mf-btn')].find(b=>b.textContent===cat)?.classList.add('active');
+
+    if(window._mapDots) {
+      window._mapDots
+        .transition().duration(400)
+        .attr('opacity', d => (cat==='all'||d.cat===cat) ? .85 : .08)
+        .attr('r', d => (cat==='all'||d.cat===cat) ? 4.5 : 2.5);
+    }
+  };
+}
+
+/* =========================
+   Fortune Tabs
+   ========================= */
+function initFortuneTabs() {
+  document.querySelectorAll('.ftab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.fpanel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-'+tab.dataset.tab).classList.add('active');
+      // Re-observe fade-ins in newly active panel
+      document.querySelectorAll('.fpanel.active .fade-in:not(.visible)').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 100);
+      });
+    });
+  });
+}
+
+/* =========================
+   A. TAROT
+   ========================= */
+function initTarot() {
+  let selectedTheme = null;
+  let selectedCard = null;
+
+  // Start button
+  document.getElementById('tarotStartBtn').addEventListener('click', () => {
+    document.getElementById('tarotStep1').classList.add('hidden');
+    document.getElementById('tarotStep2').classList.remove('hidden');
+  });
+
+  // Theme selection
+  document.querySelectorAll('#tarotThemes button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#tarotThemes button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedTheme = btn.dataset.theme;
+      // Go to breath
+      setTimeout(() => {
+        document.getElementById('tarotStep2').classList.add('hidden');
+        document.getElementById('tarotStep3').classList.remove('hidden');
+        startBreath();
+      }, 400);
+    });
+  });
+
+  // Breath animation
+  function startBreath() {
+    const b = document.getElementById('tarotBreathe');
+    b.classList.add('active');
+    b.textContent = '吸って...';
+    b.classList.add('in');
+    setTimeout(() => {
+      b.classList.remove('in');
+      b.textContent = '吐いて...';
+      b.classList.add('out');
+    }, 2200);
+    setTimeout(() => {
+      b.classList.remove('out','active');
+      document.getElementById('tarotStep3').classList.add('hidden');
+      document.getElementById('tarotStep4').classList.remove('hidden');
+      buildCards();
+    }, 4600);
+  }
+
+  // Build 7 cards (5 real + 2 duplicates shuffled)
+  function buildCards() {
+    const fan = document.getElementById('tarotFan');
+    fan.innerHTML = '';
+    // Create pool: 5 cards, pick 7 with some repeats
+    const pool = [...tarotCards];
+    while(pool.length < 7) pool.push(tarotCards[Math.floor(Math.random()*tarotCards.length)]);
+    // Shuffle
+    for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+
+    pool.forEach((card, i) => {
+      const el = document.createElement('div');
+      el.className = 'tc';
+      el.innerHTML = `
+        <div class="tc-face tc-back"></div>
+        <div class="tc-face tc-front">
+          <span class="sym">${card.sym}</span>
+          <span class="cname">${card.num}. ${card.name}</span>
+        </div>`;
+      el.addEventListener('click', () => selectCard(el, card, pool));
+      fan.appendChild(el);
+    });
+  }
+
+  function selectCard(el, card, pool) {
+    if(selectedCard) return;
+    selectedCard = card;
+
+    // Dim others, flip selected
+    document.querySelectorAll('.tc').forEach(c => {
+      if(c !== el) c.classList.add('dimmed');
+    });
+    el.classList.add('selected');
+
+    // Show result after flip animation
+    setTimeout(() => {
+      document.getElementById('tarotStep4').classList.add('hidden');
+      document.getElementById('tarotStep5').classList.remove('hidden');
+      showTarotResult(card, selectedTheme);
+    }, 900);
+  }
+
+  function showTarotResult(card, theme) {
+    const themeMap = {love:'love',work:'work',relation:'relation',self:'self',daily:'daily'};
+    const themeLabel = {love:'恋愛',work:'仕事',relation:'人間関係',self:'自分自身',daily:'今日の運勢'};
+    const t = themeMap[theme] || 'daily';
+    const container = document.getElementById('tarotResult');
+
+    container.innerHTML = `
+      <div class="result-step" data-delay="0"><p class="misa-first">......あ。</p></div>
+      <div class="result-step" data-delay="1200">
+        <h3>${card.num}. ${card.name}</h3>
+        <p>${card.general}</p>
+      </div>
+      <div class="result-step" data-delay="2400">
+        <h3>${themeLabel[t]}について</h3>
+        <p>${card[t]}</p>
+      </div>
+      <div class="result-step" data-delay="3600">
+        <p class="episode">${card.misa}</p>
+      </div>
+      <div class="result-step" data-delay="4800">
+        <div class="action-box">
+          <h4>今日のアクション</h4>
+          <p>${card.actions[t]}</p>
+          <div class="lucky-row">
+            <span><span class="color-dot" style="background:${card.lucky.color}"></span>${card.lucky.colorName}</span>
+            <span>Lucky Item: ${card.lucky.item}</span>
+          </div>
+        </div>
+      </div>`;
+
+    // Staged reveal
+    container.querySelectorAll('.result-step').forEach(step => {
+      const delay = parseInt(step.dataset.delay);
+      setTimeout(() => step.classList.add('show'), delay);
+    });
+
+    // Paywall
+    const pw = document.getElementById('tarotPaywall');
+    const pwText = document.getElementById('tarotPaywallText');
+    const pwMap = {love:'恋愛について、もっと深く知りたい方へ',work:'仕事運を、もっと詳しく知りたい方へ',relation:'人間関係の悩みを、もっと深く掘り下げたい方へ',self:'自分自身を、もっと深く知りたい方へ',daily:'毎日のパーソナル鑑定を受けたい方へ'};
+    pwText.textContent = pwMap[t] || pwMap.daily;
+    setTimeout(() => { pw.style.display = 'block'; }, 6000);
+  }
+
+  // Retry
+  document.getElementById('tarotRetry').addEventListener('click', () => {
+    selectedTheme = null; selectedCard = null;
+    document.getElementById('tarotStep5').classList.add('hidden');
+    document.getElementById('tarotPaywall').style.display = 'none';
+    document.getElementById('tarotStep2').classList.remove('hidden');
+    document.querySelectorAll('#tarotThemes button').forEach(b => b.classList.remove('active'));
+  });
+}
+
+/* =========================
+   B. COFFEE
+   ========================= */
+function initCoffee() {
+  let sipCount = 0;
+  const sipLevels = [
+    {y:48, h:118, msg:'ゆっくり飲んでみて'},
+    {y:78, h:88, msg:'「いい香りでしょう？」とMisa'},
+    {y:108, h:58, msg:'「もう少しよ」'},
+    {y:138, h:28, msg:'「最後の一口......」'},
+  ];
+
+  document.getElementById('coffeeStartBtn').addEventListener('click', () => {
+    document.getElementById('coffeeStep1').classList.add('hidden');
+    document.getElementById('coffeeStep2').classList.remove('hidden');
+    sipCount = 0;
+    updateCup(0);
+  });
+
+  document.getElementById('coffeeSipBtn').addEventListener('click', () => {
+    sipCount++;
+    if(sipCount < sipLevels.length) {
+      updateCup(sipCount);
+    }
+    if(sipCount >= sipLevels.length - 1) {
+      // Last sip — show flip button
+      setTimeout(() => {
+        document.getElementById('coffeeSipBtn').classList.add('hidden');
+        document.getElementById('coffeeFlipBtn').classList.remove('hidden');
+      }, 800);
+    }
+  });
+
+  function updateCup(i) {
+    const lv = sipLevels[Math.min(i, sipLevels.length-1)];
+    const liquid = document.getElementById('coffeeLiquid');
+    liquid.setAttribute('y', lv.y);
+    liquid.setAttribute('height', lv.h);
+    document.getElementById('coffeeMsg').textContent = lv.msg;
+  }
+
+  document.getElementById('coffeeFlipBtn').addEventListener('click', () => {
+    const wrap = document.getElementById('coffeeCupWrap');
+    wrap.classList.add('flipped');
+    document.getElementById('coffeeMsg').textContent = '模様が浮かび上がるまで、少し待って......';
+    document.getElementById('coffeeFlipBtn').classList.add('hidden');
+
+    setTimeout(() => {
+      document.getElementById('coffeeStep2').classList.add('hidden');
+      document.getElementById('coffeeStep3').classList.remove('hidden');
+    }, 2000);
+  });
+
+  // Pattern selection
+  document.querySelectorAll('#coffeePatterns .cpat').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#coffeePatterns .cpat').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const pat = coffeePatterns[btn.dataset.pattern];
+      setTimeout(() => {
+        document.getElementById('coffeeStep3').classList.add('hidden');
+        document.getElementById('coffeeStep4').classList.remove('hidden');
+        showCoffeeResult(pat);
+      }, 400);
+    });
+  });
+
+  function showCoffeeResult(pat) {
+    const c = document.getElementById('coffeeResult');
+    c.innerHTML = `
+      <div class="result-step" data-delay="0"><p class="misa-first">......見えた。</p></div>
+      <div class="result-step" data-delay="1000">
+        <h3>${pat.sym} ${pat.name}の模様</h3>
+        <p>${pat.meaning}</p>
+      </div>
+      <div class="result-step" data-delay="2200">
+        <p class="episode">${pat.misa}</p>
+      </div>
+      <div class="result-step" data-delay="3400">
+        <div class="action-box">
+          <h4>今日のアクション</h4>
+          <p>${pat.action}</p>
+          <div class="lucky-row">
+            <span><span class="color-dot" style="background:${pat.lucky.color}"></span>${pat.lucky.colorName}</span>
+          </div>
+        </div>
+      </div>`;
+    c.querySelectorAll('.result-step').forEach(step => {
+      setTimeout(() => step.classList.add('show'), parseInt(step.dataset.delay));
+    });
+    setTimeout(() => { document.getElementById('coffeePaywall').style.display = 'block'; }, 4600);
+  }
+
+  document.getElementById('coffeeRetry').addEventListener('click', () => {
+    sipCount = 0;
+    document.getElementById('coffeeStep4').classList.add('hidden');
+    document.getElementById('coffeePaywall').style.display = 'none';
+    document.getElementById('coffeeCupWrap').classList.remove('flipped');
+    document.getElementById('coffeeSipBtn').classList.remove('hidden');
+    document.getElementById('coffeeFlipBtn').classList.add('hidden');
+    document.querySelectorAll('#coffeePatterns .cpat').forEach(b => b.classList.remove('active'));
+    document.getElementById('coffeeStep1').classList.remove('hidden');
+  });
+}
+
+/* =========================
+   C. RUNE
+   ========================= */
+function initRune() {
+  let runeTheme = null;
+  let chosen = [];
+
+  document.getElementById('runeStartBtn').addEventListener('click', () => {
+    document.getElementById('runeStep1').classList.add('hidden');
+    document.getElementById('runeStep2').classList.remove('hidden');
+  });
+
+  document.querySelectorAll('#runeThemes button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#runeThemes button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      runeTheme = btn.dataset.theme;
+      setTimeout(() => {
+        document.getElementById('runeStep2').classList.add('hidden');
+        document.getElementById('runeStep3').classList.remove('hidden');
+        buildRuneStones();
+      }, 400);
+    });
+  });
+
+  function buildRuneStones() {
+    const field = document.getElementById('runeField');
+    field.innerHTML = '';
+    chosen = [];
+    // Reset slots
+    document.querySelectorAll('.rslot').forEach(s => {
+      s.classList.remove('filled');
+      s.querySelector('.slot-sym').textContent = '';
+      s.querySelector('.slot-name').textContent = '';
+    });
+
+    // Shuffle stones
+    const shuffled = [...runeStones];
+    for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];}
+
+    shuffled.forEach(stone => {
+      const el = document.createElement('div');
+      el.className = 'rstone';
+      el.innerHTML = `<span class="sym">${stone.sym}</span><span class="label">${stone.label}</span>`;
+      el.addEventListener('click', () => pickStone(el, stone));
+      field.appendChild(el);
+    });
+  }
+
+  function pickStone(el, stone) {
+    if(chosen.length >= 3 || el.classList.contains('chosen')) return;
+
+    el.classList.add('chosen');
+    chosen.push(stone);
+
+    // Fill slot
+    const slot = document.querySelectorAll('.rslot')[chosen.length - 1];
+    slot.classList.add('filled');
+    slot.querySelector('.slot-sym').textContent = stone.sym;
+    slot.querySelector('.slot-name').textContent = stone.label;
+
+    if(chosen.length === 3) {
+      // Disable remaining
+      document.querySelectorAll('.rstone:not(.chosen)').forEach(s => s.classList.add('disabled'));
+      // Show result
+      setTimeout(() => {
+        document.getElementById('runeStep3').classList.add('hidden');
+        document.getElementById('runeStep4').classList.remove('hidden');
+        showRuneResult();
+      }, 800);
+    }
+  }
+
+  function showRuneResult() {
+    const posLabels = ['過去','現在','未来'];
+    const posKeys = ['past','present','future'];
+    const c = document.getElementById('runeResult');
+    let html = `<div class="result-step" data-delay="0"><p class="misa-first">......石が語りかけています。</p></div>`;
+
+    chosen.forEach((stone, i) => {
+      html += `
+        <div class="result-step" data-delay="${1200 + i*1400}">
+          <h3>${stone.sym} ${stone.name}（${stone.label}）— ${posLabels[i]}</h3>
+          <p>${stone[posKeys[i]]}</p>
+        </div>`;
+    });
+
+    html += `
+      <div class="result-step" data-delay="${1200 + 3*1400}">
+        <div class="action-box">
+          <h4>今日のアクション</h4>
+          <p>3つの石が示すメッセージを心に留めて、今日一日を過ごしてみてください。特に「${posLabels[1]}」の石「${chosen[1].label}」が、今のあなたに最も大切なメッセージを持っています。</p>
+          <div class="lucky-row">
+            <span><span class="color-dot" style="background:#8aad8c"></span>ノルディックグリーン</span>
+          </div>
+        </div>
+      </div>`;
+
+    c.innerHTML = html;
+    c.querySelectorAll('.result-step').forEach(step => {
+      setTimeout(() => step.classList.add('show'), parseInt(step.dataset.delay));
+    });
+    setTimeout(() => { document.getElementById('runePaywall').style.display = 'block'; }, 1200 + 4*1400);
+  }
+
+  document.getElementById('runeRetry').addEventListener('click', () => {
+    chosen = []; runeTheme = null;
+    document.getElementById('runeStep4').classList.add('hidden');
+    document.getElementById('runePaywall').style.display = 'none';
+    document.querySelectorAll('#runeThemes button').forEach(b => b.classList.remove('active'));
+    document.getElementById('runeStep2').classList.remove('hidden');
+  });
+}
+
+/* =========================
+   D. VEDA
+   ========================= */
+function initVeda() {
+  document.getElementById('vedaStartBtn').addEventListener('click', () => {
+    document.getElementById('vedaStep1').classList.add('hidden');
+    document.getElementById('vedaStep2').classList.remove('hidden');
+    buildVedaDays();
+  });
+
+  function buildVedaDays() {
+    const grid = document.getElementById('vedaGrid');
+    grid.innerHTML = '';
+    vedaDays.forEach((d, i) => {
+      const el = document.createElement('div');
+      el.className = 'vedaday';
+      el.innerHTML = `<span class="dname">${d.day.replace('曜日','')}</span><span class="dplanet">${d.planet.split(' ')[0]}</span>`;
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.vedaday').forEach(v => v.classList.remove('active'));
+        el.classList.add('active');
+        setTimeout(() => {
+          document.getElementById('vedaStep2').classList.add('hidden');
+          document.getElementById('vedaStep3').classList.remove('hidden');
+          showVedaResult(d);
+        }, 400);
+      });
+      grid.appendChild(el);
+    });
+  }
+
+  // Calc link
+  document.getElementById('vedaCalcLink').addEventListener('click', () => {
+    document.getElementById('vedaCalcForm').classList.toggle('show');
+  });
+
+  document.getElementById('vedaCalcBtn').addEventListener('click', () => {
+    const input = document.getElementById('vedaBirthdate').value;
+    if(!input) return;
+    const date = new Date(input);
+    const dayIndex = date.getDay(); // 0=Sun
+    const vedaDay = vedaDays[dayIndex];
+    // Highlight
+    document.querySelectorAll('.vedaday').forEach((v,i) => {
+      v.classList.toggle('active', i === dayIndex);
+    });
+    setTimeout(() => {
+      document.getElementById('vedaStep2').classList.add('hidden');
+      document.getElementById('vedaStep3').classList.remove('hidden');
+      showVedaResult(vedaDay);
+    }, 600);
+  });
+
+  function showVedaResult(d) {
+    const c = document.getElementById('vedaResult');
+    c.innerHTML = `
+      <div class="result-step" data-delay="0"><p class="misa-first">......星が見えます。</p></div>
+      <div class="result-step" data-delay="1200">
+        <h3>${d.day}生まれのあなた</h3>
+        <p style="font-size:13px;color:var(--txt-dim);margin-bottom:8px">守護惑星: ${d.planet}　|　守護神: ${d.deity}</p>
+        <p>${d.msg}</p>
+      </div>
+      <div class="result-step" data-delay="2800">
+        <div class="action-box">
+          <h4>あなたのラッキーカラー</h4>
+          <div class="lucky-row">
+            <span><span class="color-dot" style="background:${d.lucky.color}"></span>${d.lucky.colorName}</span>
+          </div>
+          <p style="margin-top:12px;font-size:13px">このカラーを身につけることで、守護惑星のエネルギーが高まります。</p>
+        </div>
+      </div>`;
+    c.querySelectorAll('.result-step').forEach(step => {
+      setTimeout(() => step.classList.add('show'), parseInt(step.dataset.delay));
+    });
+    setTimeout(() => { document.getElementById('vedaPaywall').style.display = 'block'; }, 4200);
+  }
+
+  document.getElementById('vedaRetry').addEventListener('click', () => {
+    document.getElementById('vedaStep3').classList.add('hidden');
+    document.getElementById('vedaPaywall').style.display = 'none';
+    document.querySelectorAll('.vedaday').forEach(v => v.classList.remove('active'));
+    document.getElementById('vedaCalcForm').classList.remove('show');
+    document.getElementById('vedaStep2').classList.remove('hidden');
+  });
+}
+
+/* =========================
+   ZODIAC
+   ========================= */
+function initZodiac() {
+  const grid = document.getElementById('zodiacGrid');
+  zodiac.forEach((z, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'zbtn';
+    btn.innerHTML = `<span class="abbr">${z.abbr}</span><span class="zname">${z.name}</span>`;
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.zbtn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      showZodiac(z);
+    });
+    grid.appendChild(btn);
+  });
+
+  function showZodiac(z) {
+    document.getElementById('zrName').textContent = z.name;
+    document.getElementById('zrMsg').textContent = z.msg;
+    const starsEl = document.getElementById('zrStars');
+    starsEl.innerHTML = '';
+    z.stars.forEach((s, i) => {
+      const item = document.createElement('div');
+      item.className = 'zstar-item';
+      const filled = '\u2726'.repeat(s);
+      const empty = '\u2727'.repeat(5-s);
+      item.innerHTML = `<span class="slbl">${starLabels[i]}</span><span class="sdots">${filled}${empty}</span>`;
+      starsEl.appendChild(item);
+    });
+    const res = document.getElementById('zodiacResult');
+    res.classList.add('show');
+  }
+}
+
+/* =========================
+   FAQ Accordion
+   ========================= */
+function initFaq() {
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+}
 </script>
-</body></html>
+</body>
+</html>
