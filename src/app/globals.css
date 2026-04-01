@@ -9,13 +9,11 @@
   --gold-light: #d4b06a;
   --gold-dim: rgba(184, 150, 62, 0.3);
   --text-light: #d6d2cb;
-  --text-muted: #8a8580;
+  --text-muted: #9a9590;
   --text-dark: #2c2824;
   --text-dark-sub: #6b6560;
   --border-thin: rgba(184, 150, 62, 0.12);
   --border-mid: rgba(184, 150, 62, 0.25);
-  --sage: #7d9a7e;
-  --lavender: #9e7b9e;
 }
 
 html {
@@ -44,7 +42,62 @@ h1, h2, h3 {
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { scrollbar-width: none; }
 
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus-visible for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @keyframes twinkle {
   from { opacity: 0.15; }
   to { opacity: 0.45; }
+}
+
+/* Card shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.card-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(184, 150, 62, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
 }

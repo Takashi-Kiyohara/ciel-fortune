@@ -1,0 +1,20 @@
+{
+  "name": "Ciel Fortune — 世界を旅するCAが届ける占い",
+  "short_name": "Ciel Fortune",
+  "description": "国際線CA Misaが世界各地で出会った占いであなたの恋を導きます",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080811",
+  "theme_color": "#0d0d1a",
+  "orientation": "portrait-primary",
+  "lang": "ja",
+  "categories": ["entertainment", "lifestyle"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
