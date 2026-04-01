@@ -31,9 +31,39 @@ const stars = Array.from({ length: 40 }).map((_, i) => {
 
 type LastFortune = { slug: string; title: string; date: string } | null;
 
+// 時間帯に応じた雰囲気演出
+function getTimeGreeting(): { sub: string; mood: string } {
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 10) return { sub: "朝の静けさの中で、今日の恋を覗いてみませんか", mood: "morning" };
+  if (hour >= 10 && hour < 15) return { sub: "昼下がりのひととき、恋のヒントを見つけましょう", mood: "afternoon" };
+  if (hour >= 15 && hour < 19) return { sub: "夕暮れの時間、星が語りかけ始めています", mood: "evening" };
+  if (hour >= 19 && hour < 23) return { sub: "夜は恋の時間。星の囁きに耳を傾けて", mood: "night" };
+  return { sub: "深夜の占いは、いちばん心に響くもの", mood: "latenight" };
+}
+
+// 季節メッセージ
+function getSeasonalNote(): string | null {
+  const now = new Date();
+  const m = now.getMonth() + 1;
+  const d = now.getDate();
+  if (m === 2 && d >= 1 && d <= 14) return "バレンタインの恋占い、受付中";
+  if (m === 3 && d >= 1 && d <= 14) return "ホワイトデーの相性占い、おすすめです";
+  if (m === 7 && d >= 1 && d <= 7) return "七夕の恋占い、星に願いを込めて";
+  if (m === 12 && d >= 15 && d <= 25) return "クリスマスの恋占い、特別な夜のために";
+  if (m === 1 && d >= 1 && d <= 7) return "新年の恋占い、今年の恋を占いましょう";
+  return null;
+}
+
 export default function Home() {
   const [isFirstVisit, setIsFirstVisit] = useState(false);
   const [lastFortune, setLastFortune] = useState<LastFortune>(null);
+  const [timeGreeting, setTimeGreeting] = useState<{ sub: string; mood: string } | null>(null);
+  const [seasonalNote, setSeasonalNote] = useState<string | null>(null);
+
+  useEffect(() => {
+    setTimeGreeting(getTimeGreeting());
+    setSeasonalNote(getSeasonalNote());
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -115,10 +145,22 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xs text-[var(--text-muted)] mb-10"
+          className="text-xs text-[var(--text-muted)] mb-2"
         >
-          パリ、ストックホルム、北京 ── 各地の伝統占術をMisaが語りかけます
+          {timeGreeting ? timeGreeting.sub : "パリ、ストックホルム、北京 ── 各地の伝統占術をMisaが語りかけます"}
         </motion.p>
+
+        {seasonalNote && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-[10px] text-[var(--gold)] opacity-70 mb-8"
+          >
+            ✦ {seasonalNote}
+          </motion.p>
+        )}
+        {!seasonalNote && <div className="mb-8" />}
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}

@@ -17,6 +17,7 @@ import {
   MagicalLoading,
   ShareButtons,
   AuthModal,
+  SaveReadingPrompt,
 } from "@/components/fortune";
 
 export default function FortunePage() {
@@ -400,10 +401,43 @@ export default function FortunePage() {
                 )}
               </motion.div>
 
+              {/* Reading Count Chat Nudge — 3回目以降に表示 */}
+              {(() => {
+                const readingCount = history.length;
+                if (readingCount < 3) return null;
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="mt-6 border border-[var(--gold-dim)] rounded-lg p-5 text-center bg-gradient-to-b from-[rgba(184,150,62,0.04)] to-transparent"
+                  >
+                    <p className="text-xs text-[var(--gold)] mb-1">
+                      {readingCount}回目の占い、お疲れさまです
+                    </p>
+                    <p className="text-sm text-[var(--text-light)] mb-3">
+                      同じ悩みが続いていませんか？ Misaに直接相談してみて。
+                    </p>
+                    <p className="text-xs text-[var(--text-muted)] mb-4 leading-relaxed">
+                      占い結果だけでは見えない、あなただけの恋のアドバイスをお届けします。
+                    </p>
+                    <Link
+                      href="/chat"
+                      className="inline-block bg-[var(--gold)] text-[var(--bg-deep)] px-6 py-2.5 rounded text-xs font-medium hover:opacity-90 transition-opacity"
+                    >
+                      Misaに恋愛相談する
+                    </Link>
+                  </motion.div>
+                );
+              })()}
+
               {/* Share */}
               <div className="mt-4">
                 <ShareButtons fortuneName={fortune.name} variant="free" />
               </div>
+
+              {/* Email Capture — 鑑定結果を保存 */}
+              {!user && <SaveReadingPrompt fortuneName={fortune.name} />}
 
               {/* 他の占い導線 — 未体験の占いを優先表示 */}
               {(() => {
@@ -455,21 +489,23 @@ export default function FortunePage() {
                 );
               })()}
 
-              {/* Chat CTA */}
-              <div className="mt-6 border border-[var(--border-thin)] rounded-lg p-6 text-center">
-                <p className="text-sm text-[var(--text-light)] mb-2">
-                  Misaに直接相談してみませんか？
-                </p>
-                <p className="text-xs text-[var(--text-muted)] mb-4">
-                  あなたの恋の悩みにMisaが個別に答えます
-                </p>
-                <Link
-                  href="/chat"
-                  className="inline-block border border-[var(--border-mid)] text-[var(--text-muted)] px-6 py-2 rounded text-xs hover:text-[var(--gold)] hover:border-[var(--gold-dim)] transition-all"
-                >
-                  Misaに相談する
-                </Link>
-              </div>
+              {/* Chat CTA — 3回未満のユーザーに表示 */}
+              {history.length < 3 && (
+                <div className="mt-6 border border-[var(--border-thin)] rounded-lg p-6 text-center">
+                  <p className="text-sm text-[var(--text-light)] mb-2">
+                    Misaに直接相談してみませんか？
+                  </p>
+                  <p className="text-xs text-[var(--text-muted)] mb-4">
+                    あなたの恋の悩みにMisaが個別に答えます
+                  </p>
+                  <Link
+                    href="/chat"
+                    className="inline-block border border-[var(--border-mid)] text-[var(--text-muted)] px-6 py-2 rounded text-xs hover:text-[var(--gold)] hover:border-[var(--gold-dim)] transition-all"
+                  >
+                    Misaに相談する
+                  </Link>
+                </div>
+              )}
 
               {/* 戻る */}
               <div className="mt-8 text-center">
