@@ -5,6 +5,7 @@ import Link from "next/link";
 import { fortunes } from "@/data/fortunes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WorldMap from "@/components/WorldMap";
 
 // Seeded random for deterministic star positions
 function seededRandom(seed: number) {
@@ -173,6 +174,26 @@ export default function Home() {
           国際線CAとして世界を飛び回る中で、パリのタロット、イスタンブールのコーヒー占い、
           インドのヴェーダ占星術 ── 各地で出会った占いの奥深さに魅了されました。
           その体験と知恵を、あなたの恋愛にお届けします。
+        </p>
+      </section>
+
+      {/* World Map — Misaの旅路 */}
+      <section className="px-6 py-16 max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <p className="font-en text-xs tracking-[0.2em] text-[var(--gold)] uppercase mb-3">
+            World Map
+          </p>
+          <h2 className="text-xl sm:text-2xl text-[var(--text-light)] mb-4">
+            Misaが出会った世界の占い
+          </h2>
+          <p className="text-xs text-[var(--text-muted)] max-w-lg mx-auto leading-relaxed">
+            パリのカフェで引いたタロット、北京の師匠に学んだ四柱推命 ──
+            フライトのたびに出会った占術が、あなたの恋を照らします。
+          </p>
+        </div>
+        <WorldMap />
+        <p className="text-center text-[10px] text-[var(--text-muted)] opacity-50 mt-4">
+          淡いドットは今後追加予定の占術です
         </p>
       </section>
 
