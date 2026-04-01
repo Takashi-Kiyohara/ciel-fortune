@@ -308,9 +308,15 @@ export default function FortunePage() {
               exit={{ opacity: 0 }}
             >
               <div className="border border-[var(--border-thin)] rounded-lg p-8 mb-8">
-                <p className="font-en text-[10px] tracking-[0.15em] text-[var(--gold)] uppercase mb-3">
-                  Misa&apos;s Message
-                </p>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="font-en text-[10px] tracking-[0.15em] text-[var(--gold)] uppercase">
+                    Misa&apos;s Message
+                  </p>
+                  <p className="text-[9px] text-[var(--text-muted)] opacity-50">
+                    {new Date().toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" })}
+                    {history.length > 0 && ` · ${history.length + 1}回目の鑑定`}
+                  </p>
+                </div>
                 <FortuneText text={freeText} />
                 <div className="mt-4 pt-4 border-t border-[var(--border-thin)]">
                   <p className="text-xs text-[var(--text-muted)] italic">

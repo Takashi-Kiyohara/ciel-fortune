@@ -6,6 +6,7 @@ import { fortunes } from "@/data/fortunes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WorldMap from "@/components/WorldMap";
+import DailyLoveHint from "@/components/DailyLoveHint";
 
 // Seeded random for deterministic star positions
 function seededRandom(seed: number) {
@@ -200,6 +201,11 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+      </section>
+
+      {/* Daily Love Hint — デイリーリピート装置 */}
+      <section className="px-6 pt-4 pb-8 max-w-xl mx-auto">
+        <DailyLoveHint />
       </section>
 
       {/* Misa Introduction */}

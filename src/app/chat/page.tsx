@@ -13,6 +13,36 @@ type Message = {
 };
 
 const CHAT_STORAGE_KEY = "ciel-fortune-chat";
+// 時間帯に応じたMisaのウェルカムメッセージ
+function getWelcomeMessage(): Message {
+  const hour = new Date().getHours();
+  let greeting: string;
+  let flavor: string;
+
+  if (hour >= 5 && hour < 10) {
+    greeting = "おはようございます、Misaです。";
+    flavor = "朝の静かな時間に恋のことを考えるって、とても大切なことですよ。パリの朝市で出会ったタロット占い師も「朝の直感がいちばん鋭い」と言っていました。";
+  } else if (hour >= 10 && hour < 15) {
+    greeting = "こんにちは、Misaです。";
+    flavor = "お昼のひとときに恋の相談、いいですね。ストックホルムのカフェで星を読んでいた頃のように、リラックスした気持ちでお話しましょう。";
+  } else if (hour >= 15 && hour < 19) {
+    greeting = "こんにちは、Misaです。";
+    flavor = "夕暮れどきは恋心が動きやすい時間。イスタンブールのバザールで学んだコーヒー占いも、夕方がいちばん当たると言われていました。";
+  } else if (hour >= 19 && hour < 23) {
+    greeting = "こんばんは、Misaです。";
+    flavor = "夜は心が素直になる時間ですよね。レイキャビクのオーロラの下で引いたルーンも、夜の鑑定がいちばん深いメッセージをくれました。";
+  } else {
+    greeting = "こんな遅い時間に、ようこそ。Misaです。";
+    flavor = "深夜に占いを求める人は、本当に大切なことを抱えている人だと思っています。ジャイプールの占い師も「夜中の相談者には特別な縁がある」と言っていました。";
+  }
+
+  return {
+    id: "welcome",
+    role: "assistant",
+    content: `${greeting}\n\n${flavor}\n\n恋愛のこと、気になるあの人のこと、なんでも聞いてくださいね。`,
+  };
+}
+
 const WELCOME_MESSAGE: Message = {
   id: "welcome",
   role: "assistant",
@@ -86,10 +116,15 @@ export default function ChatPage() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const shouldAutoScrollRef = useRef(true);
 
-  // localStorage から復元
+  // localStorage から復元（新規の場合は時間帯対応ウェルカム）
   useEffect(() => {
     const stored = loadChatHistory();
-    setMessages(stored);
+    // 新規ユーザー（ウェルカムのみ）の場合は時間帯対応メッセージに差し替え
+    if (stored.length === 1 && stored[0].id === "welcome") {
+      setMessages([getWelcomeMessage()]);
+    } else {
+      setMessages(stored);
+    }
     setIsInitialized(true);
   }, []);
 
@@ -396,12 +431,30 @@ export default function ChatPage() {
             transition={{ delay: 0.5, duration: 0.4 }}
             className="flex flex-wrap gap-2 justify-center pt-2"
           >
-            {[
-              "片思いの彼のことが気になっています",
-              "最近恋愛運が下がっている気がします",
-              "元彼のことが忘れられません",
-              "出会いがなくて悩んでいます",
-            ].map((starter) => (
+            {(() => {
+              // 占い履歴があればパーソナライズされた会話スターター
+              try {
+                const raw = localStorage.getItem("ciel-fortune-history");
+                if (raw) {
+                  const history = JSON.parse(raw);
+                  if (Array.isArray(history) && history.length > 0) {
+                    const last = history[history.length - 1];
+                    return [
+                      `さっきの${last.title || "占い"}の結果について詳しく聞きたいです`,
+                      "気になる人との相性を見てほしいです",
+                      "今月の恋愛運を教えてください",
+                      "恋愛で悩んでいることがあります",
+                    ];
+                  }
+                }
+              } catch { /* ignore */ }
+              return [
+                "片思いの彼のことが気になっています",
+                "最近恋愛運が下がっている気がします",
+                "元彼のことが忘れられません",
+                "出会いがなくて悩んでいます",
+              ];
+            })().map((starter) => (
               <button
                 key={starter}
                 onClick={() => {
